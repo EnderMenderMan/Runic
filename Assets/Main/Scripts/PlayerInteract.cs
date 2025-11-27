@@ -2,17 +2,20 @@ using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 public class PlayerInteract : MonoBehaviour
 {
     public static PlayerInteract Instance;
     public static InputSystem_Actions InputActions;
-    [NonSerialized] [CanBeNull] public Rune HeldRune;
     [SerializeField] Collider2D interactColliderDetection;
+    public UnityEvent OnNoInteract;
 
     private void Awake()
     {
+        // if (OnNoInteract == null)
+        //     OnNoInteract = new UnityEvent();
         Instance = this;
         InputActions = new InputSystem_Actions();
     }
@@ -20,14 +23,12 @@ public class PlayerInteract : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        // OnNoInteract.AddListener(Inventory.PlayerInventory.DropRune);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (HeldRune)
-            HeldRune.transform.position = transform.position;
     }
 
     private void OnEnable()
@@ -39,19 +40,20 @@ public class PlayerInteract : MonoBehaviour
             interactColliderDetection.Overlap(collisions);
             foreach (var collision in collisions)
             {
-                if (HeldRune != null && HeldRune.gameObject == collision.gameObject)
-                    continue;
                 if (!collision.CompareTag("Interactable"))
                     continue;
+
+                IInteract interact = collision.GetComponent<IInteract>();
+                if (interact == null || interact.IsInteractDisabled)
+                    continue;
+
+                interact.OnInteract();
                 interacted = true;
-                collision.GetComponent<IInteract>().OnInteract();
                 break;
             }
 
-            if (interacted == false && HeldRune != null)
-            {
-                HeldRune.Drop();
-            }
+            if (interacted == false)
+                Inventory.PlayerInventory.DropRune();//OnNoInteract?.Invoke();
         };
         PlayerInteract.InputActions.Player.Attack.Enable();
     }

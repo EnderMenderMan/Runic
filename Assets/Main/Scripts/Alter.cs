@@ -10,7 +10,9 @@ public class Alter : MonoBehaviour, IInteract
     [SerializeField] Vector3 kickOffset;
     [CanBeNull] public Rune equippedRune;
 
-    public void ConnectToCluster(AlterCluster cluster,int clusterIndex)
+    public bool IsInteractDisabled { get; set; }
+
+    public void ConnectToCluster(AlterCluster cluster, int clusterIndex)
     {
         alterCluster = cluster;
         this.clusterIndex = clusterIndex;
@@ -28,29 +30,35 @@ public class Alter : MonoBehaviour, IInteract
     {
         KickItem();
         this.equippedRune = rune;
+        rune.IsInteractDisabled = true;
         rune.alter = this;
         rune.transform.position = transform.position;
         alterCluster.TriggerItemPlacement(clusterIndex);
     }
+    void DropRune()
+    {
+        equippedRune.IsInteractDisabled = false;
+        equippedRune = null;
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void OnInteract()
     {
-        if (PlayerInteract.Instance.HeldRune && equippedRune)
+        if (Inventory.PlayerInventory.heldRune && equippedRune)
         {
-            Rune heldRune = PlayerInteract.Instance.HeldRune;
-            PlayerInteract.Instance.HeldRune.Drop();
-            equippedRune.PickUp();
+            Rune heldRune = Inventory.PlayerInventory.heldRune;
+            Inventory.PlayerInventory.DropRune();
+            Inventory.PlayerInventory.PickUpRune(equippedRune);
             KickItem();
             PlaceItem(heldRune);
             return;
@@ -58,15 +66,17 @@ public class Alter : MonoBehaviour, IInteract
 
         if (equippedRune)
         {
-            equippedRune.PickUp();
+            Rune rune = equippedRune;
             KickItem();
+            Inventory.PlayerInventory.PickUpRune(rune);
             return;
         }
 
-        if (PlayerInteract.Instance.HeldRune)
+        if (Inventory.PlayerInventory.heldRune)
         {
-            PlaceItem(PlayerInteract.Instance.HeldRune);
-            PlayerInteract.Instance.HeldRune.Drop();
+            Rune rune = Inventory.PlayerInventory.heldRune;
+            Inventory.PlayerInventory.DropRune();
+            PlaceItem(rune);
             return;
         }
     }
