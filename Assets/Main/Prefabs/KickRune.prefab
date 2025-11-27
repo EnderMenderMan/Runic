@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4161173819650081227}
   - component: {fileID: 8572212928347563005}
   - component: {fileID: 7492795674345045146}
+  - component: {fileID: 4014462945361420601}
   m_Layer: 6
   m_Name: KickRune
   m_TagString: Interactable
@@ -101,10 +102,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68816762cf6da3c46851593c392f523f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alterFilter:
+    alterFilterType: 0
+    alterFillter: 
+    clusterFilterType: 0
+    clusterFilter: 
   <ValueID>k__BackingField: 1
-  kickFilterEnable: 0
-  kickFilter: 0
-  kickItemIndexOffsets: 1
+  kickFilterType: 0
+  kickFilter: 
+  kickItemIndexOffsets: 
 --- !u!61 &7492795674345045146
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -151,3 +157,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &4014462945361420601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4490921710093448109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ae033a04cc798418de764807d60bdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

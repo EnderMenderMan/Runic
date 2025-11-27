@@ -8,15 +8,38 @@ public class Inventory : MonoBehaviour
     {
         if (heldRune != null)
         {
-            heldRune.transform.position = rune.transform.position;
-            DropRune();
+            rune.gameObject.SetActive(false);
+            if (DropRuneAtPosition(rune.transform.position) == false)
+            { rune.gameObject.SetActive(true); return; }
+            rune.gameObject.SetActive(true);
         }
 
         heldRune = rune;
         heldRune.IsInteractDisabled = true;
     }
 
-    public void DropRune()
+    public bool DropRune()
+    {
+        if (heldRune == null)
+            return false;
+        return DropRuneAtPosition(heldRune.transform.position);
+    }
+    public bool DropRuneAtPosition(Vector2 position)
+    {
+        if (heldRune == null)
+            return false;
+        heldRune.gameObject.SetActive(false);
+        if (WorldData.Instance != null && WorldData.Instance.IsGridSpaceFree(position) == false)
+        { heldRune.gameObject.SetActive(true); return false; }
+        heldRune.gameObject.SetActive(true);
+        
+        heldRune.IsInteractDisabled = false;
+        heldRune.transform.position = WorldData.Instance != null ? WorldData.Instance.WorldGrid.WorldToCell(position) : position;
+        heldRune = null;
+        return true;
+    }
+
+    public void ForceDropRune()
     {
         if (heldRune == null)
             return;

@@ -64,7 +64,7 @@ public class Alter : MonoBehaviour, IInteract
         if (Inventory.PlayerInventory.heldRune && equippedRune)
         {
             Rune heldRune = Inventory.PlayerInventory.heldRune;
-            Inventory.PlayerInventory.DropRune();
+            Inventory.PlayerInventory.ForceDropRune();
             Inventory.PlayerInventory.PickUpRune(equippedRune);
             KickItem();
             PlaceItem(heldRune);
@@ -82,7 +82,7 @@ public class Alter : MonoBehaviour, IInteract
         if (Inventory.PlayerInventory.heldRune)
         {
             Rune rune = Inventory.PlayerInventory.heldRune;
-            Inventory.PlayerInventory.DropRune();
+            Inventory.PlayerInventory.ForceDropRune();
             PlaceItem(rune);
             return;
         }
