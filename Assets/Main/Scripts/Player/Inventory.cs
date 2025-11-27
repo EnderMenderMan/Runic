@@ -9,7 +9,7 @@ public class Inventory : MonoBehaviour
         if (heldRune != null)
         {
             heldRune.transform.position = rune.transform.position;
-            heldRune = null;
+            DropRune();
         }
 
         heldRune = rune;
