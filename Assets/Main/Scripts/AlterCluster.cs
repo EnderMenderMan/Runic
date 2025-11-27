@@ -8,7 +8,11 @@ public class AlterCluster : MonoBehaviour
 
     public void TriggerItemPlacement(int pillarIndex)
     {
-        alters[pillarIndex].equippedRune.TriggerPillarPlacement(pillarIndex,alters);
+        alters[pillarIndex].equippedRune.TriggerRunePlacement(pillarIndex, alters);
+    }
+    public bool CanItemBePlaced(Rune rune, int alterIndex)
+    {
+        return rune.TryBePlaced(alterIndex, alters);
     }
     private void Awake()
     {
@@ -20,19 +24,19 @@ public class AlterCluster : MonoBehaviour
         alters = GetComponentsInChildren<Alter>();
         for (int i = 0; i < alters.Length; i++)
         {
-            alters[i].ConnectToCluster(this,i);
+            alters[i].ConnectToCluster(this, i);
         }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

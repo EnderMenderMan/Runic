@@ -1,14 +1,17 @@
 using System;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 public class Alter : MonoBehaviour, IInteract
 {
+    [field: SerializeField] public int ValueID { get; private set; }
     private AlterCluster alterCluster;
     private int clusterIndex;
     [SerializeField] Vector3 kickOffset;
     [CanBeNull] public Rune equippedRune;
+    [SerializeField] UnityEvent OnRunePlaced;
 
     public bool IsInteractDisabled { get; set; }
 
@@ -28,12 +31,15 @@ public class Alter : MonoBehaviour, IInteract
 
     public void PlaceItem(Rune rune)
     {
+        if (alterCluster.CanItemBePlaced(rune, clusterIndex) == false)
+            return;
         KickItem();
         this.equippedRune = rune;
         rune.IsInteractDisabled = true;
         rune.alter = this;
         rune.transform.position = transform.position;
         alterCluster.TriggerItemPlacement(clusterIndex);
+        OnRunePlaced.Invoke();
     }
     void DropRune()
     {

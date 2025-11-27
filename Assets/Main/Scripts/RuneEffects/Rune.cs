@@ -8,9 +8,13 @@ public abstract class Rune : MonoBehaviour, IInteract
     [field: SerializeField] public int ValueID { get; protected set; }
     public bool IsInteractDisabled { get; set; }
 
-    public virtual void TriggerPillarPlacement(int itemIndex, Alter[] pillars)
+    public virtual void TriggerRunePlacement(int itemIndex, Alter[] alters)
     {
 
+    }
+    public virtual bool TryBePlaced(int alterIndex, Alter[] alters)
+    {
+        return true;
     }
 
 

@@ -6,12 +6,21 @@ public class KickRune : Rune
     [SerializeField] private bool kickFilterEnable;
     [SerializeField] private int kickFilter;
     [SerializeField] private int kickItemIndexOffsets;
+    [SerializeField] bool enableAlterFilter;
+    [SerializeField] int alterFilter;
 
-    public override void TriggerPillarPlacement(int itemIndex, Alter[] alters)
+    public override bool TryBePlaced(int itemIndex, Alter[] alters)
+    {
+        if (enableAlterFilter == false)
+            return true;
+        return alters[itemIndex].ValueID == alterFilter;
+    }
+
+    public override void TriggerRunePlacement(int alterIndex, Alter[] alters)
     {
         for (int i = 0; i < alters.Length; i++)
         {
-            if (i == itemIndex)
+            if (i == alterIndex)
                 continue;
             if (alters[i].equippedRune == null)
                 continue;
@@ -19,10 +28,10 @@ public class KickRune : Rune
                 continue;
             alters[i].KickItem();
         }
-        
+
         if (kickItemIndexOffsets == 0)
             return;
-        int tryIndex = itemIndex + kickItemIndexOffsets;
+        int tryIndex = alterIndex + kickItemIndexOffsets;
         if (tryIndex < 0 || tryIndex >= alters.Length)
             return;
         if (alters[tryIndex].equippedRune == null)
@@ -31,7 +40,7 @@ public class KickRune : Rune
             return;
         alters[tryIndex].KickItem();
     }
-    
+
     /*public override void TriggerPillarPlacement(int itemIndex, Alter[] alters)
     {
         if (kickItemIndexOffsets.Length == 0)
