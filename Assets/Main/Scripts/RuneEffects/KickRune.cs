@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class KickRune : Rune
 {
-    [SerializeField] private bool kickFilterEnable;
+    [SerializeField] private FilterType kickFilterType;
     [SerializeField] private int[] kickFilter;
     [SerializeField] private int[] kickItemIndexOffsets;
 
@@ -42,7 +42,9 @@ public class KickRune : Rune
                     continue;
                 if (alters[i].equippedRune == null)
                     continue;
-                if (kickFilterEnable && kickFilter.Contains(alters[i].equippedRune.ValueID) == false)
+                if (kickFilterType == FilterType.Exclusive && kickFilter.Contains(alters[i].equippedRune.ValueID) == false)
+                    continue;
+                if (kickFilterType == FilterType.Inclusive && kickFilter.Contains(alters[i].equippedRune.ValueID) == true)
                     continue;
                 alters[i].KickItem();
             }
@@ -57,7 +59,9 @@ public class KickRune : Rune
                 continue;
             if (alters[tryIndex].equippedRune == null)
                 continue;
-            if (kickFilterEnable && kickFilter.Contains(alters[tryIndex].equippedRune.ValueID) == false)
+            if (kickFilterType == FilterType.Exclusive && kickFilter.Contains(alters[tryIndex].equippedRune.ValueID) == false)
+                continue;
+            if (kickFilterType == FilterType.Inclusive && kickFilter.Contains(alters[tryIndex].equippedRune.ValueID) == true)
                 continue;
             alters[tryIndex].KickItem();
         }

@@ -21,9 +21,9 @@ public abstract class Rune : MonoBehaviour, IInteract
 
     public virtual bool TryBePlacedWithAlterFilter(Alter alter, AlterCluster cluster)
     {
-        if (alterFilter.alterFilterType == FilterType.Exclusive && alterFilter.clusterFilter.Contains(cluster.ValueID) == true)
+        if (alterFilter.clusterFilterType == FilterType.Exclusive && alterFilter.clusterFilter.Contains(cluster.ValueID) == true)
             return false;
-        if (alterFilter.alterFilterType == FilterType.Inclusive && alterFilter.clusterFilter.Contains(cluster.ValueID) == false)
+        if (alterFilter.clusterFilterType == FilterType.Inclusive && alterFilter.clusterFilter.Contains(cluster.ValueID) == false)
             return false;
 
         if (alterFilter.alterFilterType == FilterType.Exclusive && alterFilter.alterFillter.Contains(alter.ValueID) == true)
