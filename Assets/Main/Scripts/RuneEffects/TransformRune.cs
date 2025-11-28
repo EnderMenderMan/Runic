@@ -7,14 +7,25 @@ public class TransformRune : Rune
     Rune selectedChild;
     [SerializeField] Rune[] runes;
     int selectedRuneIndex;
-
-    public void SwapSelectedRune(Alter currentAlter = null)
+    protected override void Awake()
     {
+        runes = GetComponentsInChildren<Rune>();
+        base.Awake();
+    }
+
+    public void SwapSelectedRune()
+    {
+        if (runes.Length == 1)
+            return;
+        if (selectedRuneIndex == runes.Length - 1) // skip this rune (TransformRune) 
+            selectedRuneIndex = 0;
+
         selectedRuneIndex++;
         selectedRuneIndex %= runes.Length;
+
         selectedChild.gameObject.SetActive(false);
-        if (currentAlter != null)
-            SwapAlterPlace(currentAlter);
+        if (selectedChild.alter != null)
+            SwapAlterPlace(selectedChild.alter);
         selectedChild = runes[selectedRuneIndex];
     }
 
