@@ -4,7 +4,7 @@ using UnityEngine;
 public class KickRune : Rune
 {
     [SerializeField] private FilterType kickFilterType;
-    [SerializeField] private int[] kickFilter;
+    [SerializeField] private string[] kickFilter;
     [SerializeField] private int[] kickItemIndexOffsets;
 
     // public override void TriggerRunePlacement(int alterIndex, Alter[] alters)
@@ -42,9 +42,9 @@ public class KickRune : Rune
                     continue;
                 if (alters[i].equippedRune == null)
                     continue;
-                if (kickFilterType == FilterType.Exclusive && kickFilter.Contains(alters[i].equippedRune.ValueID) == true)
+                if (kickFilterType == FilterType.Exclusive && alters[i].equippedRune.tags.Contains(kickFilter) == true)
                     continue;
-                if (kickFilterType == FilterType.Inclusive && kickFilter.Contains(alters[i].equippedRune.ValueID) == false)
+                if (kickFilterType == FilterType.Inclusive && alters[i].equippedRune.tags.Contains(kickFilter) == false)
                     continue;
                 alters[i].KickItem();
             }
@@ -59,9 +59,9 @@ public class KickRune : Rune
                 continue;
             if (alters[tryIndex].equippedRune == null)
                 continue;
-            if (kickFilterType == FilterType.Exclusive && kickFilter.Contains(alters[tryIndex].equippedRune.ValueID) == true)
+            if (kickFilterType == FilterType.Exclusive && alters[tryIndex].equippedRune.tags.Contains(kickFilter) == true)
                 continue;
-            if (kickFilterType == FilterType.Inclusive && kickFilter.Contains(alters[tryIndex].equippedRune.ValueID) == false)
+            if (kickFilterType == FilterType.Inclusive && alters[tryIndex].equippedRune.tags.Contains(kickFilter) == false)
                 continue;
             alters[tryIndex].KickItem();
         }

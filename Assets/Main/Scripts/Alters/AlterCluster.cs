@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class AlterCluster : MonoBehaviour
 {
-    [field: SerializeField] public int ValueID { get; private set; }
+    [field: SerializeField] public Tags tags;
     [SerializeField] UnityEvent onCompletion;
     private Alter[] alters;
 
@@ -47,6 +47,7 @@ public class AlterCluster : MonoBehaviour
     private void Awake()
     {
         SetUpAllConnectedAlters();
+        tags.Init();
     }
 
     void SetUpAllConnectedAlters()
@@ -57,7 +58,6 @@ public class AlterCluster : MonoBehaviour
             alters[i].ConnectToCluster(this, i);
         }
     }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

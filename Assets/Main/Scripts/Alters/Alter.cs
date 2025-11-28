@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 public class Alter : MonoBehaviour, IInteract
 {
-    [field: SerializeField] public int ValueID { get; private set; }
+    [field: SerializeField] public Tags tags;
     private AlterCluster alterCluster;
     private int clusterIndex;
     [SerializeField] Vector3 kickOffset;
@@ -46,6 +46,10 @@ public class Alter : MonoBehaviour, IInteract
     {
         equippedRune.IsInteractDisabled = false;
         equippedRune = null;
+    }
+    void Awake()
+    {
+        tags.Init();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

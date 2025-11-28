@@ -177,7 +177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5754027168977968092, guid: 9b3b74e14d90bb0489e56dd15e096955, type: 3}
       propertyPath: kickItemIndexOffsets.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5754027168977968092, guid: 9b3b74e14d90bb0489e56dd15e096955, type: 3}
       propertyPath: 'kickItemIndexOffsets.Array.data[0]'

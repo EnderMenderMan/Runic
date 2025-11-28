@@ -7,7 +7,7 @@ public abstract class Rune : MonoBehaviour, IInteract
 {
     [SerializeField] protected AlterFilter alterFilter;
     [NonSerialized][CanBeNull] public Alter alter;
-    [field: SerializeField] public int ValueID { get; protected set; }
+    [field: SerializeField] public Tags tags;
     public bool IsInteractDisabled { get; set; }
 
     public virtual void TriggerRunePlacement(int itemIndex, Alter[] alters)
@@ -21,19 +21,22 @@ public abstract class Rune : MonoBehaviour, IInteract
 
     public virtual bool TryBePlacedWithAlterFilter(Alter alter, AlterCluster cluster)
     {
-        if (alterFilter.clusterFilterType == FilterType.Exclusive && alterFilter.clusterFilter.Contains(cluster.ValueID) == true)
+        if (alterFilter.clusterFilterType == FilterType.Exclusive && alter.tags.Contains(alterFilter.clusterFilter) == true)
             return false;
-        if (alterFilter.clusterFilterType == FilterType.Inclusive && alterFilter.clusterFilter.Contains(cluster.ValueID) == false)
+        if (alterFilter.clusterFilterType == FilterType.Inclusive && alter.tags.Contains(alterFilter.clusterFilter) == false)
             return false;
 
-        if (alterFilter.alterFilterType == FilterType.Exclusive && alterFilter.alterFillter.Contains(alter.ValueID) == true)
+        if (alterFilter.alterFilterType == FilterType.Exclusive && alter.tags.Contains(alterFilter.alterFillter) == true)
             return false;
-        if (alterFilter.alterFilterType == FilterType.Inclusive && alterFilter.alterFillter.Contains(alter.ValueID) == false)
+        if (alterFilter.alterFilterType == FilterType.Inclusive && alter.tags.Contains(alterFilter.alterFillter) == false)
             return false;
         return true;
     }
 
-
+    protected virtual void Awake()
+    {
+        tags.Init();
+    }
 
     public virtual void OnInteract()
     {
