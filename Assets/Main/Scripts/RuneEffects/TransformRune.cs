@@ -1,16 +1,19 @@
+using System.Linq;
 using UnityEngine;
 
-public class TransformRune : MonoBehaviour
+public class TransformRune : Rune
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+[SerializedField] private FilterType TranformFilterType;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+     public override void TriggerRunePlacement(int itemIndex, Alter[] alters) 
+{
+ for (int i = 0; i < alters.Length; i++)
+            {
+                if (i == itemIndex)
+                    continue;
+                if (alters[i].equippedRune == null)
+                    continue;
+               
+            }
+}
 }
