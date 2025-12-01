@@ -205,11 +205,19 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: kickFilters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: 'tags.tags.Array.data[0]'
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: 'kickFilter.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: kickFilters.Array.data[0].mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
@@ -223,6 +231,14 @@ PrefabInstance:
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: 'kickItemIndexOffsets.Array.data[1]'
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: kickFilters.Array.data[0].tags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: 'kickFilters.Array.data[0].tags.Array.data[0]'
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -739,11 +755,19 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: kickFilters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: 'tags.tags.Array.data[0]'
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: 'kickFilter.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: kickFilters.Array.data[0].mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
@@ -757,6 +781,14 @@ PrefabInstance:
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: 'kickItemIndexOffsets.Array.data[1]'
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: kickFilters.Array.data[0].tags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: 'kickFilters.Array.data[0].tags.Array.data[0]'
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -959,11 +991,19 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: kickFilters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: 'tags.tags.Array.data[0]'
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: 'kickFilter.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: kickFilters.Array.data[0].mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
@@ -977,6 +1017,14 @@ PrefabInstance:
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: 'kickItemIndexOffsets.Array.data[1]'
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: kickFilters.Array.data[0].tags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: 'kickFilters.Array.data[0].tags.Array.data[0]'
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9138436906865351190, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1270,7 +1318,23 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5499256919273103577, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: placeOnAlterFilter.runesFilters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499256919273103577, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
       propertyPath: 'placeOnAlterFilter.runesFilter.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499256919273103577, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: placeOnAlterFilter.runesFilters.Array.data[0].mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499256919273103577, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: placeOnAlterFilter.runesFilters.Array.data[0].tags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499256919273103577, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: 'placeOnAlterFilter.runesFilters.Array.data[0].tags.Array.data[0]'
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6732678714265897389, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
@@ -2875,7 +2939,23 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5499256919273103577, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: placeOnAlterFilter.runesFilters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499256919273103577, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
       propertyPath: 'placeOnAlterFilter.runesFilter.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499256919273103577, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: placeOnAlterFilter.runesFilters.Array.data[0].mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499256919273103577, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: placeOnAlterFilter.runesFilters.Array.data[0].tags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499256919273103577, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: 'placeOnAlterFilter.runesFilters.Array.data[0].tags.Array.data[0]'
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5694795520038736704, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
