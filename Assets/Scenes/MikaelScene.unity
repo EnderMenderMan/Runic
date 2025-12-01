@@ -441,12 +441,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: placeOnAlterFilter.clusterFilters.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: 'placeOnAlterFilter.runesFilter.Array.data[0]'
       value: Trans
       objectReference: {fileID: 0}
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: 'placeOnAlterFilter.runesFilter.Array.data[1]'
       value: Trans
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: placeOnAlterFilter.clusterFilters.Array.data[0].mode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

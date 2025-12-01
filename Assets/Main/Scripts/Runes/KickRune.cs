@@ -3,42 +3,43 @@ using UnityEngine;
 
 public class KickRune : Rune
 {
-    [SerializeField] private FilterType kickFilterType;
-    [SerializeField] private string[] kickFilter;
-    [SerializeField] private int[] kickItemIndexOffsets;
+    [Tooltip("Filter and kick all runes that matches the filter (At least one Kick Filter returns true)")][SerializeField] private Filter[] kickFilters;
+    [Tooltip("Used to select specific rune placements to run the Kick Filters on. IF EMPTY will run all runes. IF NOT EMPTY runs only selected indexes. -1 is one to the left and 2 is two to the right")][SerializeField] private int[] kickItemIndexOffsets;
 
     public override void TriggerRunePlacement(int itemIndex, Alter[] alters)
     {
-        if (kickItemIndexOffsets.Length == 0)
+        foreach (var filter in kickFilters)
         {
-            for (int i = 0; i < alters.Length; i++)
+            if (kickItemIndexOffsets.Length == 0)
             {
-                if (i == itemIndex)
-                    continue;
-                if (alters[i].equippedRune == null)
-                    continue;
-                if (kickFilterType == FilterType.Exclusive && alters[i].equippedRune.tags.Contains(kickFilter) == true)
-                    continue;
-                if (kickFilterType == FilterType.Inclusive && alters[i].equippedRune.tags.Contains(kickFilter) == false)
-                    continue;
-                alters[i].KickItem();
+                for (int i = 0; i < alters.Length; i++)
+                {
+                    if (i == itemIndex)
+                        continue;
+                    if (alters[i].equippedRune == null)
+                        continue;
+                    if (filter.mode == FilterType.Exclusive && alters[i].equippedRune.tags.Contains(filter.tags) == true)
+                        continue;
+                    if (filter.mode == FilterType.Inclusive && alters[i].equippedRune.tags.Contains(filter.tags) == false)
+                        continue;
+                    alters[i].KickItem();
+                }
+                continue;
             }
 
-            return;
-        }
-
-        for (int i = 0; i < kickItemIndexOffsets.Length; i++)
-        {
-            int tryIndex = itemIndex + kickItemIndexOffsets[i];
-            if (tryIndex < 0 || tryIndex >= alters.Length)
-                continue;
-            if (alters[tryIndex].equippedRune == null)
-                continue;
-            if (kickFilterType == FilterType.Exclusive && alters[tryIndex].equippedRune.tags.Contains(kickFilter) == true)
-                continue;
-            if (kickFilterType == FilterType.Inclusive && alters[tryIndex].equippedRune.tags.Contains(kickFilter) == false)
-                continue;
-            alters[tryIndex].KickItem();
+            for (int i = 0; i < kickItemIndexOffsets.Length; i++)
+            {
+                int tryIndex = itemIndex + kickItemIndexOffsets[i];
+                if (tryIndex < 0 || tryIndex >= alters.Length)
+                    continue;
+                if (alters[tryIndex].equippedRune == null)
+                    continue;
+                if (filter.mode == FilterType.Exclusive && alters[tryIndex].equippedRune.tags.Contains(filter.tags) == true)
+                    continue;
+                if (filter.mode == FilterType.Inclusive && alters[tryIndex].equippedRune.tags.Contains(filter.tags) == false)
+                    continue;
+                alters[tryIndex].KickItem();
+            }
         }
     }
 }

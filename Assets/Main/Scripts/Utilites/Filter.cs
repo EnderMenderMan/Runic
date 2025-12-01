@@ -3,83 +3,100 @@ using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
+public struct Filter
+{
+    [Tooltip("Describes how the filter will be used. INCLUSIVE: return true when at least one of the tags of this filter is included. EXCLUSIVE: return true if none of the tags is included")] public FilterType mode;
+    [Tooltip("Describes what tags the filter will target")] public string[] tags;
+}
+[System.Serializable]
 public struct AlterFilter
 {
+    [Tooltip("Filter the cluster alter's tags")] public Filter[] clusterFilters;
+    [Tooltip("Filter the alter's tags")] public Filter[] alterFilters;
     [Header("Runes")]
-    [Tooltip("Describes how the Runes Filter will be used")] public FilterType runeFilterType;
-    [Tooltip("Filter all rune tags in the alter cluster")] public string[] runesFilter;
+    //[Tooltip("Describes how the Runes Filter will be used")] public FilterType runeFilterType;
+    //[Tooltip("Filter all rune tags in the alter cluster")] public string[] runesFilter;
+    [Tooltip("Filter all rune tags in the alter cluster")] public Filter[] runesFilters;
     [Tooltip("Used to select specific rune placements to run the Runes Filter on. IF EMPTY will run all runes. IF NOT EMPTY runs only selected indexes. -1 is one to the left and 2 is two to the right")] public int[] alterIndexOffsets;
-    [Header("Alter")]
-    [Tooltip("Describes how the Alter Filter will be used")] public FilterType alterFilterType;
-    [Tooltip("Filter the alter's tags")] public string[] alterFilter;
-    [Header("Alter Cluster")]
-    [Tooltip("Describes how the Cluster Filter will be used")] public FilterType clusterFilterType;
-    [Tooltip("Filter the cluster alter's tags")] public string[] clusterFilter;
+    //[Header("Alter")]
+    //[Tooltip("Describes how the Alter Filter will be used")] public FilterType alterFilterType;
+    //[Tooltip("Filter the alter's tags")] public string[] alterFilter;
+    //[Header("Alter Cluster")]
+    //[Tooltip("Describes how the Cluster Filter will be used")] public FilterType clusterFilterType;
+    //[Tooltip("Filter the cluster alter's tags")] public string[] clusterFilter;
 
     public bool RunClusterFilter(AlterCluster cluster)
     {
-        if (clusterFilterType == FilterType.Disabled)
-            return true;
+        foreach (var filter in clusterFilters)
+        {
+            if (filter.mode == FilterType.Disabled)
+                continue;
         
-        if (clusterFilterType == FilterType.Exclusive && cluster.tags.Contains(clusterFilter) == true)
-            return false;
-        if (clusterFilterType == FilterType.Inclusive && cluster.tags.Contains(clusterFilter) == false)
-            return false;
+            if (filter.mode == FilterType.Exclusive && cluster.tags.Contains(filter.tags) == true)
+                return false;
+            if (filter.mode == FilterType.Inclusive && cluster.tags.Contains(filter.tags) == false)
+                return false;
+        }
         return true;
     }
 
     public bool RunAlterFilter(Alter alter)
     {
-        if (alterFilterType == FilterType.Disabled)
-            return true;
-        
-        if (alterFilterType == FilterType.Exclusive && alter.tags.Contains(alterFilter) == true)
-            return false;
-        if (alterFilterType == FilterType.Inclusive && alter.tags.Contains(alterFilter) == false)
-            return false;
+        foreach (var filter in alterFilters)
+        {
+            if (filter.mode == FilterType.Disabled)
+                continue;
+            if (filter.mode == FilterType.Exclusive && alter.tags.Contains(filter.tags) == true)
+                return false;
+            if (filter.mode == FilterType.Inclusive && alter.tags.Contains(filter.tags) == false)
+                return false;
+        }
         return true;
     }
     
     public bool RunRuneFilter(int alterIndex, Alter[] alters)
     {
-        if (runeFilterType == FilterType.Disabled)
-            return true;
-
-        bool foundRunes = false;
-        
-        if (alterIndexOffsets.Length == 0)
+        foreach (var filter in runesFilters)
         {
-            for (int i = 0; i < alters.Length; i++)
+            if (filter.mode == FilterType.Disabled)
+                continue;
+            
+            bool foundRunes = false;
+        
+            if (alterIndexOffsets.Length == 0)
             {
-                if (i == alterIndex)
+                for (int i = 0; i < alters.Length; i++)
+                {
+                    if (i == alterIndex)
+                        continue;
+                    if (alters[i].equippedRune == null)
+                        continue;
+                    foundRunes = true;
+                    if (filter.mode == FilterType.Exclusive && alters[i].equippedRune.tags.Contains(filter.tags) == false)
+                        continue;
+                    if (filter.mode == FilterType.Inclusive && alters[i].equippedRune.tags.Contains(filter.tags) == true)
+                        continue;
+                    return false;
+                }
+            }
+            foreach (var indexOffset in alterIndexOffsets)
+            {
+                int tryIndex = alterIndex + indexOffset;
+                if (tryIndex < 0 || tryIndex >= alters.Length)
                     continue;
-                if (alters[i].equippedRune == null)
+                if (alters[tryIndex].equippedRune == null)
                     continue;
                 foundRunes = true;
-                if (runeFilterType == FilterType.Exclusive && alters[i].equippedRune.tags.Contains(runesFilter) == false)
+                if (filter.mode == FilterType.Exclusive && alters[tryIndex].equippedRune.tags.Contains(filter.tags) == false)
                     continue;
-                if (runeFilterType == FilterType.Inclusive && alters[i].equippedRune.tags.Contains(runesFilter) == true)
+                if (filter.mode == FilterType.Inclusive && alters[tryIndex].equippedRune.tags.Contains(filter.tags) == true)
                     continue;
                 return false;
             }
-        }
-        foreach (var indexOffset in alterIndexOffsets)
-        {
-            int tryIndex = alterIndex + indexOffset;
-            if (tryIndex < 0 || tryIndex >= alters.Length)
-                continue;
-            if (alters[tryIndex].equippedRune == null)
-                continue;
-            foundRunes = true;
-            if (runeFilterType == FilterType.Exclusive && alters[tryIndex].equippedRune.tags.Contains(runesFilter) == false)
-                continue;
-            if (runeFilterType == FilterType.Inclusive && alters[tryIndex].equippedRune.tags.Contains(runesFilter) == true)
-                continue;
-            return false;
-        }
         
-        if (foundRunes == false && runeFilterType == FilterType.Inclusive)
-            return false;
+            if (foundRunes == false && filter.mode == FilterType.Inclusive)
+                return false;
+        }
         return true;
     }
 }

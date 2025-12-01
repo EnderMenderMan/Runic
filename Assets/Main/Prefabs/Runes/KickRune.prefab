@@ -134,16 +134,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68816762cf6da3c46851593c392f523f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alterFilter:
-    alterFilterType: 0
-    alterFillter: []
-    clusterFilterType: 0
-    clusterFilter: []
+  placeOnAlterFilter:
+    clusterFilters: []
+    alterFilters: []
+    runesFilters: []
+    alterIndexOffsets: 
   tags:
     tags: []
-  kickFilterType: 0
-  kickFilter: []
-  kickItemIndexOffsets: 
+  kickFilters: []
+  kickItemIndexOffsets: 01000000ffffffff
 --- !u!61 &7492795674345045146
 BoxCollider2D:
   m_ObjectHideFlags: 0
