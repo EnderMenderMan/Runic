@@ -7,7 +7,7 @@ public class AlterCluster : MonoBehaviour
 {
     [field: SerializeField] public Tags tags;
     [SerializeField] UnityEvent onCompletion;
-    private Alter[] alters;
+    public Alter[] alters { get; private set; }
 
     bool isClusterDisabled;
     public void DisableCluster()

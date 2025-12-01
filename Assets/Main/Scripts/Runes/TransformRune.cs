@@ -14,14 +14,14 @@ public class TransformRune : Rune
     [SerializeField][Tooltip("Runes that this TransformRune can transform to. The runes in this array needs to be a child of this TransformRune")] Rune[] transformToRunes;
     int selectedRuneIndex = -1;
     private HashSet<string> ogTags = new HashSet<string>();
-    
+
     [Serializable]
     struct AutoGetRunes
     {
         [Tooltip("Runes that this TransformRune can transform to. The runes in this array needs to be a child of this TransformRune")] public bool enable;
         [Tooltip("Make sure this TransformRune is not part of the transformToRunes array")] public bool ignoreThisTransformRune;
     }
-    
+
     protected override void Awake()
     {
         GetTransformToRunes();
@@ -30,7 +30,7 @@ public class TransformRune : Rune
         foreach (var rune in transformToRunes)
             if (rune.gameObject != gameObject)
                 rune.gameObject.SetActive(false);
-        
+
         base.Awake();
         ogTags.UnionWith(tags.ids);
     }
@@ -48,7 +48,7 @@ public class TransformRune : Rune
     {
         if (autoGetRunes.enable == false)
             return;
-        
+
         Rune[] runes = GetComponentsInChildren<Rune>();
         if (autoGetRunes.ignoreThisTransformRune == false)
         {
@@ -75,14 +75,14 @@ public class TransformRune : Rune
     {
         if (transformToRunes.Length == 0)
             return;
-        
+
         selectedRuneIndex = index;
         if (selectedChild == null)
         {
             renderObject.SetActive(false);
             selectedChild = transformToRunes[selectedRuneIndex];
         }
-        
+
         SetRuneActive(selectedChild, false);
         HandleTagsSwap();
         selectedChild = transformToRunes[selectedRuneIndex];
@@ -103,8 +103,8 @@ public class TransformRune : Rune
             return;
         tags.ids.Clear();
         tags.ids.UnionWith(transformToRunes[selectedRuneIndex].tags.ids);
-        
-        if (alwaysKeepOriginalTags == false) 
+
+        if (alwaysKeepOriginalTags == false)
             return;
         tags.ids.UnionWith(ogTags);
     }
@@ -135,7 +135,7 @@ public class TransformRune : Rune
     {
         if (selectedChild == null || selectedChild.gameObject == gameObject)
             return base.TryBePlaced(alterIndex, alters, cluster);
-       
+
         return selectedChild.TryBePlaced(alterIndex, alters, cluster);
     }
 }

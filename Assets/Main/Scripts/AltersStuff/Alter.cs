@@ -7,13 +7,15 @@ using UnityEngine.Serialization;
 public class Alter : MonoBehaviour, IInteract
 {
     [field: SerializeField] public Tags tags;
-    private AlterCluster alterCluster;
+    public AlterCluster alterCluster { get; private set; }
     private int clusterIndex;
     [SerializeField] Vector3 kickOffset;
     [CanBeNull] public Rune equippedRune;
     [CanBeNull] public AlterEvents Events { get; private set; }
 
     public bool IsInteractDisabled { get; set; }
+
+    public (int alterIndex, Alter[] alters) GetAlters() => (clusterIndex, alterCluster.alters);
 
     public void ConnectToCluster(AlterCluster cluster, int clusterIndex)
     {
@@ -41,6 +43,7 @@ public class Alter : MonoBehaviour, IInteract
         rune.transform.position = transform.position;
         alterCluster.TriggerItemPlacement(clusterIndex);
         Events?.onRunePlaced.Invoke();
+        rune.OnAlterPlace();
     }
     void DropRune()
     {

@@ -32,17 +32,17 @@ public class Rune : MonoBehaviour, IInteract
             return false;
         if (alterFilter.alterFilterType == FilterType.Inclusive && alter.tags.Contains(alterFilter.alterFillter) == false)
             return false;
-        
-        Events?.onAlterPlaced.Invoke();
+
         return true;
     }
-    
+
     public virtual void OnPickUp() => Events?.onPickup.Invoke();
     public virtual void OnGroundPickUp() => Events?.onGroundPickup.Invoke();
     public virtual void OnAlterPickUp() => Events?.onAlterPickup.Invoke();
     public virtual void OnDropped() => Events?.onDrop.Invoke();
     public virtual void OnKicked() => Events?.onAlterKicked.Invoke();
-    
+    public virtual void OnAlterPlace() => Events?.onAlterPlaced.Invoke();
+
     protected virtual void Awake()
     {
         tags.Init();
@@ -55,6 +55,8 @@ public class Rune : MonoBehaviour, IInteract
             return;
         OnGroundPickUp();
     }
+
+    public (int thisAlterIndex, Alter[] alters) GetAlters() => alter.GetAlters();
 
 
 }
