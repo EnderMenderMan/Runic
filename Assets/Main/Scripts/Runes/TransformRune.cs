@@ -123,6 +123,12 @@ public class TransformRune : Rune
     public override void OnDropped() => TryRunSelectedChildFunction(() => selectedChild.OnDropped(), base.OnDropped);
     public override void OnKicked() => TryRunSelectedChildFunction(() => selectedChild.OnKicked(), base.OnDropped);
 
+    public override void AfterDropped() => TryRunSelectedChildFunction(() => selectedChild.AfterDropped(), base.AfterDropped);
+    public override void AfterKicked() => TryRunSelectedChildFunction(() => selectedChild.AfterKicked(), base.AfterKicked);
+    public override void AfterAlterPlace() => TryRunSelectedChildFunction(() => selectedChild.AfterAlterPlace(), base.AfterAlterPlace);
+
+
+
     public override void TriggerRunePlacement(int itemIndex, Alter[] alters)
     {
         if (selectedChild == null || selectedChild.gameObject == gameObject)

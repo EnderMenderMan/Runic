@@ -13,6 +13,12 @@ public class Rune : MonoBehaviour, IInteract
     [field: SerializeField] public Tags tags;
     public bool IsInteractDisabled { get; set; }
 
+
+    public virtual void TriggerAbility(int alterIndex, Alter[] alters)
+    {
+
+    }
+
     public virtual void TriggerRunePlacement(int itemIndex, Alter[] alters)
     {
 
