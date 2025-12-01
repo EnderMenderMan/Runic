@@ -37,9 +37,8 @@ public class AlterCluster : MonoBehaviour
         }
         if (hasSpace == false)
         {
-            onCompletion.Invoke();
             isClusterCompleted = true;
-
+            onCompletion.Invoke();
         }
         else
             isClusterCompleted = false;

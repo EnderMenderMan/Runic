@@ -1621,7 +1621,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2403056022919469880, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
       propertyPath: onCompletion.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2403056022919469880, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
       propertyPath: onCompletion.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -2913,9 +2913,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2602171377888021798, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1619826241}
-    - targetCorrespondingSourceObject: {fileID: 2602171377888021798, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1619826242}
   m_SourcePrefab: {fileID: 100100000, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
 --- !u!1001 &1023950081
 PrefabInstance:
@@ -4221,34 +4218,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1619826242}
-        m_TargetAssemblyTypeName: Test, Assembly-CSharp
-        m_MethodName: TestLog
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: EEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-          m_BoolArgument: 0
-        m_CallState: 2
   afterAlterKicked:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1619826242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 117494262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92efe6e5176e57b41b10243bb47dbd88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bools: 
 --- !u!1001 &1637988217
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4370,7 +4342,7 @@ GameObject:
   - component: {fileID: 1682689612}
   - component: {fileID: 1682689611}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: AlterClusters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4390,7 +4362,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onComplete:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 193015938}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!4 &1682689612
 Transform:
   m_ObjectHideFlags: 0

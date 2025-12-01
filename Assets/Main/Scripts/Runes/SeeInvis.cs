@@ -15,7 +15,6 @@ public class SeeInvis : Rune
     public override void OnDropped()
     {
         base.OnDropped();
-        Debug.Log("SEEthis");
         onDrop.Invoke();
     }
 }
