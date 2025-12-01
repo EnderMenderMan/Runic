@@ -8,7 +8,7 @@ public class Rune : MonoBehaviour, IInteract
 {
     [CanBeNull] public RuneEvents Events { get; protected set; }
     [CanBeNull] public RuneAfterEvents AfterEvents { get; protected set; }
-    [SerializeField] protected AlterFilter alterFilter;
+    [Tooltip("Is used to determine if the rune can be placed on a alter")] [SerializeField] protected AlterFilter placeOnAlterFilter;
     [NonSerialized][CanBeNull] public Alter alter;
     [field: SerializeField] public Tags tags;
     public bool IsInteractDisabled { get; set; }
@@ -30,16 +30,13 @@ public class Rune : MonoBehaviour, IInteract
 
     public virtual bool TryBePlacedWithAlterFilter(Alter alter, AlterCluster cluster)
     {
-        if (alterFilter.clusterFilterType == FilterType.Exclusive && alter.tags.Contains(alterFilter.clusterFilter) == true)
+        if (placeOnAlterFilter.RunClusterFilter(cluster) == false)
             return false;
-        if (alterFilter.clusterFilterType == FilterType.Inclusive && alter.tags.Contains(alterFilter.clusterFilter) == false)
+        if (placeOnAlterFilter.RunAlterFilter(alter) == false)
             return false;
-
-        if (alterFilter.alterFilterType == FilterType.Exclusive && alter.tags.Contains(alterFilter.alterFillter) == true)
+        if (placeOnAlterFilter.RunRuneFilter(alter.clusterIndex, cluster.alters) == false)
             return false;
-        if (alterFilter.alterFilterType == FilterType.Inclusive && alter.tags.Contains(alterFilter.alterFillter) == false)
-            return false;
-
+        
         return true;
     }
 

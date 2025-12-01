@@ -8,7 +8,7 @@ public class Alter : MonoBehaviour, IInteract
 {
     [field: SerializeField] public Tags tags;
     public AlterCluster alterCluster { get; private set; }
-    private int clusterIndex;
+    public int clusterIndex { get; private set; }
     [SerializeField] Vector3 kickOffset;
     [CanBeNull] public Rune equippedRune;
     [CanBeNull] public AlterEvents Events { get; private set; }
@@ -36,9 +36,6 @@ public class Alter : MonoBehaviour, IInteract
 
     public void PlaceItem(Rune rune)
     {
-        if (alterCluster.CanItemBePlaced(rune, clusterIndex) == false)
-            return;
-
         rune.OnAlterPlace();
         KickItem();
         this.equippedRune = rune;
@@ -80,6 +77,14 @@ public class Alter : MonoBehaviour, IInteract
     }
     public void OnInteract()
     {
+        if (Inventory.PlayerInventory.heldRune && alterCluster.CanItemBePlaced(Inventory.PlayerInventory.heldRune, clusterIndex) == false)
+        {
+            Rune heldRune = Inventory.PlayerInventory.heldRune;
+            Inventory.PlayerInventory.ForceDropRune();
+            heldRune.transform.position = transform.position + kickOffset;
+            return;
+        }
+        
         if (Inventory.PlayerInventory.heldRune && equippedRune)
         {
             Rune heldRune = Inventory.PlayerInventory.heldRune;
