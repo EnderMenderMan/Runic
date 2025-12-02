@@ -75,7 +75,7 @@ public class RunRune : Rune
     {
         if (CanStartRunningWhenIdle == false || ( CanRunFromAlter == false && alter != null))
             return;
-        if (CanStartRunningWhenHold && Inventory.PlayerInventory.heldRune != null && Inventory.PlayerInventory.heldRune.gameObject == gameObject)
+        if (CanStartRunningWhenHold == false && Inventory.PlayerInventory.heldRune != null && Inventory.PlayerInventory.heldRune.gameObject == gameObject)
             return;
         if (state != State.Idle || idleTimer <= 0)
             return;

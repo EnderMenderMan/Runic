@@ -1054,6 +1054,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: RunRune
       objectReference: {fileID: 0}
+    - target: {fileID: 6505579513416772094, guid: 11085a24cc5a8ae428cf13547e6adb73, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940396489941386337, guid: 11085a24cc5a8ae428cf13547e6adb73, type: 3}
+      propertyPath: moveToPoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8940396489941386337, guid: 11085a24cc5a8ae428cf13547e6adb73, type: 3}
       propertyPath: 'moveToPoints.Array.data[0]'
       value: 
