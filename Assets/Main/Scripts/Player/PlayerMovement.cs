@@ -12,6 +12,14 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     Animator animator;
 
+    [SerializeField] Collider2D interactCollider;
+    Vector2 interactColliderOffset;
+
+    void Awake()
+    {
+        interactColliderOffset = interactCollider.offset;
+        interactCollider.offset = new Vector2(0, interactColliderOffset.y);
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -33,11 +41,20 @@ public class PlayerMovement : MonoBehaviour
             dir = context.ReadValue<Vector2>();
 
             if (dir.x != 0)
+            {
                 animator.SetInteger("DirState", 0);
+                interactCollider.offset = new Vector2(interactColliderOffset.x, 0);
+            }
             else if (dir.y > 0)
+            {
                 animator.SetInteger("DirState", 1);
+                interactCollider.offset = new Vector2(0, interactColliderOffset.y);
+            }
             else
+            {
                 animator.SetInteger("DirState", -1);
+                interactCollider.offset = new Vector2(0, -interactColliderOffset.y);
+            }
 
 
             Vector3 newRotation = new Vector3(transform.rotation.x, 0, transform.rotation.z);

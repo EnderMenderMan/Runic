@@ -188,6 +188,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -4307345998735329622, guid: a51a8af9753166a4d852db489708837b, type: 3}
+    - target: {fileID: 654516394237127210, guid: 00e8d4d1bc3288a4ca5b7c2f5d0e7292, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 654516394237127210, guid: 00e8d4d1bc3288a4ca5b7c2f5d0e7292, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 654516394237127210, guid: 00e8d4d1bc3288a4ca5b7c2f5d0e7292, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1796683823641969113, guid: 00e8d4d1bc3288a4ca5b7c2f5d0e7292, type: 3}
       propertyPath: m_Name
       value: Player
@@ -232,6 +244,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8865646075807917799, guid: 00e8d4d1bc3288a4ca5b7c2f5d0e7292, type: 3}
+      propertyPath: interactCollider
+      value: 
+      objectReference: {fileID: 1122158694}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -516,6 +532,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!58 &1122158694 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 654516394237127210, guid: 00e8d4d1bc3288a4ca5b7c2f5d0e7292, type: 3}
+  m_PrefabInstance: {fileID: 457370723}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1479350872
 GameObject:
   m_ObjectHideFlags: 0
