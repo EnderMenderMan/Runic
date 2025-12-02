@@ -8120,6 +8120,46 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 723117ad1a9f13840b0df65b0bcefd74, type: 3}
+--- !u!1 &1106863086 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1851005471361425986, guid: e0a098c46499f32468842dead8911036, type: 3}
+  m_PrefabInstance: {fileID: 1857032181}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1106863087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106863086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f91cfbbab14f24e8d5b16be3fccccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placeOnAlterFilter:
+    clusterFilters: []
+    alterFilters: []
+    runesFilters: []
+    runeNullSearch: 0
+    alterIndexOffsets: 
+  tags:
+    tags: []
+  onAlterPlaced:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1107719393 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4810359891142420035, guid: 57a3ab835e70697439fc240eb675a870, type: 3}
@@ -11644,11 +11684,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 690090251057024043, guid: e0a098c46499f32468842dead8911036, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.884003
+      value: -4.23
       objectReference: {fileID: 0}
     - target: {fileID: 690090251057024043, guid: e0a098c46499f32468842dead8911036, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5741596
+      value: 2.74
       objectReference: {fileID: 0}
     - target: {fileID: 690090251057024043, guid: e0a098c46499f32468842dead8911036, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11686,10 +11726,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: BasicAhRune
       objectReference: {fileID: 0}
+    - target: {fileID: 5486092884389863645, guid: e0a098c46499f32468842dead8911036, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1851005471361425986, guid: e0a098c46499f32468842dead8911036, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1106863087}
   m_SourcePrefab: {fileID: 100100000, guid: e0a098c46499f32468842dead8911036, type: 3}
 --- !u!1001 &1864562452
 PrefabInstance:
