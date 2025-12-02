@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9104004871746695239}
   - component: {fileID: 5024608018106737660}
   m_Layer: 6
-  m_Name: Runes
+  m_Name: BasicAhRune
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
