@@ -64,6 +64,10 @@ public class Rune : MonoBehaviour, IInteract
         AfterEvents = GetComponent<RuneAfterEvents>();
     }
 
+    protected virtual void BulletInteract(InteractData data)
+    {
+    }
+
     public virtual void OnInteract(InteractData data)
     {
         switch (data.type)
@@ -74,6 +78,9 @@ public class Rune : MonoBehaviour, IInteract
                     return;
                 OnGroundPickUp();
 
+                break;
+            case InteractType.Bullet:
+                BulletInteract(data);
                 break;
         }
     }

@@ -24,4 +24,5 @@ public class WorldData : MonoBehaviour
             return false;
         return true;
     }
+    public Vector3 GetCorrenctionToCellCenter(Vector3 position) => WorldGrid.GetCellCenterLocal(WorldGrid.WorldToCell(position));
 }

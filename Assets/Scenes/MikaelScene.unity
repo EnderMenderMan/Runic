@@ -1124,7 +1124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2736310389498432974, guid: 9fb465ef50b0f23b4acb5e8ce4880671, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1209,6 +1209,7 @@ MonoBehaviour:
     alterIndexOffsets: 
   tags:
     tags: []
+  idleForTime: 0
   moveForce: 10
   moveMaxForce: 5
   distanceWhenStartStop: 1
@@ -1288,7 +1289,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7854927406428675829, guid: 556191d64274dac4aa9907ef3fdf44b7, type: 3}
-  m_Color: {r: 0.6415094, g: 0.009077947, b: 0.014799876, a: 1}
+  m_Color: {r: 0.6415094, g: 1, b: 0.014799876, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
