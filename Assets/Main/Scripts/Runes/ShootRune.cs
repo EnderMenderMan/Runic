@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class ShootRune : MonoBehaviour
+public class ShootRune : Rune
 {
+    [SerializeField] float proectileSpeed;
     [SerializeField] Transform projectileSpawnPoint;
     [SerializeField] GameObject projectilePrefab;
     void Start()
@@ -17,17 +18,27 @@ public class ShootRune : MonoBehaviour
 
     void Shoot()
     {
+        if (Inventory.PlayerInventory.heldRune.gameObject != this.gameObject)
+            return;
         GameObject projectileObject = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
         Rigidbody2D projectileRb = projectileObject.GetComponent<Rigidbody2D>();
-        //projectileRb.linearVelocity = ;
+        projectileRb.linearVelocity = PlayerMovement.FacingDirection * proectileSpeed;
     }
 
-    void OnEnable()
+    public override void OnPickUp()
     {
         PlayerInteract.Instance.OnActivateRuneAbility.AddListener(Shoot);
+        base.OnPickUp();
     }
-    void OnDisable()
+    public override void OnDropped()
     {
         PlayerInteract.Instance.OnActivateRuneAbility.RemoveListener(Shoot);
+        base.OnDropped();
     }
+    public override void OnAlterPlace()
+    {
+        PlayerInteract.Instance.OnActivateRuneAbility.RemoveListener(Shoot);
+        base.OnDropped();
+    }
+
 }

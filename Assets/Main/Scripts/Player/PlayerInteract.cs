@@ -65,16 +65,16 @@ public class PlayerInteract : MonoBehaviour
         };
         InputActions.Player.Interact.Enable();
 
-        InputActions.Player.Attack.performed += context =>
+        InputActions.Player.RuneAbility.performed += context =>
         {
             OnActivateRuneAbility.Invoke();
         };
-        InputActions.Player.Attack.Enable();
+        InputActions.Player.RuneAbility.Enable();
     }
 
     private void OnDisable()
     {
-        InputActions.Player.Attack.Disable();
+        InputActions.Player.RuneAbility.Disable();
         InputActions.Player.Interact.Disable();
     }
 }

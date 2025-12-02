@@ -8,20 +8,22 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
     private Vector2 dir;
+    public static Vector2 FacingDirection { get; private set; }
 
     private Rigidbody2D rb;
     Animator animator;
+    Collider2D interactColider;
 
 
     void Awake()
     {
-        PlayerInteract.Instance.interactColliderDetection.offset = PlayerInteract.Instance.interactColiderDownOffest;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        PlayerInteract.Instance.interactColliderDetection.offset = PlayerInteract.Instance.interactColiderDownOffest;
     }
 
     // Update is called once per frame
@@ -36,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("IsMoving", true);
             dir = context.ReadValue<Vector2>();
+            FacingDirection = dir;
 
             if (dir.x != 0)
             {
