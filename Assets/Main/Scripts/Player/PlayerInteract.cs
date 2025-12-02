@@ -9,7 +9,11 @@ public class PlayerInteract : MonoBehaviour
 {
     public static PlayerInteract Instance;
     public static InputSystem_Actions InputActions;
-    [SerializeField] Collider2D interactColliderDetection;
+    [field: SerializeField] public Collider2D interactColliderDetection { get; private set; }
+    [field: SerializeField] public Vector2 interactColiderTopOffest { get; private set; }
+    [field: SerializeField] public Vector2 interactColiderDownOffest { get; private set; }
+    [field: SerializeField] public Vector2 interactColiderSideOffest { get; private set; }
+
     public UnityEvent OnNoInteract;
 
     private void Awake()
