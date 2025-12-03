@@ -29,6 +29,7 @@ public class ShootRune : Rune
 
     public override void OnPickUp()
     {
+        SoundManager.instance?.PlaySound(SoundManager.SoundType.RunePickup, SoundManager.MixerType.SFX);
         PlayerInteract.Instance.OnActivateRuneAbility.AddListener(Shoot);
         base.OnPickUp();
     }
