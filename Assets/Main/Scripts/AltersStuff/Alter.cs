@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,8 +14,52 @@ public class Alter : MonoBehaviour, IInteract
     [SerializeField] Vector3 kickOffset;
     [CanBeNull] public Rune equippedRune;
     [CanBeNull] public AlterEvents Events { get; private set; }
-    [Tooltip("Can be items be kicked by an effect. Example of such effect is kick rune")] public bool canKickItems = true;
-    [Tooltip("Can player pickup from this alter")] public bool canPickupItems = true;
+
+
+
+    [Tooltip("Can be items be kicked by an effect. Example of such effect is kick rune")] public bool canKickItemsOrigninalValue = true;
+    [Tooltip("Can player pickup from this alter")] public bool canPickupItemsOriginalValue = true;
+    List<(bool canPickupItems, bool canKickItems, int id)> lockInterferance = new List<(bool, bool, int)>();
+    int interferanceCount;
+    bool canKickItems;
+    bool canPickupItems;
+    public int AddLockInterferance(bool canPickupItems, bool canKickItems)
+    {
+        interferanceCount++;
+        lockInterferance.Add(new(canPickupItems, canKickItems, interferanceCount));
+        this.canPickupItems = canPickupItems;
+        this.canKickItems = canKickItems;
+        return interferanceCount;
+    }
+    public void RemoveLockInterferance(int id)
+    {
+        for (int i = 0; i < lockInterferance.Count; i++)
+        {
+            if (lockInterferance[i].id != id)
+                continue;
+
+            if (i == 0)
+            {
+                ResetLockInterfenrance();
+            }
+            else
+            {
+                canKickItems = lockInterferance[^1].canKickItems;
+                canPickupItems = lockInterferance[^1].canPickupItems;
+            }
+            lockInterferance.RemoveAt(i);
+            break;
+        }
+    }
+    public void ResetLockInterfenrance()
+    {
+        interferanceCount = 0;
+        lockInterferance.Clear();
+        canPickupItems = canPickupItemsOriginalValue;
+        canKickItems = canKickItemsOrigninalValue;
+    }
+
+
 
     public bool IsInteractDisabled { get; set; }
 
@@ -61,11 +106,11 @@ public class Alter : MonoBehaviour, IInteract
     {
         tags.Init();
         Events = GetComponent<AlterEvents>();
+        ResetLockInterfenrance();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
     }
 
     // Update is called once per frame
