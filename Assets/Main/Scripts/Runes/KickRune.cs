@@ -20,7 +20,7 @@ public class KickRune : Rune
                         continue;
                     if (filter.RunFilter(alters[i].equippedRune.tags) == false)
                         continue;
-                    alters[i].KickItem();
+                    alters[i].TryKickItem(false);
                 }
                 continue;
             }
@@ -34,7 +34,7 @@ public class KickRune : Rune
                     continue;
                 if (filter.RunFilter(alters[tryIndex].equippedRune.tags) == false)
                     continue;
-                alters[tryIndex].KickItem();
+                alters[tryIndex].TryKickItem(false);
             }
         }
 
@@ -47,7 +47,7 @@ public class KickRune : Rune
                     continue;
                 if (alters[tryIndex].equippedRune == null)
                     continue;
-                alters[tryIndex].KickItem();
+                alters[tryIndex].TryKickItem(false);
             }
         }
     }

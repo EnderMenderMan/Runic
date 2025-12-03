@@ -10,10 +10,10 @@ public class RunRune : Rune
         Run,
         Dead,
     }
-    
+
     [Tooltip("Can jump off alter and start running")][field: SerializeField] public bool CanRunFromAlter { get; private set; }
-    [Tooltip("Can jump off when held by the player and start running")][field: SerializeField] public bool CanStartRunningWhenHold{ get; private set; }
-    [Tooltip("Can start running from the idle state (idle state mean that the rune is not moving)")][field: SerializeField] public bool CanStartRunningWhenIdle{ get; private set; }
+    [Tooltip("Can jump off when held by the player and start running")][field: SerializeField] public bool CanStartRunningWhenHold { get; private set; }
+    [Tooltip("Can start running from the idle state (idle state mean that the rune is not moving)")][field: SerializeField] public bool CanStartRunningWhenIdle { get; private set; }
     [Tooltip("How much time to be idle for. 0 or less mean infinite time. (idle state mean that the rune is not moving)")][SerializeField] float idleForTime;
     float idleTimer;
     [Tooltip("How fast the runes movement accelerate")][SerializeField] float accelerationForce;
@@ -27,7 +27,7 @@ public class RunRune : Rune
     [Header("Events")]
     public UnityEvent whenChangedStateToIdle;
     public UnityEvent whenChangedStateToRun;
-    
+
 
     protected override void Awake()
     {
@@ -58,14 +58,14 @@ public class RunRune : Rune
     {
         base.OnPickUp();
         if (CanStartRunningWhenHold && state == State.Run)
-            Inventory.PlayerInventory.ForceDropRune();
+            Inventory.PlayerInventory.ShadowForceDropRune();
     }
 
     public override bool TryBePlaced(int alterIndex, Alter[] alters, AlterCluster cluster)
     {
         if (state == State.Run)
         {
-            Inventory.PlayerInventory.ForceDropRune();
+            Inventory.PlayerInventory.ShadowForceDropRune();
             return false;
         }
         return base.TryBePlaced(alterIndex, alters, cluster);
@@ -73,14 +73,14 @@ public class RunRune : Rune
 
     void UpdateTimer()
     {
-        if (CanStartRunningWhenIdle == false || ( CanRunFromAlter == false && alter != null))
+        if (CanStartRunningWhenIdle == false || (CanRunFromAlter == false && alter != null))
             return;
         if (CanStartRunningWhenHold == false && Inventory.PlayerInventory.heldRune != null && Inventory.PlayerInventory.heldRune.gameObject == gameObject)
             return;
         if (state != State.Idle || idleTimer <= 0)
             return;
         idleTimer -= Time.deltaTime;
-        
+
         if (idleTimer > 0)
             return;
 
@@ -88,12 +88,12 @@ public class RunRune : Rune
         if (alter != null)
         {
             Vector3 alterPos = alter.transform.position;
-            alter?.KickItem();
+            alter?.TryKickItem(false);
             transform.position = alterPos;
         }
         else if (Inventory.PlayerInventory.heldRune != null && Inventory.PlayerInventory.heldRune.gameObject == gameObject)
         {
-            Inventory.PlayerInventory.ForceDropRune();
+            Inventory.PlayerInventory.ShadowForceDropRune();
         }
     }
 

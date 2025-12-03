@@ -13,6 +13,8 @@ public class Alter : MonoBehaviour, IInteract
     [SerializeField] Vector3 kickOffset;
     [CanBeNull] public Rune equippedRune;
     [CanBeNull] public AlterEvents Events { get; private set; }
+    [Tooltip("Can be items be kicked by an effect. Example of such effect is kick rune")] public bool canKickItems = true;
+    [Tooltip("Can player pickup from this alter")] public bool canPickupItems = true;
 
     public bool IsInteractDisabled { get; set; }
 
@@ -23,22 +25,25 @@ public class Alter : MonoBehaviour, IInteract
         alterCluster = cluster;
         this.clusterIndex = clusterIndex;
     }
-    public void KickItem()
+    public bool TryKickItem(bool forceDrop)
     {
         if (equippedRune == null)
-            return;
+            return false;
+        if (forceDrop == false && canKickItems == false)
+            return false;
         equippedRune.OnKicked();
         equippedRune.IsInteractDisabled = false;
         equippedRune.transform.position = transform.position + kickOffset;
         equippedRune.alter = null;
         equippedRune.AfterKicked();
         equippedRune = null;
+        return true;
     }
 
     public void PlaceItem(Rune rune)
     {
         rune.OnAlterPlace();
-        KickItem();
+        TryKickItem(false);
         this.equippedRune = rune;
         rune.IsInteractDisabled = true;
         rune.alter = this;
@@ -71,8 +76,11 @@ public class Alter : MonoBehaviour, IInteract
 
     bool PlayerTryPickUp(Rune rune)
     {
+        Rune heldRune = Inventory.PlayerInventory.heldRune;
+        Inventory.PlayerInventory.ShadowForceDropRune();
         if (Inventory.PlayerInventory.TryPickUpRune(rune) == false)
-            return false;
+        { Inventory.PlayerInventory.ShadowForcePickUp(heldRune); return false; }
+
         rune.OnAlterPickUp();
         return true;
     }
@@ -86,35 +94,41 @@ public class Alter : MonoBehaviour, IInteract
                 {
                     if (Inventory.PlayerInventory.heldRune == null) // heldRune can be drop by TryItemBePlaced() function. see RuneRune TryBePlaced() override function
                         return;
-                    
+
                     Rune heldRune = Inventory.PlayerInventory.heldRune;
-                    Inventory.PlayerInventory.ForceDropRune();
+                    Inventory.PlayerInventory.ShadowForceDropRune();
                     heldRune.transform.position = transform.position + kickOffset;
                     return;
                 }
 
                 if (Inventory.PlayerInventory.heldRune && equippedRune)
                 {
+                    if (canPickupItems == false)
+                        return;
+
                     Rune heldRune = Inventory.PlayerInventory.heldRune;
-                    Inventory.PlayerInventory.ForceDropRune();
-                    PlayerTryPickUp(equippedRune);
-                    KickItem();
+                    if (PlayerTryPickUp(equippedRune) == false)
+                        return;
+                    TryKickItem(true);
                     PlaceItem(heldRune);
                     return;
                 }
 
                 if (equippedRune)
                 {
-                    Rune rune = equippedRune;
-                    KickItem();
-                    PlayerTryPickUp(rune);
+                    if (canPickupItems == false)
+                        return;
+
+                    if (PlayerTryPickUp(equippedRune) == false)
+                        return;
+                    TryKickItem(true);
                     return;
                 }
 
                 if (Inventory.PlayerInventory.heldRune)
                 {
                     Rune rune = Inventory.PlayerInventory.heldRune;
-                    Inventory.PlayerInventory.ForceDropRune();
+                    Inventory.PlayerInventory.ShadowForceDropRune();
                     PlaceItem(rune);
                     return;
                 }

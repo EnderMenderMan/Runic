@@ -14,10 +14,17 @@ public class Inventory : MonoBehaviour
             rune.gameObject.SetActive(true);
         }
 
-        heldRune = rune;
-        heldRune.IsInteractDisabled = true;
+        ShadowForcePickUp(rune);
         heldRune.OnPickUp();
         return true;
+    }
+    public void ShadowForcePickUp(Rune rune)
+    {
+        if (rune == null)
+            return;
+        heldRune = rune;
+        heldRune.IsInteractDisabled = true;
+
     }
 
     public bool DropRune()
@@ -45,7 +52,7 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
-    public void ForceDropRune()
+    public void ShadowForceDropRune()
     {
         if (heldRune == null)
             return;

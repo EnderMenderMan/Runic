@@ -36,7 +36,7 @@ public class Rune : MonoBehaviour, IInteract
             return false;
         if (placeOnAlterFilter.RunRuneFilter(alter.clusterIndex, cluster.alters) == false)
             return false;
-        
+
         return true;
     }
 
