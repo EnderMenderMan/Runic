@@ -29,7 +29,10 @@ public class LockRune : Rune
             }
             foreach (int index in filter.lockOffsetIndexes)
             {
-                LockAlter(alters[index], index, filter);
+                int tryIndex = index + itemIndex;
+                if (tryIndex < 0 || tryIndex >= alters.Length)
+                    continue;
+                LockAlter(alters[tryIndex], tryIndex, filter);
             }
         }
     }

@@ -38,6 +38,7 @@ public class Alter : MonoBehaviour, IInteract
             if (lockInterferance[i].id != id)
                 continue;
 
+            lockInterferance.RemoveAt(i);
             if (i == 0)
             {
                 ResetLockInterfenrance();
@@ -47,7 +48,6 @@ public class Alter : MonoBehaviour, IInteract
                 canKickItems = lockInterferance[^1].canKickItems;
                 canPickupItems = lockInterferance[^1].canPickupItems;
             }
-            lockInterferance.RemoveAt(i);
             break;
         }
     }
