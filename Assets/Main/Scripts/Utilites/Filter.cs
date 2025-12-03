@@ -41,6 +41,8 @@ public struct AlterFilter
 
     public bool RunClusterFilter(AlterCluster cluster)
     {
+        if (clusterFilters == null)
+            return true;
         foreach (var filter in clusterFilters)
         {
             if (filter.RunFilter(cluster.tags) == false)
@@ -51,6 +53,8 @@ public struct AlterFilter
 
     public bool RunAlterFilter(Alter alter)
     {
+        if (alterFilters == null)
+            return true;
         foreach (var filter in alterFilters)
         {
             if (filter.RunFilter(alter.tags) == false)
