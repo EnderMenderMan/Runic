@@ -6,10 +6,11 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    public float speed;
     private Vector2 dir;
     public static Vector2 FacingDirection { get; private set; }
     public static float MovingSpeed { get; private set; }
+    public static PlayerMovement Instance { get; private set; }
 
     private Rigidbody2D rb;
     Animator animator;
@@ -35,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnEnable()
     {
+        Instance = this;
         PlayerInteract.Instance.InputActions.Player.Move.performed += context =>
         {
             animator.SetBool("IsMoving", true);
