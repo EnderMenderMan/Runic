@@ -63,6 +63,9 @@ public class Rune : MonoBehaviour, IInteract
         Events = GetComponent<RuneEvents>();
         AfterEvents = GetComponent<RuneAfterEvents>();
     }
+    protected virtual void Start()
+    {
+    }
 
     protected virtual void BulletInteract(InteractData data)
     {

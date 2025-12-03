@@ -27,12 +27,15 @@ public class TransformRune : Rune
         GetTransformToRunes();
         SetToCorrectStartingIndex();
 
+        base.Awake();
+        ogTags.UnionWith(tags.ids);
+    }
+    protected override void Start()
+    {
         foreach (var rune in transformToRunes)
             if (rune.gameObject != gameObject)
                 rune.gameObject.SetActive(false);
 
-        base.Awake();
-        ogTags.UnionWith(tags.ids);
     }
 
     void SetToCorrectStartingIndex()
@@ -100,6 +103,8 @@ public class TransformRune : Rune
     void HandleTagsSwap()
     {
         if (getTagsFromTransform == false)
+            return;
+        if (transformToRunes[selectedRuneIndex] == null)
             return;
         tags.ids.Clear();
         tags.ids.UnionWith(transformToRunes[selectedRuneIndex].tags.ids);
