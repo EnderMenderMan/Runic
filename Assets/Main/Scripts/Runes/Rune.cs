@@ -60,14 +60,13 @@ public class Rune : MonoBehaviour, IInteract
             ResetPosition();
 
     }
-    public virtual void AfterKicked() => AfterEvents?.afterAlterKicked.Invoke();
-    public virtual void AfterAlterPlace()
+    public virtual void AfterKicked()
     {
-        AfterEvents?.afterAlterPlaced.Invoke();
+        AfterEvents?.afterAlterKicked.Invoke();
         if (resetPositionWhenDropedOrKicked)
-            transform.position = originalPosition;
-
+            ResetPosition();
     }
+    public virtual void AfterAlterPlace() => AfterEvents?.afterAlterPlaced.Invoke();
 
 
     public void ResetPosition()
