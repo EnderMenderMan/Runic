@@ -21,6 +21,7 @@ public class ShootRune : Rune
         if (Inventory.PlayerInventory.heldRune.gameObject != this.gameObject)
             return;
         GameObject projectileObject = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
+        projectileObject.GetComponent<ShootRuneProjectile>().shootRune = this;
         Rigidbody2D projectileRb = projectileObject.GetComponent<Rigidbody2D>();
         projectileRb.linearVelocity = PlayerMovement.FacingDirection * proectileSpeed;
         if (PlayerMovement.MovingSpeed != 0)
