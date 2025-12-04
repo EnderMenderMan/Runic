@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5578035272813761536}
   - component: {fileID: 1855311754194892432}
   - component: {fileID: 7801807969819449183}
-  - component: {fileID: 2601406556306665311}
   m_Layer: 6
   m_Name: SwapRune(NOTFINISHED)
   m_TagString: Interactable
@@ -179,45 +178,4 @@ MonoBehaviour:
     alterIndexOffsets: 
   tags:
     tags: []
---- !u!114 &2601406556306665311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4524294584209449100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 133261f58bf2606489b860c82d771dff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onPickup:
-    m_PersistentCalls:
-      m_Calls: []
-  onGroundPickup:
-    m_PersistentCalls:
-      m_Calls: []
-  onAlterPickup:
-    m_PersistentCalls:
-      m_Calls: []
-  onDrop:
-    m_PersistentCalls:
-      m_Calls: []
-  onAlterPlaced:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7801807969819449183}
-        m_TargetAssemblyTypeName: Swap, Assembly-CSharp
-        m_MethodName: OnAlterPlace
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onAlterKicked:
-    m_PersistentCalls:
-      m_Calls: []
+  SwapWith: {fileID: 0}

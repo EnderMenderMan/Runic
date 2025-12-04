@@ -46,7 +46,7 @@ public class Rune : MonoBehaviour, IInteract
     public virtual void OnAlterPickUp() => Events?.onAlterPickup.Invoke();
     public virtual void OnDropped() => Events?.onDrop.Invoke();
     public virtual void OnKicked() => Events?.onAlterKicked.Invoke();
-    public virtual void OnAlterPlace() => Events?.onAlterPlaced.Invoke();
+    public virtual void OnAlterPlace() => Events?.onAlterPlaced.Invoke(); 
     // AfterEvents
     //public virtual void AfterPickUp() => AfterEvents?.afterPickup.Invoke();
     //public virtual void AfterGroundPickUp() => AfterEvents?.afterGroundPickup.Invoke();
