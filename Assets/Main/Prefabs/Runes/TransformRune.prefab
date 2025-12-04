@@ -81,11 +81,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5511a925fc5aabc4f90790d235dc281a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alterFilter:
-    alterFilterType: 0
-    alterFillter: []
-    clusterFilterType: 0
-    clusterFilter: []
+  placeOnAlterFilter:
+    clusterFilters: []
+    alterFilters: []
+    runesFilters: []
+    runeNullSearch: 0
+    alterIndexOffsets: 
   tags:
     tags:
     - Trans
