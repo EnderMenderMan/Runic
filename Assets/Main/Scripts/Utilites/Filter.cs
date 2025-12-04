@@ -88,15 +88,13 @@ public struct AlterFilter
                         continue;
                     if (alters[i].equippedRune == null)
                         continue;
-                    foundRunes = true;
                     if (filter.mode == FilterType.Exclusive && alters[i].equippedRune.tags.Contains(filter.tags) == false)
                         continue;
                     else if (filter.mode == FilterType.Exclusive)
                         return false;
                     if (filter.mode == FilterType.Inclusive && alters[i].equippedRune.tags.Contains(filter.tags) == true)
-                        return true;
+                        foundRunes = true;
                 }
-                return false;
             }
             foreach (var indexOffset in alterIndexOffsets)
             {
@@ -105,17 +103,15 @@ public struct AlterFilter
                     continue;
                 if (alters[tryIndex].equippedRune == null)
                     continue;
-                foundRunes = true;
                 if (filter.mode == FilterType.Exclusive && alters[tryIndex].equippedRune.tags.Contains(filter.tags) == false)
                     continue;
                 else if (filter.mode == FilterType.Exclusive)
                     return false;
                 if (filter.mode == FilterType.Inclusive && alters[tryIndex].equippedRune.tags.Contains(filter.tags) == true)
-                    return true;
+                    foundRunes = true;
             }
             if (foundRunes == false && filter.mode == FilterType.Inclusive)
                 return false;
-            return false;
         }
         return true;
     }
