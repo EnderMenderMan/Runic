@@ -10,6 +10,8 @@ public class Rune : MonoBehaviour, IInteract
     [CanBeNull] public RuneAfterEvents AfterEvents { get; protected set; }
     [Tooltip("Is used to determine if the rune can be placed on a alter")][SerializeField] protected AlterFilter placeOnAlterFilter;
     [NonSerialized][CanBeNull] public Alter alter;
+    [SerializeField] bool resetPositionWhenDropedOrKicked;
+    protected Vector3 originalPosition;
     [field: SerializeField] public Tags tags;
     public bool IsInteractDisabled { get; set; }
 
@@ -46,22 +48,39 @@ public class Rune : MonoBehaviour, IInteract
     public virtual void OnAlterPickUp() => Events?.onAlterPickup.Invoke();
     public virtual void OnDropped() => Events?.onDrop.Invoke();
     public virtual void OnKicked() => Events?.onAlterKicked.Invoke();
-    public virtual void OnAlterPlace() => Events?.onAlterPlaced.Invoke(); 
+    public virtual void OnAlterPlace() => Events?.onAlterPlaced.Invoke();
     // AfterEvents
     //public virtual void AfterPickUp() => AfterEvents?.afterPickup.Invoke();
     //public virtual void AfterGroundPickUp() => AfterEvents?.afterGroundPickup.Invoke();
     //public virtual void AfterAlterPickUp() => AfterEvents?.afterAlterPickup.Invoke();
-    public virtual void AfterDropped() => AfterEvents?.afterDrop.Invoke();
+    public virtual void AfterDropped()
+    {
+        AfterEvents?.afterDrop.Invoke();
+        if (resetPositionWhenDropedOrKicked)
+            ResetPosition();
+
+    }
     public virtual void AfterKicked() => AfterEvents?.afterAlterKicked.Invoke();
-    public virtual void AfterAlterPlace() => AfterEvents?.afterAlterPlaced.Invoke();
+    public virtual void AfterAlterPlace()
+    {
+        AfterEvents?.afterAlterPlaced.Invoke();
+        if (resetPositionWhenDropedOrKicked)
+            transform.position = originalPosition;
+
+    }
 
 
+    public void ResetPosition()
+    {
+        transform.position = originalPosition;
+    }
 
     protected virtual void Awake()
     {
         tags.Init();
         Events = GetComponent<RuneEvents>();
         AfterEvents = GetComponent<RuneAfterEvents>();
+        originalPosition = transform.position;
     }
     protected virtual void Start()
     {
