@@ -10,7 +10,7 @@ public class Rune : MonoBehaviour, IInteract
     [CanBeNull] public RuneAfterEvents AfterEvents { get; protected set; }
     [Tooltip("Is used to determine if the rune can be placed on a alter")][SerializeField] protected AlterFilter placeOnAlterFilter;
     [NonSerialized][CanBeNull] public Alter alter;
-    [SerializeField] bool resetPositionWhenDropedOrKicked;
+    public bool resetPositionWhenDropedOrKicked;
     protected Vector3 originalPosition;
     [field: SerializeField] public Tags tags;
     public bool IsInteractDisabled { get; set; }

@@ -142,8 +142,9 @@ public class Alter : MonoBehaviour, IInteract
                         return;
 
                     Rune heldRune = Inventory.PlayerInventory.heldRune;
-                    Inventory.PlayerInventory.ShadowForceDropRune();
-                    heldRune.transform.position = transform.position + kickOffset;
+                    Inventory.PlayerInventory.DropRune();
+                    if (heldRune.resetPositionWhenDropedOrKicked == false)
+                        heldRune.transform.position = transform.position + kickOffset;
                     return;
                 }
 
