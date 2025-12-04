@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -17,6 +18,11 @@ public class PlayerMovement : MonoBehaviour
     Collider2D interactColider;
 
 
+    class ChangeStackValues { public float sizeToChange, changeRate; public (float sizeToChange, float changeRate) previus; }
+    List<ChangeStackValues> changeSizeStack = new List<ChangeStackValues>();
+    bool stopGrow, hasReverted;
+    Vector3 previusScale;
+
     void Awake()
     {
     }
@@ -32,6 +38,85 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         rb.linearVelocity = dir * speed;
+        UpdateSize();
+    }
+
+    void UpdateSize()
+    {
+        if (stopGrow && hasReverted)
+            return;
+
+        float totalChangeThisFrame = 0;
+
+        if (stopGrow)
+        {
+            foreach (ChangeStackValues value in changeSizeStack)
+            {
+                float change = value.changeRate * Time.deltaTime;
+                if (Math.Abs(value.sizeToChange) < Math.Abs(change))
+                {
+                    change = value.sizeToChange;
+                }
+                totalChangeThisFrame += change;
+            }
+            if (totalChangeThisFrame > 0)
+            {
+                transform.localScale = previusScale;
+                foreach (ChangeStackValues value in changeSizeStack)
+                {
+                    value.changeRate = value.previus.changeRate;
+                    value.sizeToChange = value.previus.sizeToChange;
+                }
+                hasReverted = true;
+                return;
+            }
+            totalChangeThisFrame = 0;
+        }
+
+        for (int i = changeSizeStack.Count - 1; i >= 0; i--)
+        {
+            if (changeSizeStack[i].sizeToChange == 0)
+            {
+                changeSizeStack.RemoveAt(i);
+                continue;
+            }
+
+            changeSizeStack[i].previus = new(changeSizeStack[i].sizeToChange, changeSizeStack[i].changeRate);
+            float change = changeSizeStack[i].changeRate * Time.deltaTime;
+            if (Math.Abs(changeSizeStack[i].sizeToChange) < Math.Abs(change))
+            {
+                change = changeSizeStack[i].sizeToChange;
+                changeSizeStack[i].sizeToChange = 0;
+            }
+            else
+            {
+                changeSizeStack[i].sizeToChange -= change;
+            }
+            totalChangeThisFrame += change;
+        }
+
+
+        hasReverted = false;
+        Vector3 scale = transform.localScale;
+        previusScale = scale;
+        transform.localScale = new Vector3(scale.x + totalChangeThisFrame, scale.y + totalChangeThisFrame, scale.z + totalChangeThisFrame);
+
+
+    }
+    public void Resize(float size, float changeRate)
+    {
+        ChangeStackValues newValue = new ChangeStackValues { sizeToChange = size, changeRate = Mathf.Abs(changeRate) * Mathf.Sign(size) };
+        newValue.previus = new(newValue.sizeToChange, newValue.changeRate);
+        changeSizeStack.Add(newValue);
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        stopGrow = true;
+    }
+    void OnCollisionExit2D(Collision2D col)
+    {
+        stopGrow = false;
     }
 
     private void OnEnable()
