@@ -7,6 +7,8 @@ public class ShootRuneProjectile : MonoBehaviour
     {
         if (col.CompareTag("Interactable") == false)
             return;
+	if (col.gameObject == shootRune.gameObject)
+		return;
         IInteract[] interacts = col.GetComponents<IInteract>();
         foreach (IInteract interact in interacts)
             interact.OnInteract(new InteractData { type = InteractType.Bullet, senderObject = gameObject });
