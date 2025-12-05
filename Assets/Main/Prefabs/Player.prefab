@@ -149,8 +149,11 @@ MonoBehaviour:
   <interactColliderDetection>k__BackingField: {fileID: 654516394237127210}
   <interactColiderTopOffest>k__BackingField: {x: 0, y: 0.4}
   <interactColiderDownOffest>k__BackingField: {x: 0, y: -0.6}
-  <interactColiderSideOffest>k__BackingField: {x: -0.6, y: -0.3}
+  <interactColiderSideOffest>k__BackingField: {x: -0.6, y: -0.2}
   OnNoInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  OnActivateRuneAbility:
     m_PersistentCalls:
       m_Calls: []
 --- !u!58 &654516394237127210
@@ -188,7 +191,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.4
+  m_Radius: 0.3
 --- !u!58 &4488723726563096391
 CircleCollider2D:
   m_ObjectHideFlags: 0

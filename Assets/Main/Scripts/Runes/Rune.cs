@@ -4,10 +4,21 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(AudioSource))]
 public class Rune : MonoBehaviour, IInteract
 {
+    [Header("Audio")]
+    [SerializeField] bool enablePlaySounds = true;
+    [SerializeField] AudioClip pickUpSound;
+    [SerializeField] AudioClip dropSound;
+    [SerializeField] AudioClip placeSound;
+    [SerializeField] AudioClip kickSound;
+    AudioSource audioSource;
+
     [CanBeNull] public RuneEvents Events { get; protected set; }
     [CanBeNull] public RuneAfterEvents AfterEvents { get; protected set; }
+
+    [Header("Other")]
     [Tooltip("Is used to determine if the rune can be placed on a alter")][SerializeField] protected AlterFilter placeOnAlterFilter;
     [NonSerialized][CanBeNull] public Alter alter;
     public bool resetPositionWhenDropedOrKicked;
@@ -42,13 +53,44 @@ public class Rune : MonoBehaviour, IInteract
         return true;
     }
 
+    protected virtual void PlaySound(SoundManager.SoundType soundType, AudioClip? audioClip)
+    {
+        if (enablePlaySounds == false)
+            return;
+        if (audioClip == null)
+        {
+
+            SoundManager.instance.PlaySound(gameObject, soundType, SoundManager.MixerType.SFX);
+            return;
+        }
+        audioSource.Stop();
+        audioSource.clip = audioClip;
+        audioSource.Play();
+    }
+
     // OnEvents
-    public virtual void OnPickUp() => Events?.onPickup.Invoke();
+    public virtual void OnPickUp()
+    {
+        Events?.onPickup.Invoke();
+        PlaySound(SoundManager.SoundType.RunePickup, pickUpSound);
+    }
     public virtual void OnGroundPickUp() => Events?.onGroundPickup.Invoke();
     public virtual void OnAlterPickUp() => Events?.onAlterPickup.Invoke();
-    public virtual void OnDropped() => Events?.onDrop.Invoke();
-    public virtual void OnKicked() => Events?.onAlterKicked.Invoke();
-    public virtual void OnAlterPlace() => Events?.onAlterPlaced.Invoke();
+    public virtual void OnDropped()
+    {
+        Events?.onDrop.Invoke();
+        PlaySound(SoundManager.SoundType.RunePlacement, dropSound);
+    }
+    public virtual void OnKicked()
+    {
+        Events?.onAlterKicked.Invoke();
+        PlaySound(SoundManager.SoundType.RunePlacement, kickSound);
+    }
+    public virtual void OnAlterPlace()
+    {
+        Events?.onAlterPlaced.Invoke();
+        PlaySound(SoundManager.SoundType.RunePlacement, placeSound);
+    }
     // AfterEvents
     //public virtual void AfterPickUp() => AfterEvents?.afterPickup.Invoke();
     //public virtual void AfterGroundPickUp() => AfterEvents?.afterGroundPickup.Invoke();
@@ -80,6 +122,7 @@ public class Rune : MonoBehaviour, IInteract
         Events = GetComponent<RuneEvents>();
         AfterEvents = GetComponent<RuneAfterEvents>();
         originalPosition = transform.position;
+        audioSource = GetComponent<AudioSource>();
     }
     protected virtual void Start()
     {
