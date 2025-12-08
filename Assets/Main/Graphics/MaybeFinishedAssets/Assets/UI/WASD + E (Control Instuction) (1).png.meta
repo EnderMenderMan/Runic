@@ -1,0 +1,1014 @@
+fileFormatVersion: 2
+guid: 726fb1cca5514fb41ba05aece4fa9bc4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4416580302041136176
+    second: WASD + E (Control Instuction) (1)_0
+  - first:
+      213: -1344126417349523155
+    second: WASD + E (Control Instuction) (1)_1
+  - first:
+      213: -5819068357692517071
+    second: WASD + E (Control Instuction) (1)_2
+  - first:
+      213: 6620485764275184208
+    second: WASD + E (Control Instuction) (1)_3
+  - first:
+      213: -8158411801730099415
+    second: WASD + E (Control Instuction) (1)_4
+  - first:
+      213: 7437907727495892361
+    second: WASD + E (Control Instuction) (1)_5
+  - first:
+      213: -7099982609459786526
+    second: WASD + E (Control Instuction) (1)_6
+  - first:
+      213: -9160818268628731460
+    second: WASD + E (Control Instuction) (1)_7
+  - first:
+      213: -8000050240150703923
+    second: WASD + E (Control Instuction) (1)_8
+  - first:
+      213: -1776274323311498360
+    second: WASD + E (Control Instuction) (1)_9
+  - first:
+      213: -7430870881661178652
+    second: WASD + E (Control Instuction) (1)_10
+  - first:
+      213: 6829003372743135654
+    second: WASD + E (Control Instuction) (1)_11
+  - first:
+      213: -6114655964774559028
+    second: WASD + E (Control Instuction) (1)_12
+  - first:
+      213: 8877922869447456648
+    second: WASD + E (Control Instuction) (1)_13
+  - first:
+      213: 5940690100818392354
+    second: WASD + E (Control Instuction) (1)_14
+  - first:
+      213: 734840509425211167
+    second: WASD + E (Control Instuction) (1)_15
+  - first:
+      213: -1863528365815805119
+    second: WASD + E (Control Instuction) (1)_16
+  - first:
+      213: -8522108123319641723
+    second: WASD + E (Control Instuction) (1)_17
+  - first:
+      213: -714636866956791051
+    second: WASD + E (Control Instuction) (1)_18
+  - first:
+      213: 784557679380962217
+    second: WASD + E (Control Instuction) (1)_19
+  - first:
+      213: -6323226625238352641
+    second: WASD + E (Control Instuction) (1)_20
+  - first:
+      213: 2253201235353029798
+    second: WASD + E (Control Instuction) (1)_21
+  - first:
+      213: -5034927343965004098
+    second: WASD + E (Control Instuction) (1)_22
+  - first:
+      213: -7833000954320246116
+    second: WASD + E (Control Instuction) (1)_23
+  - first:
+      213: -7073312636049841991
+    second: WASD + E (Control Instuction) (1)_24
+  - first:
+      213: -3654067130608269002
+    second: WASD + E (Control Instuction) (1)_25
+  - first:
+      213: 1788343227781892041
+    second: WASD + E (Control Instuction) (1)_26
+  - first:
+      213: 8615560334756279818
+    second: WASD + E (Control Instuction) (1)_27
+  - first:
+      213: -7161051972015240763
+    second: WASD + E (Control Instuction) (1)_28
+  - first:
+      213: -2841654456247231722
+    second: WASD + E (Control Instuction) (1)_29
+  - first:
+      213: 4877671798327659197
+    second: WASD + E (Control Instuction) (1)_30
+  - first:
+      213: 6727130370068525852
+    second: WASD + E (Control Instuction) (1)_31
+  - first:
+      213: 2511101897102985523
+    second: WASD + E (Control Instuction) (1)_32
+  - first:
+      213: -2501260741959507346
+    second: WASD + E (Control Instuction) (1)_33
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_0
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 581
+        width: 31
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03c36297268da4d30800000000000000
+      internalID: 4416580302041136176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_1
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 660
+        width: 59
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d29c9a81524b85de0800000000000000
+      internalID: -1344126417349523155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_2
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 636
+        width: 43
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1359500d8248e3fa0800000000000000
+      internalID: -5819068357692517071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_3
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 590
+        width: 32
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 052272cc9b0b0eb50800000000000000
+      internalID: 6620485764275184208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_4
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 592
+        width: 27
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 927d58201bf77ce80800000000000000
+      internalID: -8158411801730099415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_5
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 598
+        width: 36
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98d8681aba1c83760800000000000000
+      internalID: 7437907727495892361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_6
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 593
+        width: 31
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ecc2bb1f6bc77d90800000000000000
+      internalID: -7099982609459786526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_7
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 597
+        width: 58
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb9b97e125c3ed080800000000000000
+      internalID: -9160818268628731460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_8
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 599
+        width: 67
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc0f98251bc1af090800000000000000
+      internalID: -8000050240150703923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_9
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 397
+        width: 186
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88bee5ff9e76957e0800000000000000
+      internalID: -1776274323311498360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_10
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 397
+        width: 177
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ecaac6bd4e30e890800000000000000
+      internalID: -7430870881661178652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_11
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 540
+        width: 97
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a19c4ac26e75ce50800000000000000
+      internalID: 6829003372743135654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_12
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 404
+        width: 41
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc293effbc0642ba0800000000000000
+      internalID: -6114655964774559028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_13
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 398
+        width: 32
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8877bb000d7b43b70800000000000000
+      internalID: 8877922869447456648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_14
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 327
+        width: 84
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 225b5fbeb22917250800000000000000
+      internalID: 5940690100818392354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_15
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 400
+        width: 65
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f175bdacc8da23a00800000000000000
+      internalID: 734840509425211167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_16
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 204
+        width: 171
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14b4fae13da6326e0800000000000000
+      internalID: -1863528365815805119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_17
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 215
+        width: 181
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 589df0c50d36bb980800000000000000
+      internalID: -8522108123319641723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_18
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 210
+        width: 183
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f274a94e891516f0800000000000000
+      internalID: -714636866956791051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_19
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 317
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ab9e497d0f43ea00800000000000000
+      internalID: 784557679380962217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_20
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 304
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffc3060e2e26f38a0800000000000000
+      internalID: -6323226625238352641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_21
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 286
+        width: 8
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ac40b8e59af44f10800000000000000
+      internalID: 2253201235353029798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_22
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 100
+        width: 48
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebe9011c148502ab0800000000000000
+      internalID: -5034927343965004098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_23
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 194
+        width: 121
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9a227012279b4390800000000000000
+      internalID: -7833000954320246116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_24
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 128
+        width: 47
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b0a7fe22ab86dd90800000000000000
+      internalID: -7073312636049841991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_25
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 130
+        width: 34
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 639c9a60e452a4dc0800000000000000
+      internalID: -3654067130608269002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_26
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 135
+        width: 41
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c74a6cc0b871d810800000000000000
+      internalID: 1788343227781892041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_27
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 177
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a06f71e2a7e909770800000000000000
+      internalID: 8615560334756279818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_28
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 46
+        width: 47
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c9cbed1c25de9c90800000000000000
+      internalID: -7161051972015240763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_29
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 137
+        width: 13
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61b5af8e35a6098d0800000000000000
+      internalID: -2841654456247231722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_30
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 84
+        width: 40
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbac24658a8f0b340800000000000000
+      internalID: 4877671798327659197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_31
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 49
+        width: 39
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c133da10e619b5d50800000000000000
+      internalID: 6727130370068525852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_32
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 52
+        width: 48
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33902abfed939d220800000000000000
+      internalID: 2511101897102985523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD + E (Control Instuction) (1)_33
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 51
+        width: 38
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e62afd08b9cb94dd0800000000000000
+      internalID: -2501260741959507346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      WASD + E (Control Instuction) (1)_0: 4416580302041136176
+      WASD + E (Control Instuction) (1)_1: -1344126417349523155
+      WASD + E (Control Instuction) (1)_10: -7430870881661178652
+      WASD + E (Control Instuction) (1)_11: 6829003372743135654
+      WASD + E (Control Instuction) (1)_12: -6114655964774559028
+      WASD + E (Control Instuction) (1)_13: 8877922869447456648
+      WASD + E (Control Instuction) (1)_14: 5940690100818392354
+      WASD + E (Control Instuction) (1)_15: 734840509425211167
+      WASD + E (Control Instuction) (1)_16: -1863528365815805119
+      WASD + E (Control Instuction) (1)_17: -8522108123319641723
+      WASD + E (Control Instuction) (1)_18: -714636866956791051
+      WASD + E (Control Instuction) (1)_19: 784557679380962217
+      WASD + E (Control Instuction) (1)_2: -5819068357692517071
+      WASD + E (Control Instuction) (1)_20: -6323226625238352641
+      WASD + E (Control Instuction) (1)_21: 2253201235353029798
+      WASD + E (Control Instuction) (1)_22: -5034927343965004098
+      WASD + E (Control Instuction) (1)_23: -7833000954320246116
+      WASD + E (Control Instuction) (1)_24: -7073312636049841991
+      WASD + E (Control Instuction) (1)_25: -3654067130608269002
+      WASD + E (Control Instuction) (1)_26: 1788343227781892041
+      WASD + E (Control Instuction) (1)_27: 8615560334756279818
+      WASD + E (Control Instuction) (1)_28: -7161051972015240763
+      WASD + E (Control Instuction) (1)_29: -2841654456247231722
+      WASD + E (Control Instuction) (1)_3: 6620485764275184208
+      WASD + E (Control Instuction) (1)_30: 4877671798327659197
+      WASD + E (Control Instuction) (1)_31: 6727130370068525852
+      WASD + E (Control Instuction) (1)_32: 2511101897102985523
+      WASD + E (Control Instuction) (1)_33: -2501260741959507346
+      WASD + E (Control Instuction) (1)_4: -8158411801730099415
+      WASD + E (Control Instuction) (1)_5: 7437907727495892361
+      WASD + E (Control Instuction) (1)_6: -7099982609459786526
+      WASD + E (Control Instuction) (1)_7: -9160818268628731460
+      WASD + E (Control Instuction) (1)_8: -8000050240150703923
+      WASD + E (Control Instuction) (1)_9: -1776274323311498360
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
