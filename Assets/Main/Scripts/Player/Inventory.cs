@@ -69,10 +69,9 @@ public class Inventory : MonoBehaviour
         { heldRune.gameObject.SetActive(true); return false; }
         heldRune.gameObject.SetActive(true);
 
-        heldRune.IsInteractDisabled = false;
         heldRune.transform.position = WorldData.Instance != null ? WorldData.Instance.WorldGrid.WorldToCell(position) + WorldData.Instance.WorldGrid.cellSize / 2 : position;
         heldRune.AfterDropped();
-        heldRune = null;
+        ShadowForceDropRune(); // TODO: test change order
         return true;
     }
 
@@ -91,7 +90,7 @@ public class Inventory : MonoBehaviour
     }
     void Start()
     {
-        // PlayerInteract.Instance.OnNoInteract.AddListener(DropRune);
+        PlayerInteract.Instance.OnNoInteract.AddListener(DropRuneSub);
     }
 
 
@@ -101,6 +100,8 @@ public class Inventory : MonoBehaviour
             heldRune.transform.position = transform.position;
 
     }
+
+    void DropRuneSub() => DropRune();
 }
 
 

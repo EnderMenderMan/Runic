@@ -5,10 +5,6 @@ public class ShootRune : Rune
     [SerializeField] float proectileSpeed;
     [SerializeField] Transform projectileSpawnPoint;
     [SerializeField] GameObject projectilePrefab;
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()

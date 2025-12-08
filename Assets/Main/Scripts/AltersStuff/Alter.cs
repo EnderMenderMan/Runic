@@ -135,60 +135,62 @@ public class Alter : MonoBehaviour, IInteract
         switch (data.type)
         {
             case InteractType.Player:
-
-                if (Inventory.PlayerInventory.heldRune && alterCluster.TryItemBePlaced(Inventory.PlayerInventory.heldRune, clusterIndex) == false)
-                {
-                    if (Inventory.PlayerInventory.heldRune == null) // heldRune can be drop by TryItemBePlaced() function. see RuneRune TryBePlaced() override function
-                        return;
-
-                    Rune heldRune = Inventory.PlayerInventory.heldRune;
-                    Inventory.PlayerInventory.DropRune();
-                    if (heldRune.resetPositionWhenDropedOrKicked == false)
-                        heldRune.transform.position = transform.position + kickOffset;
-                    return;
-                }
-
-                if (Inventory.PlayerInventory.heldRune && equippedRune)
-                {
-                    if (canPickupItems == false)
-                        return;
-
-                    Rune heldRune = Inventory.PlayerInventory.heldRune;
-
-                    if (Inventory.PlayerInventory.CanPickupRune(equippedRune) == false)
-                        return;
-
-                    Rune oldEquippedRune = equippedRune;
-                    TryKickItem(true);
-                    PlayerTryPickUp(oldEquippedRune);
-                    PlaceItem(heldRune);
-                    return;
-                }
-
-                if (equippedRune)
-                {
-                    if (canPickupItems == false)
-                        return;
-
-                    if (Inventory.PlayerInventory.CanPickupRune(equippedRune) == false)
-                        return;
-
-                    Rune oldEquippedRune = equippedRune;
-                    TryKickItem(true);
-                    PlayerTryPickUp(oldEquippedRune);
-                    return;
-                }
-
-                if (Inventory.PlayerInventory.heldRune)
-                {
-                    Rune rune = Inventory.PlayerInventory.heldRune;
-                    Inventory.PlayerInventory.ShadowForceDropRune();
-                    PlaceItem(rune);
-                    return;
-                }
-
+                PlayerInteract(data);
                 break;
         }
 
+    }
+    void PlayerInteract(InteractData data)
+    {
+        if (Inventory.PlayerInventory.heldRune && alterCluster.TryItemBePlaced(Inventory.PlayerInventory.heldRune, clusterIndex) == false)
+        {
+            if (Inventory.PlayerInventory.heldRune == null) // heldRune can be drop by TryItemBePlaced() function. see RuneRune TryBePlaced() override function
+                return;
+
+            Rune heldRune = Inventory.PlayerInventory.heldRune;
+            Inventory.PlayerInventory.DropRune();
+            if (heldRune.resetPositionWhenDropedOrKicked == false)
+                heldRune.transform.position = transform.position + kickOffset;
+            return;
+        }
+
+        if (Inventory.PlayerInventory.heldRune && equippedRune)
+        {
+            if (canPickupItems == false)
+                return;
+
+            Rune heldRune = Inventory.PlayerInventory.heldRune;
+
+            if (Inventory.PlayerInventory.CanPickupRune(equippedRune) == false)
+                return;
+
+            Rune oldEquippedRune = equippedRune;
+            TryKickItem(true);
+            PlayerTryPickUp(oldEquippedRune);
+            PlaceItem(heldRune);
+            return;
+        }
+
+        if (equippedRune)
+        {
+            if (canPickupItems == false)
+                return;
+
+            if (Inventory.PlayerInventory.CanPickupRune(equippedRune) == false)
+                return;
+
+            Rune oldEquippedRune = equippedRune;
+            TryKickItem(true);
+            PlayerTryPickUp(oldEquippedRune);
+            return;
+        }
+
+        if (Inventory.PlayerInventory.heldRune)
+        {
+            Rune rune = Inventory.PlayerInventory.heldRune;
+            Inventory.PlayerInventory.ShadowForceDropRune();
+            PlaceItem(rune);
+            return;
+        }
     }
 }

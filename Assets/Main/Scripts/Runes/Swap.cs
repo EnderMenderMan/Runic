@@ -22,10 +22,10 @@ public class Swap : Rune
         Debug.Log($"Position1: {position1}");
     }
 
-    public  void TriggerRunePlacement(int itemIndex, Alter[] alters)
+    public override void TriggerRunePlacement(int itemIndex, Alter[] alters)
     {
-       // base.TriggerRunePlacement(itemIndex, alters);
-       
+        // base.TriggerRunePlacement(itemIndex, alters);
+
 
     }
     public Vector3 Position1()

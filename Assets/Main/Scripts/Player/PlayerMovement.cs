@@ -50,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (stopGrow)
         {
+            // check if it shrinks and if so start to grow again (or more accuracte srink)
             foreach (ChangeStackValues value in changeSizeStack)
             {
                 float change = value.changeRate * Time.deltaTime;
@@ -59,7 +60,9 @@ public class PlayerMovement : MonoBehaviour
                 }
                 totalChangeThisFrame += change;
             }
-            if (totalChangeThisFrame > 0)
+
+            // if collider collided than revert size back to previus size
+            if (totalChangeThisFrame > 0 && transform.localScale.x > previusScale.x)
             {
                 transform.localScale = previusScale;
                 foreach (ChangeStackValues value in changeSizeStack)
@@ -73,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
             totalChangeThisFrame = 0;
         }
 
+        // get size changes
         for (int i = changeSizeStack.Count - 1; i >= 0; i--)
         {
             if (changeSizeStack[i].sizeToChange == 0)

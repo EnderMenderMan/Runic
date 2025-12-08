@@ -61,7 +61,7 @@ public class PlayerInteract : MonoBehaviour
             }
 
             if (interacted == false)
-                Inventory.PlayerInventory.DropRune();//OnNoInteract?.Invoke();
+                OnNoInteract?.Invoke();
         };
         InputActions.Player.Interact.Enable();
 
