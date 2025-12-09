@@ -1,12 +1,15 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+  [Tooltip("When you press th escape button")] public UnityEvent OnESCPressed;
   private void Update()
   {
-    if (Input.GetKeyDown(KeyCode.Escape))
-      LoadScene(0);
+    if (Input.GetKeyDown(KeyCode.Escape)) 
+      OnESCPressed.Invoke();
+
   }
 
   public void TestLog(string input = "TEST")
