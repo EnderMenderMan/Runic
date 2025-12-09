@@ -9,9 +9,18 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed;
     private Vector2 dir;
+    private Vector2 dirClamped;
+    private Vector2[] dirPressedOrder = new Vector2[4];
+    private int dirPressedOrderCountainLength;
     public static Vector2 FacingDirection { get; private set; }
     public static float MovingSpeed { get; private set; }
     public static PlayerMovement Instance { get; private set; }
+
+    [Header("Grid Based Movement")]
+    [SerializeField] bool enableGridBasedMovement;
+    [SerializeField] Vector2 gridOffset;
+    [SerializeField] LayerMask gridMovementCollideWithLayers;
+    Vector2 gridTargetPos;
 
     private Rigidbody2D rb;
     Animator animator;
@@ -23,6 +32,68 @@ public class PlayerMovement : MonoBehaviour
     bool stopGrow, hasReverted;
     Vector3 previusScale;
 
+    void AddDirPressedOrder(Vector2 dir)
+    {
+        for (int i = 0; i < dirPressedOrder.Length; i++)
+        {
+            if (dirPressedOrder[i] != Vector2.zero)
+                continue;
+            dirPressedOrder[i] = dir;
+            dirPressedOrderCountainLength++;
+            break;
+        }
+    }
+    void RemovePressedOrder(Vector2 dir)
+    {
+        int foundDirIndex = -1;
+        for (int i = 0; i < dirPressedOrder.Length; i++)
+        {
+            if (foundDirIndex == -1 && dirPressedOrder[i] != dir)
+                continue;
+            if (foundDirIndex == -1)
+            {
+                dirPressedOrderCountainLength--;
+                foundDirIndex = i;
+                if (i == dirPressedOrder.Length - 1)
+                    dirPressedOrder[i] = Vector2.zero;
+                continue;
+            }
+            dirPressedOrder[i - 1] = dirPressedOrder[i];
+            if (i == dirPressedOrder.Length - 1)
+                dirPressedOrder[i] = Vector2.zero;
+
+        }
+    }
+    Vector2 GetLastDirPressed() => dirPressedOrder[dirPressedOrderCountainLength - 1];
+    Vector2 GetVectorClampToOne(Vector2 vec)
+    {
+        vec.x = GetFloatClampToOne(vec.x);
+        vec.y = GetFloatClampToOne(vec.y);
+        return vec;
+    }
+    float GetFloatClampToOne(float value)
+    {
+        if (value == 0)
+            return 0;
+        if (value < 0)
+            return -1;
+
+        return 1;
+    }
+    int CountVectorValues(Vector2 vec, float value)
+    {
+        if (vec.x == value && vec.y == value)
+            return 2;
+        if (vec.x == value || vec.y == value)
+            return 1;
+        return 0;
+    }
+    Vector3 ScaleByWorlGridCellSize(Vector3 vec)
+    {
+        vec.Scale(WorldData.Instance.WorldGrid.cellSize);
+        return vec;
+    }
+
     void Awake()
     {
     }
@@ -32,13 +103,58 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         PlayerInteract.Instance.interactColliderDetection.offset = PlayerInteract.Instance.interactColiderDownOffest;
+
+        if (enableGridBasedMovement && WorldData.Instance == null)
+            enableGridBasedMovement = false;
+
+        if (enableGridBasedMovement)
+        {
+            transform.position = WorldData.Instance.GetCorrenctionToCellCenter(transform.position) + (Vector3)gridOffset;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.linearVelocity = dir * speed;
+        if (enableGridBasedMovement)
+            UpdateGridMovement();
+        else
+            UpdateNormalMovement();
+
         UpdateSize();
+    }
+    void UpdateGridMovement()
+    {
+        if (MovingSpeed == 0)
+            return;
+        Vector2 movePoint = Vector2.MoveTowards(transform.position, gridTargetPos, speed * Time.deltaTime);
+        transform.position = movePoint;
+        if (Vector2.Distance(transform.position, gridTargetPos) < 0.01f)
+        {
+            MovingSpeed = 0;
+            transform.position = gridTargetPos;
+            if (dirPressedOrderCountainLength == 0)
+                return;
+
+            SetGridMovementTargetPosition(transform.position + ScaleByWorlGridCellSize(GetLastDirPressed()));
+        }
+
+    }
+
+    void SetGridMovementTargetPosition(Vector2 position)
+    {
+        if (MovingSpeed != 0)
+            return;
+
+        gridTargetPos = WorldData.Instance.GetCorrenctionToCellCenter(position - gridOffset);
+        if (WorldData.Instance.IsGridSpaceFree(gridTargetPos, gridMovementCollideWithLayers) == false)
+            return;
+        gridTargetPos += gridOffset;
+        MovingSpeed = speed;
+    }
+    void UpdateNormalMovement()
+    {
+        rb.linearVelocity = dir * speed;
     }
 
     void UpdateSize()
@@ -129,9 +245,22 @@ public class PlayerMovement : MonoBehaviour
         PlayerInteract.Instance.InputActions.Player.Move.performed += context =>
         {
             animator.SetBool("IsMoving", true);
-            dir = context.ReadValue<Vector2>();
+            Vector2 contextValue = context.ReadValue<Vector2>();
+            Vector2 contextValueClamped = GetVectorClampToOne(contextValue);
+            if (CountVectorValues(contextValueClamped, 0) < CountVectorValues(dir, 0))
+                AddDirPressedOrder(contextValueClamped - dirClamped);
+            else
+                RemovePressedOrder(dirClamped - contextValueClamped);
+            dirClamped = contextValueClamped;
+            dir = contextValue;
+            // Debug.Log("New: " + GetLastDirPressed() + " : " + contextValue);
+
             FacingDirection = dir;
-            MovingSpeed = speed;
+
+            if (enableGridBasedMovement)
+                SetGridMovementTargetPosition(transform.position + ScaleByWorlGridCellSize(GetLastDirPressed()));
+            else if (enableGridBasedMovement == false)
+                MovingSpeed = speed;
 
             if (dir.x != 0)
             {
@@ -157,9 +286,15 @@ public class PlayerMovement : MonoBehaviour
         };
         PlayerInteract.Instance.InputActions.Player.Move.canceled += context =>
         {
-            MovingSpeed = 0;
+            if (enableGridBasedMovement == false)
+                MovingSpeed = 0;
             animator.SetBool("IsMoving", false);
+
             dir = Vector2.zero;
+            dirClamped = Vector2.zero;
+            for (int i = 0; i < dirPressedOrderCountainLength; i++)
+                dirPressedOrder[i] = Vector2.zero;
+            dirPressedOrderCountainLength = 0;
         };
         PlayerInteract.Instance.InputActions.Player.Move.Enable();
     }

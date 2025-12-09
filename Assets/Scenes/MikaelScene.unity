@@ -3854,6 +3854,10 @@ PrefabInstance:
       propertyPath: interactCollider
       value: 
       objectReference: {fileID: 1122158694}
+    - target: {fileID: 8865646075807917799, guid: 00e8d4d1bc3288a4ca5b7c2f5d0e7292, type: 3}
+      propertyPath: enableGridBasedMovement
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4903,7 +4907,7 @@ Transform:
   m_GameObject: {fileID: 1165673386}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.7197456, y: 1.677062, z: 0.041336287}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

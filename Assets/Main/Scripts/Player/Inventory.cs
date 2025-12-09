@@ -94,7 +94,7 @@ public class Inventory : MonoBehaviour
     }
 
 
-    void Update()
+    void LateUpdate()
     {
         if (heldRune)
             heldRune.transform.position = transform.position;

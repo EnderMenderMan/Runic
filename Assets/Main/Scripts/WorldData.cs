@@ -17,12 +17,14 @@ public class WorldData : MonoBehaviour
         Instance = this;
     }
 
-    public bool IsGridSpaceFree(Vector2 position)
+    public bool IsGridSpaceFree(Vector2 position) => IsGridSpaceFree(position, gridCheckLayerMask);
+    public bool IsGridSpaceFree(Vector2 position, LayerMask collideWithLayers)
     {
-        position = (Vector3)WorldGrid.WorldToCell((Vector3)position);
-        if (Physics2D.OverlapCircle(position, 0.1f, gridCheckLayerMask) != null)
+        position = GetCorrenctionToCellCenter((Vector3)position);
+        if (Physics2D.OverlapCircle(position, 0.1f, collideWithLayers) != null)
             return false;
         return true;
     }
+
     public Vector3 GetCorrenctionToCellCenter(Vector3 position) => WorldGrid.GetCellCenterLocal(WorldGrid.WorldToCell(position));
 }

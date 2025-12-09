@@ -134,6 +134,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  enableGridBasedMovement: 0
+  gridOffset: {x: 0, y: 0}
+  gridMovementCollideWithLayers:
+    serializedVersion: 2
+    m_Bits: 257
 --- !u!114 &7521447169702660678
 MonoBehaviour:
   m_ObjectHideFlags: 0
