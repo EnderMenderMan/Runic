@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(AudioSource), typeof(Animator))]
 public class Rune : MonoBehaviour, IInteract
 {
     [System.Serializable]
@@ -32,6 +32,7 @@ public class Rune : MonoBehaviour, IInteract
     protected Vector3 originalPosition;
     [field: SerializeField] public Tags tags;
     public bool IsInteractDisabled { get; set; }
+    public Animator animator { get; private set; }
 
 
     public virtual void TriggerRunePlacement(int itemIndex, Alter[] alters)
@@ -121,6 +122,7 @@ public class Rune : MonoBehaviour, IInteract
     protected virtual void Awake()
     {
         tags.Init();
+        animator = GetComponent<Animator>();
         Events = GetComponent<RuneEvents>();
         AfterEvents = GetComponent<RuneAfterEvents>();
         originalPosition = transform.position;

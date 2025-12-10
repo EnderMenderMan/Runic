@@ -32,8 +32,7 @@ public class Alter : MonoBehaviour, IInteract
     {
         interferanceCount++;
         lockInterferance.Add(new(canPickupItems, canKickItems, interferanceCount));
-        this.canPickupItems = canPickupItems;
-        this.canKickItems = canKickItems;
+        SetLock(canPickupItems, canKickItems);
         return interferanceCount;
     }
     public void RemoveLockInterferance(int id)
@@ -50,8 +49,7 @@ public class Alter : MonoBehaviour, IInteract
             }
             else
             {
-                canKickItems = lockInterferance[^1].canKickItems;
-                canPickupItems = lockInterferance[^1].canPickupItems;
+                SetLock(lockInterferance[^1].canPickupItems, lockInterferance[^1].canKickItems);
             }
             break;
         }
@@ -60,8 +58,19 @@ public class Alter : MonoBehaviour, IInteract
     {
         interferanceCount = 0;
         lockInterferance.Clear();
-        canPickupItems = canPickupItemsOriginalValue;
-        canKickItems = canKickItemsOrigninalValue;
+        SetLock(canPickupItemsOriginalValue, canKickItemsOrigninalValue);
+    }
+    void SetLock(bool canPickupItems, bool canKickItems)
+    {
+        this.canKickItems = canKickItems;
+        this.canPickupItems = canPickupItems;
+        if (equippedRune == null)
+            return;
+        if (canKickItems)
+            equippedRune.animator.SetBool("IsLocked", false);
+        else
+            equippedRune.animator.SetBool("IsLocked", true);
+
     }
 
 
@@ -217,16 +226,13 @@ public class Alter : MonoBehaviour, IInteract
 
     IEnumerator KickCorutine(float kickTime)
     {
-        Animator animator = equippedRune.GetComponent<Animator>();
-        if (animator != null)
-            animator.SetBool("IsKicked", true);
+        equippedRune.animator.SetBool("IsKicked", true);
         while (kickTime > 0 && stopkickCorutine == false)
         {
             kickTime -= Time.deltaTime;
             yield return null;
         }
-        if (animator != null)
-            animator.SetBool("IsKicked", false);
+        equippedRune.animator.SetBool("IsKicked", false);
 
         if (stopkickCorutine == false)
             KickItemWithoutDelay(true);
