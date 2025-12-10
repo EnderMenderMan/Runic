@@ -3789,6 +3789,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7169545167368832228, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
+      propertyPath: kickDelay
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169545167368832228, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
       propertyPath: canKickItems
       value: 1
       objectReference: {fileID: 0}

@@ -18,6 +18,7 @@ public class Alter : MonoBehaviour, IInteract
 
     [SerializeField] float kickDelay = 1f;
     Coroutine kickCorutine;
+    bool stopkickCorutine;
 
 
 
@@ -74,6 +75,10 @@ public class Alter : MonoBehaviour, IInteract
         alterCluster = cluster;
         this.clusterIndex = clusterIndex;
     }
+    public void StopKickCorutine()
+    {
+        stopkickCorutine = true;
+    }
     public bool TryKickItem(bool forceDrop)
     {
         if (equippedRune == null)
@@ -82,7 +87,7 @@ public class Alter : MonoBehaviour, IInteract
             return false;
         if (kickCorutine != null)
             StopCoroutine(kickCorutine);
-        StartCoroutine(KickCorutine(kickDelay));
+        kickCorutine = StartCoroutine(KickCorutine(kickDelay));
         return true;
     }
     bool KickItemWithoutDelay(bool forceDrop = true)
@@ -215,7 +220,7 @@ public class Alter : MonoBehaviour, IInteract
         Animator animator = equippedRune.GetComponent<Animator>();
         if (animator != null)
             animator.SetBool("IsKicked", true);
-        while (kickTime > 0)
+        while (kickTime > 0 && stopkickCorutine == false)
         {
             kickTime -= Time.deltaTime;
             yield return null;
@@ -223,6 +228,8 @@ public class Alter : MonoBehaviour, IInteract
         if (animator != null)
             animator.SetBool("IsKicked", false);
 
-        KickItemWithoutDelay(true);
+        if (stopkickCorutine == false)
+            KickItemWithoutDelay(true);
+        stopkickCorutine = false;
     }
 }

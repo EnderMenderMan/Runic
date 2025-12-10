@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -8,33 +9,46 @@ public class KickRune : Rune
 
     public override void TriggerRunePlacement(int itemIndex, Alter[] alters)
     {
+        foreach (Alter alter in GetKickFilterAlters(itemIndex, alters))
+            alter.TryKickItem(false);
+    }
+    public override void OnKicked()
+    {
+        foreach (Alter alter in GetKickFilterAlters(alter.clusterIndex, alter.alterCluster.alters))
+            alter.StopKickCorutine();
+        base.OnKicked();
+    }
+
+    List<Alter> GetKickFilterAlters(int alterIndex, Alter[] alters)
+    {
+        List<Alter> selectedAlters = new List<Alter>();
         foreach (var filter in kickFilters)
         {
             if (kickItemIndexOffsets.Length == 0)
             {
                 for (int i = 0; i < alters.Length; i++)
                 {
-                    if (i == itemIndex)
+                    if (i == alterIndex)
                         continue;
                     if (alters[i].equippedRune == null)
                         continue;
                     if (filter.RunFilter(alters[i].equippedRune.tags) == false)
                         continue;
-                    alters[i].TryKickItem(false);
+                    selectedAlters.Add(alters[i]);
                 }
                 continue;
             }
 
             for (int i = 0; i < kickItemIndexOffsets.Length; i++)
             {
-                int tryIndex = itemIndex + kickItemIndexOffsets[i];
+                int tryIndex = alterIndex + kickItemIndexOffsets[i];
                 if (tryIndex < 0 || tryIndex >= alters.Length)
                     continue;
                 if (alters[tryIndex].equippedRune == null)
                     continue;
                 if (filter.RunFilter(alters[tryIndex].equippedRune.tags) == false)
                     continue;
-                alters[tryIndex].TryKickItem(false);
+                selectedAlters.Add(alters[i]);
             }
         }
 
@@ -42,13 +56,14 @@ public class KickRune : Rune
         {
             for (int i = 0; i < kickItemIndexOffsets.Length; i++)
             {
-                int tryIndex = itemIndex + kickItemIndexOffsets[i];
+                int tryIndex = alterIndex + kickItemIndexOffsets[i];
                 if (tryIndex < 0 || tryIndex >= alters.Length)
                     continue;
                 if (alters[tryIndex].equippedRune == null)
                     continue;
-                alters[tryIndex].TryKickItem(false);
+                selectedAlters.Add(alters[i]);
             }
         }
+        return selectedAlters;
     }
 }
