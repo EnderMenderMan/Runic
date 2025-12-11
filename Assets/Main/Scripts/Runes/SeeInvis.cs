@@ -25,6 +25,7 @@ public class SeeInvis : Rune
     {
         base.OnDropped();
         onDrop.Invoke();
+        radarParticles.Stop();
     }
 
     IEnumerator StartRadarParticles()
