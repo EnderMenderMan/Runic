@@ -21,6 +21,7 @@ public class Rune : MonoBehaviour, IInteract
 
     }
 
+    [SerializeField] private ParticleSystem trailParticles;
     [SerializeField] RuneAudio audio;
 
 
@@ -31,6 +32,7 @@ public class Rune : MonoBehaviour, IInteract
     [NonSerialized][CanBeNull] public Alter alter;
     public bool resetPositionWhenDropedOrKicked;
     protected Vector3 originalPosition;
+    private Collider2D[] colliders;
     [field: SerializeField] public Tags tags;
     public bool IsInteractDisabled { get; set; }
     public Animator animator { get; private set; }
@@ -122,9 +124,10 @@ public class Rune : MonoBehaviour, IInteract
     IEnumerator RestPositionCorutine()
     {
         IsInteractDisabled = true;
-        ParticleSystem particleSystem = GetComponentInChildren<ParticleSystem>(); // May whant to change to some other method
-        if (particleSystem != null)
-            particleSystem.Play();
+        if (trailParticles == null) 
+            trailParticles = GetComponentInChildren<ParticleSystem>();
+        if (trailParticles != null)
+            trailParticles.Play();
         yield return null;
         while (Vector2.Distance(transform.position, originalPosition) > 0.01f)
         {
@@ -132,10 +135,17 @@ public class Rune : MonoBehaviour, IInteract
             yield return null;
         }
         transform.position = originalPosition;
-        if (particleSystem != null)
-            particleSystem.Stop();
+        if (trailParticles != null)
+            trailParticles.Stop();
         IsInteractDisabled = false;
 
+    }
+
+    public void SetCollidersActive(bool value)
+    {
+        colliders ??= GetComponentsInChildren<Collider2D>();
+        foreach (var col in colliders)
+            col.enabled = value;
     }
 
     protected virtual void Awake()

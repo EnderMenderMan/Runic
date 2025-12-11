@@ -8,10 +8,10 @@ public class Inventory : MonoBehaviour
     {
         if (heldRune != null)
         {
-            rune.gameObject.SetActive(false);
+            rune.SetCollidersActive(false);
             if (DropRuneAtPosition(rune.transform.position) == false)
-            { rune.gameObject.SetActive(true); return false; }
-            rune.gameObject.SetActive(true);
+            { rune.SetCollidersActive(true); return false; }
+            rune.SetCollidersActive(true);
         }
 
         ShadowForcePickUp(rune);
@@ -64,10 +64,10 @@ public class Inventory : MonoBehaviour
         if (heldRune == null)
             return false;
         heldRune.OnDropped();
-        heldRune.gameObject.SetActive(false);
+        heldRune.SetCollidersActive(false);
         if (WorldData.Instance != null && WorldData.Instance.IsGridSpaceFree(position) == false)
-        { heldRune.gameObject.SetActive(true); return false; }
-        heldRune.gameObject.SetActive(true);
+        { heldRune.SetCollidersActive(true); return false; }
+        heldRune.SetCollidersActive(true);
 
         heldRune.transform.position = WorldData.Instance != null ? WorldData.Instance.WorldGrid.WorldToCell(position) + WorldData.Instance.WorldGrid.cellSize / 2 : position;
         heldRune.AfterDropped();
