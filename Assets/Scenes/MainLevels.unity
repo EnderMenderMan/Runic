@@ -10513,7 +10513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridCheckLayerMask:
     serializedVersion: 2
-    m_Bits: 448
+    m_Bits: 320
   <WorldGrid>k__BackingField: {fileID: 46631159}
 --- !u!1001 &169555891
 PrefabInstance:
