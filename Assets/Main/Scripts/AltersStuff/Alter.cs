@@ -15,6 +15,9 @@ public class Alter : MonoBehaviour, IInteract
     [SerializeField] Vector3 kickOffset;
     [CanBeNull] public Rune equippedRune;
     [CanBeNull] public AlterEvents Events { get; private set; }
+    [SerializeField] public SpriteRenderer AlterSymbol;
+    [SerializeField] public Sprite OnSprite;
+    [SerializeField] public Sprite OffSprite;
 
     [SerializeField] float kickDelay = 1f;
     Coroutine kickCorutine;
@@ -126,7 +129,9 @@ public class Alter : MonoBehaviour, IInteract
         rune.transform.position = transform.position + (Vector3)offsetRunePosition;
         alterCluster.TriggerItemPlacement(clusterIndex);
         Events?.onRunePlaced.Invoke();
+        AlterSymbol.sprite = OnSprite;
         rune.AfterAlterPlace();
+        
     }
     void DropRune()
     {
@@ -158,6 +163,7 @@ public class Alter : MonoBehaviour, IInteract
         { Inventory.PlayerInventory.ShadowForcePickUp(heldRune); return false; }
 
         rune.OnAlterPickUp();
+        AlterSymbol.sprite = OffSprite;
         return true;
     }
     public void OnInteract(InteractData data)
