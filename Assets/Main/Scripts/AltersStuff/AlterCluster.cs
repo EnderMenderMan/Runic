@@ -30,7 +30,7 @@ public class AlterCluster : MonoBehaviour
         bool hasSpace = false;
         foreach (Alter alter in alters)
         {
-            if (alter.equippedRune != null)
+            if (alter.equippedRune != null && alter.equippedRune.countToAlterClusterComplete)
                 continue;
             hasSpace = true;
             break;

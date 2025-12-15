@@ -232,6 +232,7 @@ public class Alter : MonoBehaviour, IInteract
 
     IEnumerator KickCorutine(float kickTime)
     {
+        equippedRune.countToAlterClusterComplete = false;
         equippedRune.animator.SetBool("IsKicked", true);
         while (kickTime > 0 && stopkickCorutine == false)
         {
@@ -240,6 +241,7 @@ public class Alter : MonoBehaviour, IInteract
         }
         equippedRune.animator.SetBool("IsKicked", false);
 
+        equippedRune.countToAlterClusterComplete = true;
         if (stopkickCorutine == false)
             KickItemWithoutDelay(true);
         stopkickCorutine = false;
