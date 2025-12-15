@@ -36,6 +36,7 @@ public class Rune : MonoBehaviour, IInteract
     [field: SerializeField] public Tags tags;
     public bool IsInteractDisabled { get; set; }
     public Animator animator { get; private set; }
+    public bool countToAlterClusterComplete = true;
 
 
     public virtual void TriggerRunePlacement(int itemIndex, Alter[] alters)
@@ -124,7 +125,7 @@ public class Rune : MonoBehaviour, IInteract
     IEnumerator RestPositionCorutine()
     {
         IsInteractDisabled = true;
-        if (trailParticles == null) 
+        if (trailParticles == null)
             trailParticles = GetComponentInChildren<ParticleSystem>();
         if (trailParticles != null)
             trailParticles.Play();
