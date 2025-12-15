@@ -2,57 +2,71 @@ Shader "Unlit/TestShaderCode"
 {
     Properties
     {
-        _MainTex ("Texture", 2D) = "white" {}
+        _MainTex ("Main Texture", 2D) = "white" {}
+        _SecondTex ("Second Texture", 2D) = "white" {}
+        _ThirdTex ("Third Texture", 2D) = "white" {}
     }
+
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
-        LOD 100
-
+        Tags
+        {
+            "RenderPipeline"="UniversalPipeline"
+            "RenderType"="Transparent"
+            "UniversalMaterialType" = "Unlit"
+            "Queue"="Transparent"
+            // DisableBatching: <None>
+            "ShaderGraphShader"="true"
+            "ShaderGraphTargetId"="UniversalSpriteUnlitSubTarget"
+        }
         Pass
         {
-            CGPROGRAM
+            Name "Sprite Unlit"
+            Tags
+            {
+                "LightMode" = "Universal2D"
+            }
+            Cull Off
+            HLSLPROGRAM
+
             #pragma vertex vert
             #pragma fragment frag
-            // make fog work
-            #pragma multi_compile_fog
-
             #include "UnityCG.cginc"
 
-            struct appdata
-            {
-                float4 vertex : POSITION;
+            // Declare the first texture and its sampler.
+            UNITY_DECLARE_TEX2D(_MainTex);
+
+            // Declare the second and third textures without samplers.
+            UNITY_DECLARE_TEX2D_NOSAMPLER(_SecondTex);
+            UNITY_DECLARE_TEX2D_NOSAMPLER(_ThirdTex);
+
+            struct v2f {
+                float4 pos : SV_POSITION;
                 float2 uv : TEXCOORD0;
             };
 
-            struct v2f
-            {
-                float2 uv : TEXCOORD0;
-                UNITY_FOG_COORDS(1)
-                float4 vertex : SV_POSITION;
-            };
-
-            sampler2D _MainTex;
-            float4 _MainTex_ST;
-
-            v2f vert (appdata v)
+            v2f vert (appdata_base v)
             {
                 v2f o;
-                o.vertex = UnityObjectToClipPos(v.vertex);
-                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-                UNITY_TRANSFER_FOG(o,o.vertex);
+                o.pos = UnityObjectToClipPos(v.vertex);
+                o.uv = v.texcoord;
                 return o;
             }
 
-            fixed4 frag (v2f i) : SV_Target
+            half4 frag (v2f i) : SV_Target
             {
-                // sample the texture
-                fixed4 col = tex2D(_MainTex, i.uv);
-                // apply fog
-                UNITY_APPLY_FOG(i.fogCoord, col);
-                return col;
+                // Sample the first texture using its own sampler.
+                half4 color1 = UNITY_SAMPLE_TEX2D(_MainTex, i.uv);
+
+                // Sample the second and third textures using the sampler from the first texture.
+                half4 color2 = UNITY_SAMPLE_TEX2D_SAMPLER(_SecondTex, _MainTex, i.uv);
+                half4 color3 = UNITY_SAMPLE_TEX2D_SAMPLER(_ThirdTex, _MainTex, i.uv);
+
+                // Return the combined color from all three textures.
+                return color1;//(color1 + color2 + color3) / 3.0;
             }
-            ENDCG
+            ENDHLSL
         }
     }
+
 }
