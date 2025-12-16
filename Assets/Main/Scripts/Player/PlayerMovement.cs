@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
             transform.position = WorldData.Instance.GetCorrenctionToCellCenter(transform.position) + (Vector3)gridOffset;
         }
     }
-
+    
     // Update is called once per frame
     void Update()
     {
