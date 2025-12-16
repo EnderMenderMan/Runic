@@ -2303,8 +2303,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4203775033934409600}
         m_TargetAssemblyTypeName: SceneLoaderExtra, Assembly-CSharp
-        m_MethodName: OnCissi
-        m_Mode: 6
+        m_MethodName: ChangeDifficulty
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4993,11 +4993,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7713131020081337052, guid: 480a8ff4455eafe43a2e818a5437c4dd, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7713131020081337052, guid: 480a8ff4455eafe43a2e818a5437c4dd, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnCissi
+      value: ChangeDifficulty
       objectReference: {fileID: 0}
     - target: {fileID: 7713131020081337052, guid: 480a8ff4455eafe43a2e818a5437c4dd, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -5036,5 +5036,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnESCPressed:
+    m_PersistentCalls:
+      m_Calls: []
+  OnJPressed:
     m_PersistentCalls:
       m_Calls: []

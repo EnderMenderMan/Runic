@@ -3,6 +3,7 @@ public class GameData
 {
     public enum Difficulty
     {
+        Cissi,
         Easy,
         Normal,
         Hard,
