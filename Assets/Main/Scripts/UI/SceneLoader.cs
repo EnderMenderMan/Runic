@@ -1,15 +1,13 @@
+using System.Collections;
 using UnityEngine;
-
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
- 
+  
+ [SerializeField] Animator transitionAnimator;
 
-  public void TestLog(string input = "TEST")
-  {
-    Debug.Log(input);
-  }
+
 
   public void LoadScene(int buildIndex)
   {
