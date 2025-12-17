@@ -14,13 +14,21 @@ public class SpecialCharactersUI : MonoBehaviour
     [SerializeField] Transform characterHolder;
     [SerializedDictionary("Character", "Prefab")] public SerializedDictionary<Character, GameObject> prefabs;
 
-    public GameObject Create(Character character, Vector3 position, string id = "None")
+    public GameObject Create(Character character, TMPro.TextMeshProUGUI textElement, int textIndex, Vector3 offset, float scale = 1, string id = "None")
+    {
+        Vector3 position = textElement.textInfo.characterInfo[textIndex].bottomLeft + offset;
+        position = textElement.transform.TransformPoint(position);
+        return Create(character, position, scale, id);
+
+    }
+    public GameObject Create(Character character, Vector3 position, float scale = 1, string id = "None")
     {
         GameObject prefab;
         if (prefabs.TryGetValue(character, out prefab) == false)
             return null;
 
         GameObject createdGameObject = Instantiate(prefab, position, Quaternion.identity, characterHolder);
+        createdGameObject.transform.localScale *= scale;
         createdGameObject.name = id;
         return createdGameObject;
     }
