@@ -196,7 +196,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -4293228671476552634, guid: ac3b6286b7adc42408e09e147c338581, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4d7358d6982ea3840aa313fbae271799, type: 3}
   m_Color: {r: 1, g: 0.67668825, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -525,6 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682098e5e2bd78642874ccf105f561c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trailParticles: {fileID: 0}
   audio:
     enablePlaySounds: 1
     pickUpSound: {fileID: 0}
@@ -540,6 +541,7 @@ MonoBehaviour:
   resetPositionWhenDropedOrKicked: 0
   tags:
     tags: []
+  countToAlterClusterComplete: 1
 --- !u!82 &3647542591148558313
 AudioSource:
   m_ObjectHideFlags: 0
