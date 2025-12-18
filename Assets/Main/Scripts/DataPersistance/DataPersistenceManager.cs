@@ -9,6 +9,8 @@ public class DataPersistenceManager : MonoBehaviour
 
     [Header("File Storage")]
     [SerializeField] string fileName;
+
+    [Header("Developer Tools")]
     [SerializeField] bool DebugLogWhereDoesItSave;
     [SerializeField] bool DeleteSaveFile;
 
@@ -73,6 +75,20 @@ public class DataPersistenceManager : MonoBehaviour
 
         DataHandler.Save(gameData);
     }
+
+    public void DeleteData()
+    {
+        string path = Path.Combine(Application.persistentDataPath, fileName);
+
+        if (File.Exists(path) == false)
+        {
+            Debug.Log("File already deleted");
+            return;
+        }
+        File.Delete(path);
+            
+        Debug.Log("Deleted file at: " + Application.persistentDataPath + "/" + fileName);
+    }
     public void WriteSaveFile()
     { DataHandler.Save(gameData); }
     public void NewLevelDataReset()
@@ -99,17 +115,7 @@ public class DataPersistenceManager : MonoBehaviour
         if (DeleteSaveFile)
         {
             DeleteSaveFile = false;
-            FileDataHandler handler = new FileDataHandler(Application.persistentDataPath, fileName);
-            string path = Path.Combine(Application.persistentDataPath, fileName);
-
-            if (File.Exists(path) == false)
-            {
-                Debug.Log("File already deleted");
-                return;
-            }
-            File.Delete(path);
-            
-            Debug.Log("Deleted file at: " + Application.persistentDataPath + "/" + fileName);
+            DeleteData();
         }
     }
 }

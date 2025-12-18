@@ -43,8 +43,9 @@ public class LoadSaveLevelManager : MonoBehaviour, IDataPersitiens
     {
         for (int i = 0; i < levels.Length; i++)
             levels[i].levelIndex = i;
-
+        
         DataPersistenceManager dataPresistence = GetComponent<DataPersistenceManager>();
-        dataPresistence.CallLoadData(this);
+        if (dataPresistence.enabled)
+            dataPresistence.CallLoadData(this);
     }
 }
