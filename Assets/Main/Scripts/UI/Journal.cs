@@ -7,6 +7,7 @@ using System.Collections;
 
 public class Journal : MonoBehaviour, IDataPersitiens
 {
+    private static readonly int IsNotifying = Animator.StringToHash("IsNotifying");
     public static Journal Instance { get; private set; }
     public enum HintType
     {
@@ -24,13 +25,6 @@ public class Journal : MonoBehaviour, IDataPersitiens
         WallRune,
         LastElementUsedOnlyForCode,
     }
-    // public enum HintState
-    // {
-    //     NotAdded,
-    //     Added,
-    //     Removed,
-    // }
-
     [System.Serializable]
     public struct Hint
     {
@@ -45,7 +39,7 @@ public class Journal : MonoBehaviour, IDataPersitiens
     {
         [Tooltip("The text that will be replaced by the special character")] public string targetPart;
         [Tooltip("The special Character that will replace the targetPart")] public SpecialCharactersUI.Character character;
-        [Tooltip("The width of the special character. This is text will replace the targetPart text so witdh should be specified with normal character exemple: \"___\" or with spaces like this \"   \" ")] public string withOfSpecialCharacter;
+        [Tooltip("The width of the special character. This is text will replace the targetPart text so width should be specified with normal character example: \"___\" or with spaces like this \"   \" ")] public string widthOfSpecialCharacter;
     }
 
     int hintOrderIndex;
@@ -53,6 +47,10 @@ public class Journal : MonoBehaviour, IDataPersitiens
     [SerializedDictionary("HintType", "Hint")] public SerializedDictionary<HintType, Hint> hints;
     Hint[] hintsArray;
     [SerializeField] ReplaceStringWithSpecial[] replaceStringsWithSpecialCharacters;
+    [SerializeField] private Animator journalAnimator;
+    [SerializeField] private GameObject bookPart;
+
+    public void CancelJournalNotifyAnimation() => journalAnimator.SetBool(IsNotifying, false);
 
     public void TriggerNextHint()
     {
@@ -87,6 +85,7 @@ public class Journal : MonoBehaviour, IDataPersitiens
                 TrySetTextElementHint(targetHint, hintType, targetHint.hard);
                 break;
         }
+        journalAnimator.SetBool(IsNotifying, true);
         hintsArray[(int)hintType].state++;
         return true;
     }
@@ -114,7 +113,7 @@ public class Journal : MonoBehaviour, IDataPersitiens
         {
             TMP_CharacterInfo targetSpawnCharacter = data.text.textInfo.characterInfo[data.index];
             float targetCharacterWidth = Mathf.Abs(targetSpawnCharacter.bottomRight.x - targetSpawnCharacter.bottomLeft.x);
-            Vector3 spawnOffset = data.replace.withOfSpecialCharacter.Length % 2 == 0 ? Vector3.zero : Vector3.right * targetCharacterWidth / 2;
+            Vector3 spawnOffset = data.replace.widthOfSpecialCharacter.Length % 2 == 0 ? Vector3.zero : Vector3.right * targetCharacterWidth / 2;
 
             SpecialCharactersUI.Instance.Create(data.replace.character, data.text, data.index, spawnOffset, data.size, data.id);
         }
@@ -148,16 +147,16 @@ public class Journal : MonoBehaviour, IDataPersitiens
                 if (currentLookIndex == replace.targetPart.Length - 1)
                 {
                     text.text = text.text.Remove(beginingOfCorrectString, i - beginingOfCorrectString + 1);
-                    text.text = text.text.Insert(beginingOfCorrectString, replace.withOfSpecialCharacter);
+                    text.text = text.text.Insert(beginingOfCorrectString, replace.widthOfSpecialCharacter);
 
                     foreach (CreateSpecialCharactersNextFrameData data in specialCreate)
                     {
                         if (data.index < i)
                             continue;
-                        data.index += replace.withOfSpecialCharacter.Length - replace.targetPart.Length;
+                        data.index += replace.widthOfSpecialCharacter.Length - replace.targetPart.Length;
                     }
 
-                    int targetSpawnIndex = beginingOfCorrectString + replace.withOfSpecialCharacter.Length / 2;
+                    int targetSpawnIndex = beginingOfCorrectString + replace.widthOfSpecialCharacter.Length / 2;
                     specialCreate.Add(new CreateSpecialCharactersNextFrameData
                     {
                         index = targetSpawnIndex,
@@ -169,7 +168,7 @@ public class Journal : MonoBehaviour, IDataPersitiens
                     });
 
                     currentLookIndex = 0;
-                    i = beginingOfCorrectString + replace.withOfSpecialCharacter.Length;
+                    i = beginingOfCorrectString + replace.widthOfSpecialCharacter.Length;
                     continue;
                 }
                 currentLookIndex++;
@@ -190,7 +189,7 @@ public class Journal : MonoBehaviour, IDataPersitiens
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        bookPart.SetActive(false);
     }
 
     // Update is called once per frame

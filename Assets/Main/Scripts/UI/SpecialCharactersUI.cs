@@ -36,7 +36,7 @@ public class SpecialCharactersUI : MonoBehaviour
     {
         foreach (Transform child in characterHolder.GetComponentInChildren<Transform>())
         {
-            if (child.transform == characterHolder.transform || child.name != id)
+            if (child == null || child == characterHolder || child.name != id)
                 continue;
             Destroy(child.gameObject);
         }

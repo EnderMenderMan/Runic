@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.SceneManagement;
@@ -9,6 +10,7 @@ public class DataPersistenceManager : MonoBehaviour
     [Header("File Storage")]
     [SerializeField] string fileName;
     [SerializeField] bool DebugLogWhereDoesItSave;
+    [SerializeField] bool DeleteSaveFile;
 
     private GameData gameData;
     private List<IDataPersitiens> dataPersistenceObjcets;
@@ -28,12 +30,20 @@ public class DataPersistenceManager : MonoBehaviour
         LoadGame();
     }
 
+    void TryInit()
+    {
+        if (DataHandler != null)
+            return;
+        this.DataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+    }
+
     public void NewGameData()
     {
         gameData = new GameData();
     }
     void LoadGameDataFromFile()
     {
+        TryInit();
         this.gameData = DataHandler.Load();
 
         if (gameData != null)
@@ -84,6 +94,22 @@ public class DataPersistenceManager : MonoBehaviour
         {
             DebugLogWhereDoesItSave = false;
             Debug.Log("Save file location: " + Application.persistentDataPath + "/" + fileName);
+        }
+
+        if (DeleteSaveFile)
+        {
+            DeleteSaveFile = false;
+            FileDataHandler handler = new FileDataHandler(Application.persistentDataPath, fileName);
+            string path = Path.Combine(Application.persistentDataPath, fileName);
+
+            if (File.Exists(path) == false)
+            {
+                Debug.Log("File already deleted");
+                return;
+            }
+            File.Delete(path);
+            
+            Debug.Log("Deleted file at: " + Application.persistentDataPath + "/" + fileName);
         }
     }
 }
