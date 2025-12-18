@@ -33,6 +33,9 @@ public class LoadSaveLevelManager : MonoBehaviour, IDataPersitiens
 
     public void SaveData(ref GameData data)
     {
+        if (data.isSavingGameData == false)
+            return;
+        
         data.loadedLevelIndex = levelIndex;
         data.loadedSceneIndex = SceneManager.GetActiveScene().buildIndex;
         data.playerPosition.x = PlayerInteract.Instance.transform.position.x;

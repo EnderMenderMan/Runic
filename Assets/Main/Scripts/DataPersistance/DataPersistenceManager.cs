@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 
 public class DataPersistenceManager : MonoBehaviour
@@ -13,6 +14,7 @@ public class DataPersistenceManager : MonoBehaviour
     [Header("Developer Tools")]
     [SerializeField] bool DebugLogWhereDoesItSave;
     [SerializeField] bool DeleteSaveFile;
+    [SerializeField] private bool TriggerSave;
 
     private GameData gameData;
     private List<IDataPersitiens> dataPersistenceObjcets;
@@ -67,15 +69,25 @@ public class DataPersistenceManager : MonoBehaviour
         foreach (IDataPersitiens dataPer in dataPersistenceObjcets)
             dataPer.LoadData(gameData);
     }
-    public void SaveGame()
+    public void SaveData()
     {
+        gameData.isSavingGameData = true;
+        Save();
+    }
 
+    public void SaveDataExcludeGameData()
+    {
+        gameData.isSavingGameData = false;
+        Save();
+    }
+
+    void Save()
+    {
         foreach (IDataPersitiens dataPer in dataPersistenceObjcets)
             dataPer.SaveData(ref gameData);
 
         DataHandler.Save(gameData);
     }
-
     public void DeleteData()
     {
         string path = Path.Combine(Application.persistentDataPath, fileName);
@@ -95,7 +107,7 @@ public class DataPersistenceManager : MonoBehaviour
     { gameData.NewLevelDataReset(); }
     private void OnApplicationQuit()
     {
-        SaveGame();
+        SaveDataExcludeGameData();
     }
     private List<IDataPersitiens> FindAllDataPersistenceObjects()
     {
@@ -116,6 +128,21 @@ public class DataPersistenceManager : MonoBehaviour
         {
             DeleteSaveFile = false;
             DeleteData();
+        }
+
+        if (TriggerSave)
+        {
+            gameData.isSavingGameData = true;
+            TriggerSave = false;
+            
+            FileDataHandler handler = new FileDataHandler(Application.persistentDataPath, fileName);
+            List<IDataPersitiens> saveObjects = FindAllDataPersistenceObjects();
+            
+            foreach (IDataPersitiens dataPer in saveObjects)
+                dataPer.SaveData(ref gameData);
+
+            handler.Save(gameData);
+            Debug.Log("Saved to location: " + Application.persistentDataPath + "/" + fileName);
         }
     }
 }

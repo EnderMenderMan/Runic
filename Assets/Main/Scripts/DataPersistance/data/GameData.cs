@@ -21,6 +21,8 @@ public class GameData
     // music
     public float[] soundsVolume;
 
+    public bool isSavingGameData;
+
     public void NewLevelDataReset()
     {
         loadedSceneIndex = -1;

@@ -46,5 +46,7 @@ public class LevelLoad : MonoBehaviour
         if (triggerJournalHint && GameData.difficulty == GameData.Difficulty.Easy)
             Journal.Instance.TriggerNextHint();
         hasLoaded = false;
+        
+        DataPersistenceManager.Instance.SaveData();
     }
 }
