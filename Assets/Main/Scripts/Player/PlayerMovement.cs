@@ -125,10 +125,17 @@ public class PlayerMovement : MonoBehaviour
             return;
 
         gridTargetPos = WorldData.Instance.GetCorrenctionToCellCenter(position - gridOffset);
-        if (WorldData.Instance.IsGridSpaceFree(gridTargetPos, gridMovementCollideWithLayers) == false)
+        if (IsGridSpaceFree(gridTargetPos, gridMovementCollideWithLayers) == false)
             return;
         gridTargetPos += gridOffset;
         MovingSpeed = speed;
+    }
+    
+    public bool IsGridSpaceFree(Vector2 position, LayerMask collideWithLayers)
+    {
+        if (Physics2D.OverlapArea(position, transform.position, collideWithLayers) != null)
+            return false;
+        return true;
     }
     void UpdateNormalMovement()
     {
