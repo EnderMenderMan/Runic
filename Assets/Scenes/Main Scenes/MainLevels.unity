@@ -189,7 +189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: kickFilters.Array.data[0].mode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: kickFilters.Array.data[0].tags.Array.size
@@ -15784,7 +15784,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &238942107
 Transform:
   m_ObjectHideFlags: 0
@@ -52536,7 +52536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: kickFilters.Array.data[0].mode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: kickFilters.Array.data[0].tags.Array.size
@@ -82070,7 +82070,19 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1848354634370361530, guid: e4089848945ac9144881850121139177, type: 3}
+      propertyPath: onAlterPlaced.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1848354634370361530, guid: e4089848945ac9144881850121139177, type: 3}
+      propertyPath: onAlterPlaced.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1848354634370361530, guid: e4089848945ac9144881850121139177, type: 3}
       propertyPath: onAlterPlaced.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1848354634370361530, guid: e4089848945ac9144881850121139177, type: 3}
+      propertyPath: onAlterPlaced.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1848354634370361530, guid: e4089848945ac9144881850121139177, type: 3}
@@ -89865,7 +89877,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1689531122
 Transform:
   m_ObjectHideFlags: 0
@@ -93649,7 +93661,7 @@ PrefabInstance:
     - target: {fileID: 1848354634370361530, guid: e4089848945ac9144881850121139177, type: 3}
       propertyPath: onAlterPlaced.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 369417512}
+      objectReference: {fileID: 1172965588}
     - target: {fileID: 1848354634370361530, guid: e4089848945ac9144881850121139177, type: 3}
       propertyPath: onAlterPlaced.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -96024,11 +96036,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5758773290503437094, guid: 00e8d4d1bc3288a4ca5b7c2f5d0e7292, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.82
+      value: -6.72
       objectReference: {fileID: 0}
     - target: {fileID: 5758773290503437094, guid: 00e8d4d1bc3288a4ca5b7c2f5d0e7292, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 93.75
+      value: 65.98
       objectReference: {fileID: 0}
     - target: {fileID: 5758773290503437094, guid: 00e8d4d1bc3288a4ca5b7c2f5d0e7292, type: 3}
       propertyPath: m_LocalPosition.z
