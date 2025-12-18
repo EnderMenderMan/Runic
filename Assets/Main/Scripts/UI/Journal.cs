@@ -48,7 +48,11 @@ public class Journal : MonoBehaviour, IDataPersitiens
     Hint[] hintsArray;
     [SerializeField] ReplaceStringWithSpecial[] replaceStringsWithSpecialCharacters;
     [SerializeField] private Animator journalAnimator;
-    [SerializeField] private GameObject bookPart;
+    [SerializeField] private Transform bookPart;
+    private Vector3 bookPartOriginalPosition;
+    
+    public void BookClose() => bookPart.position += Vector3.right*10000;
+    public void BookOpen() => bookPart.position = bookPartOriginalPosition;
 
     public void CancelJournalNotifyAnimation() => journalAnimator.SetBool(IsNotifying, false);
 
@@ -108,7 +112,6 @@ public class Journal : MonoBehaviour, IDataPersitiens
     IEnumerator CreateSpecialCharactersNextFrame(List<CreateSpecialCharactersNextFrameData> datas)
     {
         yield return null;
-
         foreach (var data in datas)
         {
             TMP_CharacterInfo targetSpawnCharacter = data.text.textInfo.characterInfo[data.index];
@@ -117,7 +120,6 @@ public class Journal : MonoBehaviour, IDataPersitiens
 
             SpecialCharactersUI.Instance.Create(data.replace.character, data.text, data.index, spawnOffset, data.size, data.id);
         }
-
     }
     void ReplaceWithSpecialCharacters(TextMeshProUGUI text, string id)
     {
@@ -179,6 +181,9 @@ public class Journal : MonoBehaviour, IDataPersitiens
 
     void Awake()
     {
+        bookPartOriginalPosition = bookPart.position;
+        BookClose();
+        
         Instance = this;
         hintsArray = new Hint[(int)HintType.LastElementUsedOnlyForCode];
         foreach (KeyValuePair<HintType, Hint> keyValuePair in hints)
@@ -189,7 +194,6 @@ public class Journal : MonoBehaviour, IDataPersitiens
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        bookPart.SetActive(false);
     }
 
     // Update is called once per frame

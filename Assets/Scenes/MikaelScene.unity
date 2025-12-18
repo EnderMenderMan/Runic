@@ -12520,6 +12520,103 @@ Transform:
   - {fileID: 1917743345}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1387731307
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1777464048}
+    m_Modifications:
+    - target: {fileID: 2274003356705328996, guid: 1f9fdde6832d5085db3d107a8e694908, type: 3}
+      propertyPath: m_Name
+      value: JournalUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685565798354049091, guid: 1f9fdde6832d5085db3d107a8e694908, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685565798354049091, guid: 1f9fdde6832d5085db3d107a8e694908, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685565798354049091, guid: 1f9fdde6832d5085db3d107a8e694908, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685565798354049091, guid: 1f9fdde6832d5085db3d107a8e694908, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685565798354049091, guid: 1f9fdde6832d5085db3d107a8e694908, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685565798354049091, guid: 1f9fdde6832d5085db3d107a8e694908, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685565798354049091, guid: 1f9fdde6832d5085db3d107a8e694908, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685565798354049091, guid: 1f9fdde6832d5085db3d107a8e694908, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685565798354049091, guid: 1f9fdde6832d5085db3d107a8e694908, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685565798354049091, guid: 1f9fdde6832d5085db3d107a8e694908, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685565798354049091, guid: 1f9fdde6832d5085db3d107a8e694908, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685565798354049091, guid: 1f9fdde6832d5085db3d107a8e694908, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685565798354049091, guid: 1f9fdde6832d5085db3d107a8e694908, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685565798354049091, guid: 1f9fdde6832d5085db3d107a8e694908, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685565798354049091, guid: 1f9fdde6832d5085db3d107a8e694908, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685565798354049091, guid: 1f9fdde6832d5085db3d107a8e694908, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685565798354049091, guid: 1f9fdde6832d5085db3d107a8e694908, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685565798354049091, guid: 1f9fdde6832d5085db3d107a8e694908, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685565798354049091, guid: 1f9fdde6832d5085db3d107a8e694908, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685565798354049091, guid: 1f9fdde6832d5085db3d107a8e694908, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1f9fdde6832d5085db3d107a8e694908, type: 3}
 --- !u!1001 &1405881075
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14319,6 +14416,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9131806264483577863, guid: 61b94922b40a9e74291dbb93c2efa4b2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 584987362}
+    - targetCorrespondingSourceObject: {fileID: 9131806264483577863, guid: 61b94922b40a9e74291dbb93c2efa4b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2041260984}
     - targetCorrespondingSourceObject: {fileID: 5001848644862804546, guid: 61b94922b40a9e74291dbb93c2efa4b2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1023196328}
@@ -15412,6 +15512,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6977250722009377289, guid: 1f9fdde6832d5085db3d107a8e694908, type: 3}
   m_PrefabInstance: {fileID: 4340352812284626487}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2041260983 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4953600263718441581, guid: 1f9fdde6832d5085db3d107a8e694908, type: 3}
+  m_PrefabInstance: {fileID: 1387731307}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11f7332ae15bf9bd091fb4100638d6ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &2041260984 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7685565798354049091, guid: 1f9fdde6832d5085db3d107a8e694908, type: 3}
+  m_PrefabInstance: {fileID: 1387731307}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2053035476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15606,14 +15722,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1165673387}
-        m_TargetAssemblyTypeName: Test, Assembly-CSharp
-        m_MethodName: TestTriggerAddHint
-        m_Mode: 3
+      - m_Target: {fileID: 2041260983}
+        m_TargetAssemblyTypeName: Journal, Assembly-CSharp
+        m_MethodName: TriggerNextHint
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
