@@ -11,11 +11,22 @@ public class SceneLoader : MonoBehaviour
  {
      StartCoroutine(LoadWithDela(buildIndex));
  }
-
  IEnumerator LoadWithDela(int buildIndex)
  {
      transitionAnimator.SetTrigger("End");
      yield return new WaitForSeconds(1);
+     SceneManager.LoadScene(buildIndex);
+     transitionAnimator.SetTrigger("Start");
+ }
+ public void LoadWithLongDelay(int buildIndex)
+ {
+     StartCoroutine(LoadWithLongDela(buildIndex));
+ }
+
+ IEnumerator LoadWithLongDela(int buildIndex)
+ {
+     transitionAnimator.SetTrigger("End");
+     yield return new WaitForSeconds(2);
      SceneManager.LoadScene(buildIndex);
      transitionAnimator.SetTrigger("Start");
  }

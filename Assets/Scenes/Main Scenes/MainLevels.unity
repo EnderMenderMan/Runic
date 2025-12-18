@@ -22590,7 +22590,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 5
-      m_TileSpriteIndex: 5
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -22600,7 +22600,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 2
-      m_TileSpriteIndex: 2
+      m_TileSpriteIndex: 5
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -22620,7 +22620,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 2
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -23209,20 +23209,20 @@ Tilemap:
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 1868be3ecebd22847954a77bace184c0, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 1
-    m_Data: {fileID: -95785762, guid: 19d2e6e122fe95d4da6c33f201cd4c28, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 3
     m_Data: {fileID: 524838994, guid: 19d2e6e122fe95d4da6c33f201cd4c28, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 755280045, guid: 19d2e6e122fe95d4da6c33f201cd4c28, type: 3}
+    m_Data: {fileID: -95785762, guid: 19d2e6e122fe95d4da6c33f201cd4c28, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -1716538327, guid: 19d2e6e122fe95d4da6c33f201cd4c28, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: -294336023, guid: 19d2e6e122fe95d4da6c33f201cd4c28, type: 3}
   - m_RefCount: 1
+    m_Data: {fileID: 755280045, guid: 19d2e6e122fe95d4da6c33f201cd4c28, type: 3}
+  - m_RefCount: 1
     m_Data: {fileID: 880003657, guid: 19d2e6e122fe95d4da6c33f201cd4c28, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 344083147, guid: 19d2e6e122fe95d4da6c33f201cd4c28, type: 3}
   - m_RefCount: 51
@@ -54095,7 +54095,7 @@ Transform:
   m_GameObject: {fileID: 796165074}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.4217, y: 28.8326, z: -1.6522973}
+  m_LocalPosition: {x: 2.41, y: 29.06, z: -1.6522973}
   m_LocalScale: {x: 2.8645985, y: 0.34554467, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -54119,7 +54119,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8910586922187316120}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadWithDelay
+        m_MethodName: LoadWithLongDelay
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -54140,6 +54140,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1908545018}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   onTriggerExit:
     m_PersistentCalls:
@@ -96375,11 +96387,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5758773290503437094, guid: 00e8d4d1bc3288a4ca5b7c2f5d0e7292, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.71
+      value: -2.8
       objectReference: {fileID: 0}
     - target: {fileID: 5758773290503437094, guid: 00e8d4d1bc3288a4ca5b7c2f5d0e7292, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -24.08
+      value: -24.06
       objectReference: {fileID: 0}
     - target: {fileID: 5758773290503437094, guid: 00e8d4d1bc3288a4ca5b7c2f5d0e7292, type: 3}
       propertyPath: m_LocalPosition.z
@@ -101475,7 +101487,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7665234463765186375, guid: daf216e0130df0f49b088fbbb80eeb13, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
