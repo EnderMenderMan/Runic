@@ -14,8 +14,8 @@ public class KickRune : Rune
     }
     public override void OnKicked()
     {
-        foreach (Alter filteredAlter in GetKickFilterAlters(alter.clusterIndex, alter.alterCluster.alters))
-            filteredAlter.StopKickCorutine();
+        // foreach (Alter filteredAlter in GetKickFilterAlters(alter.clusterIndex, alter.alterCluster.alters))
+        //     filteredAlter.StopKickCorutine();
         base.OnKicked();
     }
 
