@@ -9,13 +9,13 @@ public class KickRune : Rune
 
     public override void TriggerRunePlacement(int itemIndex, Alter[] alters)
     {
-        foreach (Alter alter in GetKickFilterAlters(itemIndex, alters))
-            alter.TryKickItem(false);
+        foreach (Alter filteredAlter in GetKickFilterAlters(itemIndex, alters))
+            filteredAlter.TryKickItem(false);
     }
     public override void OnKicked()
     {
-        foreach (Alter alter in GetKickFilterAlters(alter.clusterIndex, alter.alterCluster.alters))
-            alter.StopKickCorutine();
+        foreach (Alter filteredAlter in GetKickFilterAlters(alter.clusterIndex, alter.alterCluster.alters))
+            filteredAlter.StopKickCorutine();
         base.OnKicked();
     }
 
@@ -48,7 +48,7 @@ public class KickRune : Rune
                     continue;
                 if (filter.RunFilter(alters[tryIndex].equippedRune.tags) == false)
                     continue;
-                selectedAlters.Add(alters[i]);
+                selectedAlters.Add(alters[tryIndex]);
             }
         }
 
@@ -57,11 +57,12 @@ public class KickRune : Rune
             for (int i = 0; i < kickItemIndexOffsets.Length; i++)
             {
                 int tryIndex = alterIndex + kickItemIndexOffsets[i];
+
                 if (tryIndex < 0 || tryIndex >= alters.Length)
                     continue;
                 if (alters[tryIndex].equippedRune == null)
                     continue;
-                selectedAlters.Add(alters[i]);
+                selectedAlters.Add(alters[tryIndex]);
             }
         }
         return selectedAlters;
