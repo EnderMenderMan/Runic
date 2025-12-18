@@ -131,7 +131,7 @@ public class Alter : MonoBehaviour, IInteract
         Events?.onRunePlaced.Invoke();
         AlterSymbol.sprite = OnSprite;
         rune.AfterAlterPlace();
-        
+
     }
     void DropRune()
     {
@@ -201,6 +201,11 @@ public class Alter : MonoBehaviour, IInteract
                 return;
 
             Rune oldEquippedRune = equippedRune;
+            if (kickCorutine != null)
+            {
+                StopCoroutine(kickCorutine);
+                OnKickCorutineEnd();
+            }
             KickItemWithoutDelay(true);
             PlayerTryPickUp(oldEquippedRune);
             PlaceItem(heldRune);
@@ -216,6 +221,11 @@ public class Alter : MonoBehaviour, IInteract
                 return;
 
             Rune oldEquippedRune = equippedRune;
+            if (kickCorutine != null)
+            {
+                StopCoroutine(kickCorutine);
+                OnKickCorutineEnd();
+            }
             KickItemWithoutDelay(true);
             PlayerTryPickUp(oldEquippedRune);
             return;
@@ -239,6 +249,10 @@ public class Alter : MonoBehaviour, IInteract
             kickTime -= Time.deltaTime;
             yield return null;
         }
+        OnKickCorutineEnd();
+    }
+    void OnKickCorutineEnd()
+    {
         equippedRune.animator.SetBool("IsKicked", false);
 
         equippedRune.countToAlterClusterComplete = true;
@@ -246,5 +260,6 @@ public class Alter : MonoBehaviour, IInteract
             KickItemWithoutDelay(true);
         AlterSymbol.sprite = OffSprite;
         stopkickCorutine = false;
+
     }
 }

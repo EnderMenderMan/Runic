@@ -80,6 +80,10 @@ public class Rune : MonoBehaviour, IInteract
     {
         Events?.onPickup.Invoke();
         PlaySound(SoundManager.SoundType.RunePickup, audio.pickUpSound);
+
+        StopAllCoroutines();
+        OnEndResetPosition();
+
     }
     public virtual void OnGroundPickUp() => Events?.onGroundPickup.Invoke();
     public virtual void OnAlterPickUp() => Events?.onAlterPickup.Invoke();
@@ -112,7 +116,7 @@ public class Rune : MonoBehaviour, IInteract
     public virtual void AfterKicked()
     {
         AfterEvents?.afterAlterKicked.Invoke();
-        if (resetPositionWhenDropedOrKicked)
+        if (resetPositionWhenDropedOrKicked && Inventory.PlayerInventory.heldRune != this)
             ResetPosition();
     }
     public virtual void AfterAlterPlace() => AfterEvents?.afterAlterPlaced.Invoke();
@@ -136,9 +140,15 @@ public class Rune : MonoBehaviour, IInteract
             yield return null;
         }
         transform.position = originalPosition;
+        OnEndResetPosition();
+
+        IsInteractDisabled = false;
+
+    }
+    void OnEndResetPosition()
+    {
         if (trailParticles != null)
             trailParticles.Stop();
-        IsInteractDisabled = false;
 
     }
 
