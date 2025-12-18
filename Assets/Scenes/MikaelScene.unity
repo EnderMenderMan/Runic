@@ -9128,7 +9128,7 @@ PrefabInstance:
       objectReference: {fileID: 1122158694}
     - target: {fileID: 8865646075807917799, guid: 00e8d4d1bc3288a4ca5b7c2f5d0e7292, type: 3}
       propertyPath: enableGridBasedMovement
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14241,7 +14241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 752699775612585349, guid: 61b94922b40a9e74291dbb93c2efa4b2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1129843884914637894, guid: 61b94922b40a9e74291dbb93c2efa4b2, type: 3}
       propertyPath: m_Pivot.x
@@ -14525,7 +14525,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5989401435607507323, guid: 61b94922b40a9e74291dbb93c2efa4b2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6144790872273095673, guid: 61b94922b40a9e74291dbb93c2efa4b2, type: 3}
       propertyPath: m_AnchorMax.y

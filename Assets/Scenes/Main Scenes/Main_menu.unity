@@ -2587,6 +2587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startButton: {fileID: 358449121}
   continueButton: {fileID: 314569241}
+  dropDownDifficulty: {fileID: 1957422795}
 --- !u!1 &1854291221
 GameObject:
   m_ObjectHideFlags: 0
@@ -2732,6 +2733,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854291221}
   m_CullTransparentMesh: 1
+--- !u!114 &1957422795 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1133509058552944728, guid: 9dbeeea2bff299547bea4b475cbb1f73, type: 3}
+  m_PrefabInstance: {fileID: 3076560225090049408}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1968123433
 GameObject:
   m_ObjectHideFlags: 0
@@ -3375,6 +3387,18 @@ PrefabInstance:
     - target: {fileID: 939962053579683401, guid: 9dbeeea2bff299547bea4b475cbb1f73, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133509058552944728, guid: 9dbeeea2bff299547bea4b475cbb1f73, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1621939969}
+    - target: {fileID: 1133509058552944728, guid: 9dbeeea2bff299547bea4b475cbb1f73, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeDifficulty
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133509058552944728, guid: 9dbeeea2bff299547bea4b475cbb1f73, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3441720912576478557, guid: 9dbeeea2bff299547bea4b475cbb1f73, type: 3}
       propertyPath: m_AnchorMax.y

@@ -1,16 +1,22 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour, IDataPersitiens
 {
     [SerializeField] GameObject startButton;
     [SerializeField] private GameObject continueButton;
+    [SerializeField] TMPro.TMP_Dropdown dropDownDifficulty;
 
     public void ResetGameData()
     {
         DataPersistenceManager.Instance.NewLevelDataReset();
         startButton.SetActive(true);
         continueButton.SetActive(false);
+    }
+    public void ChangeDifficulty(int value)
+    {
+        GameData.difficulty = (GameData.Difficulty)value;
     }
 
     private void OnDisable()
@@ -20,6 +26,8 @@ public class MainMenu : MonoBehaviour, IDataPersitiens
 
     public void LoadData(GameData data)
     {
+        dropDownDifficulty.value = (int)GameData.difficulty;
+
         if (data.loadedSceneIndex < 0)
             return;
         startButton.SetActive(false);
@@ -28,6 +36,6 @@ public class MainMenu : MonoBehaviour, IDataPersitiens
 
     public void SaveData(ref GameData data)
     {
-        
+
     }
 }
