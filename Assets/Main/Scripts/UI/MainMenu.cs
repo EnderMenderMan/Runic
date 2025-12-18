@@ -36,6 +36,6 @@ public class MainMenu : MonoBehaviour, IDataPersitiens
 
     public void SaveData(ref GameData data)
     {
-
+        GameData.difficulty = (GameData.Difficulty)dropDownDifficulty.value;
     }
 }
