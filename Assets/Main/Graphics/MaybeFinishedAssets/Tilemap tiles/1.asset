@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: "L\xD6\xD6V-the tilemap 2.0_7"
+  m_Name: 1
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -326918779, guid: 3a07ea32b3211d54ea0bc548632c41f4, type: 3}
+  m_Sprite: {fileID: 1978636770, guid: 3a07ea32b3211d54ea0bc548632c41f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
