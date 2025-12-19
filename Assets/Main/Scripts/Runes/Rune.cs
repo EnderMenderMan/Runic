@@ -18,6 +18,7 @@ public class Rune : MonoBehaviour, IInteract
         public AudioClip dropSound;
         public AudioClip placeSound;
         public AudioClip kickSound;
+        public AudioClip runeAmbienceSound;
 
     }
 
@@ -37,6 +38,7 @@ public class Rune : MonoBehaviour, IInteract
     public bool IsInteractDisabled { get; set; }
     public Animator animator { get; private set; }
     public bool countToAlterClusterComplete = true;
+    AudioSource runeAmbiencePlayingSource;
 
 
     public virtual void TriggerRunePlacement(int itemIndex, Alter[] alters)
@@ -60,19 +62,27 @@ public class Rune : MonoBehaviour, IInteract
         return true;
     }
 
-    protected virtual void PlaySound(SoundManager.SoundType soundType, [CanBeNull] AudioClip audioClip)
+    protected virtual AudioSource PlaySound(SoundManager.SoundType soundType, [CanBeNull] AudioClip audioClip)
     {
         if (audio.enablePlaySounds == false)
-            return;
+            return null;
         if (audioClip == null)
         {
-
-            SoundManager.instance.PlaySound(gameObject, soundType, SoundManager.MixerType.SFX);
-            return;
+            return SoundManager.instance.PlaySound(gameObject, soundType, SoundManager.MixerType.Runes);
         }
         audio.audioSource.Stop();
         audio.audioSource.clip = audioClip;
         audio.audioSource.Play();
+        return null;
+    }
+
+    void CancleRuneAmbiance()
+    {
+        if (runeAmbiencePlayingSource == null)
+            return;
+        runeAmbiencePlayingSource.Stop();
+        Destroy(runeAmbiencePlayingSource);
+        runeAmbiencePlayingSource = null;
     }
 
     // OnEvents
@@ -80,6 +90,7 @@ public class Rune : MonoBehaviour, IInteract
     {
         Events?.onPickup.Invoke();
         PlaySound(SoundManager.SoundType.RunePickup, audio.pickUpSound);
+        runeAmbiencePlayingSource = PlaySound(SoundManager.SoundType.RuneAmbience, audio.runeAmbienceSound);
 
         StopAllCoroutines();
         OnEndResetPosition();
@@ -90,16 +101,18 @@ public class Rune : MonoBehaviour, IInteract
     public virtual void OnDropped()
     {
         Events?.onDrop.Invoke();
-        PlaySound(SoundManager.SoundType.RunePlacement, audio.dropSound);
+        CancleRuneAmbiance();
+        PlaySound(SoundManager.SoundType.RuneDrop, audio.dropSound);
     }
     public virtual void OnKicked()
     {
         Events?.onAlterKicked.Invoke();
-        PlaySound(SoundManager.SoundType.RunePlacement, audio.kickSound);
+        PlaySound(SoundManager.SoundType.RuneDrop, audio.kickSound);
     }
     public virtual void OnAlterPlace()
     {
         Events?.onAlterPlaced.Invoke();
+        CancleRuneAmbiance();
         PlaySound(SoundManager.SoundType.RunePlacement, audio.placeSound);
     }
     // AfterEvents

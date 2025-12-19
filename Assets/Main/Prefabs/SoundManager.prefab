@@ -47,19 +47,84 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: d4447446784f3e348b812bf39a24a88b, type: 2}
   soundsArray:
-  - name: Ambience
+  - name: Rune Placement
     soundType: 1
     audioResource:
-    - {fileID: 8300000, guid: c0174866b75abd94c99a3c95db161bd2, type: 3}
-  - name: Ambience
+    - {fileID: 8300000, guid: a8b10aeaf6755572ab7f2ecc4fa29c30, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+    - {fileID: 8300000, guid: a3ede4a0415845d2780ca5d32f0b362d, type: 3}
+  - name: Rune Pickup
     soundType: 2
     audioResource:
-    - {fileID: 8300000, guid: 2890228741f1945428ef7c77ae133907, type: 3}
-  - name: Ambience
+    - {fileID: 8300000, guid: 22a6879d1c697c98da5805854537c1a3, type: 3}
+    - {fileID: 8300000, guid: 4184b59ce4ebb1209af9d3908a922812, type: 3}
+    - {fileID: 8300000, guid: f472f20251ccbe598ac4849460017109, type: 3}
+    - {fileID: 8300000, guid: 46eda8235bffcbdecb5f9980ea256683, type: 3}
+  - name: Journal Open
+    soundType: 6
+    audioResource:
+    - {fileID: 8300000, guid: 175e69731280f40e09980d5b30ac7cfb, type: 3}
+  - name: Journal Close
+    soundType: 7
+    audioResource:
+    - {fileID: 8300000, guid: f5cbf496f7989f226b21dd5f5c5f10b0, type: 3}
+  - name: Journal New Entry
+    soundType: 8
+    audioResource:
+    - {fileID: 8300000, guid: ebd18bf174dd4e1ffaf27bce1204c18e, type: 3}
+  - name: Rune Ambiance
     soundType: 3
     audioResource:
-    - {fileID: 8300000, guid: f5a85ae7fa2137b43acd65c6c635295a, type: 3}
-    - {fileID: 8300000, guid: 1717584f3a7852d479b176c2475c2177, type: 3}
+    - {fileID: 8300000, guid: 724c13d6283d452b0918d5b27ea46ea2, type: 3}
+    - {fileID: 8300000, guid: 063a519c301b9cddbaaff5a15fa36f20, type: 3}
+    - {fileID: 8300000, guid: 8679c9661137d46f19146231250f4b0a, type: 3}
 --- !u!82 &7598795156039162681
 AudioSource:
   m_ObjectHideFlags: 0

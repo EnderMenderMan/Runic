@@ -69,7 +69,8 @@ public class SoundManager : MonoBehaviour
 
     public enum SoundType
     {
-        PlayerMove, RunePlacement, RunePickup, RuneAmbience, LevelAmbience,
+        PlayerMove, RunePlacement, RunePickup, RuneAmbience, LevelAmbience, RuneDrop,
+        JournalOpen, JournalClose, JournalNewEntry,
 
     }
     public enum MixerType
@@ -79,6 +80,7 @@ public class SoundManager : MonoBehaviour
         Environment,
         Player,
         SFX,
+        Runes,
     }
 
     [SerializeField] private Sounds[] soundsArray;

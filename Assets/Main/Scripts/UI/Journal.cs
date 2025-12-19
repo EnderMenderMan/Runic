@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using TMPro;
 using System.Collections;
 
+[RequireComponent(typeof(AudioSource))]
 public class Journal : MonoBehaviour, IDataPersitiens
 {
     private static readonly int IsNotifying = Animator.StringToHash("IsNotifying");
@@ -51,8 +52,20 @@ public class Journal : MonoBehaviour, IDataPersitiens
     [SerializeField] private Transform bookPart;
     private Vector3 bookPartOriginalPosition;
 
-    public void BookClose() => bookPart.position += Vector3.right * 10000;
-    public void BookOpen() => bookPart.position = bookPartOriginalPosition;
+    AudioSource audioSource;
+
+    public void BookClose()
+    {
+        audioSource.Stop();
+        bookPart.position += Vector3.right * 10000;
+        SoundManager.instance.PlaySound(SoundManager.SoundType.JournalClose, SoundManager.MixerType.SFX);
+    }
+    public void BookOpen()
+    {
+        audioSource.Play();
+        bookPart.position = bookPartOriginalPosition;
+        SoundManager.instance.PlaySound(SoundManager.SoundType.JournalOpen, SoundManager.MixerType.SFX);
+    }
 
     public void CancelJournalNotifyAnimation() => journalAnimator.SetBool(IsNotifying, false);
 
@@ -98,10 +111,26 @@ public class Journal : MonoBehaviour, IDataPersitiens
             return false;
 
         journalAnimator.SetBool(IsNotifying, true);
+        if (hasStartPlayingEntrySound == false)
+        {
+            hasStartPlayingEntrySound = true;
+            StartCoroutine(PlayNewEntrySound());
+        }
+
+
         hint.textElement.text = textArray[arrayIndex];
         SpecialCharactersUI.Instance.Destory(hintType.ToString());
         ReplaceWithSpecialCharacters(hint.textElement, hintType.ToString());
         return true;
+    }
+
+    bool hasStartPlayingEntrySound = false;
+    IEnumerator PlayNewEntrySound()
+    {
+        yield return null;
+        SoundManager.instance.PlaySound(SoundManager.SoundType.JournalNewEntry, SoundManager.MixerType.SFX);
+        hasStartPlayingEntrySound = false;
+
     }
 
     class CreateSpecialCharactersNextFrameData
@@ -180,8 +209,10 @@ public class Journal : MonoBehaviour, IDataPersitiens
 
     void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
+
         bookPartOriginalPosition = bookPart.position;
-        BookClose();
+        bookPart.position += Vector3.right * 10000;
 
         Instance = this;
         hintsArray = new Hint[(int)HintType.LastElementUsedOnlyForCode];
@@ -206,6 +237,7 @@ public class Journal : MonoBehaviour, IDataPersitiens
         if (data.journal.hintStates == null || hintsArray == null)
             return;
 
+        hasStartPlayingEntrySound = true;
         for (int i = 0; i < hintsArray.Length && i < data.journal.hintStates.Length; i++)
         {
             if (hintsArray[i].state == data.journal.hintStates[i])
@@ -213,6 +245,7 @@ public class Journal : MonoBehaviour, IDataPersitiens
             for (int j = 0; j < data.journal.hintStates[i]; j++)
                 TryTriggerHint((HintType)i);
         }
+        hasStartPlayingEntrySound = false;
         journalAnimator.SetBool(IsNotifying, false);
     }
 
