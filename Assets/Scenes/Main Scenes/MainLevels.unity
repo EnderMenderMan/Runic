@@ -33140,6 +33140,14 @@ PrefabInstance:
       propertyPath: resetPositionWhenDropedOrKicked
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 407568277397591495, guid: 9ba0964384efe5888bafbb0021000956, type: 3}
+      propertyPath: 'lockFilters.Array.data[0].lockOffsetIndexes.Array.data[0]'
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 407568277397591495, guid: 9ba0964384efe5888bafbb0021000956, type: 3}
+      propertyPath: 'lockFilters.Array.data[0].lockOffsetIndexes.Array.data[1]'
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1759847528506429403, guid: 9ba0964384efe5888bafbb0021000956, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.813847
