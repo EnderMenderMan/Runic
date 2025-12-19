@@ -27162,7 +27162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableGameObjectOnLoad: 1
   enableAutoCallOnThisLevelEnter: 1
-  triggerNextjournalHintAmount: 1
+  triggerNextjournalHintAmount: 0
   onLevelLoad:
     m_PersistentCalls:
       m_Calls: []
@@ -35965,7 +35965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableGameObjectOnLoad: 1
   enableAutoCallOnThisLevelEnter: 1
-  triggerNextjournalHintAmount: 1
+  triggerNextjournalHintAmount: 0
   onLevelLoad:
     m_PersistentCalls:
       m_Calls: []
@@ -39704,7 +39704,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 8040240210042216794, guid: 19d2e6e122fe95d4da6c33f201cd4c28, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -69931941, guid: 19d2e6e122fe95d4da6c33f201cd4c28, type: 3}
+    m_Data: {fileID: -326918779, guid: 3a07ea32b3211d54ea0bc548632c41f4, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 1374325488, guid: 19d2e6e122fe95d4da6c33f201cd4c28, type: 3}
   - m_RefCount: 188
@@ -75752,7 +75752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableGameObjectOnLoad: 1
   enableAutoCallOnThisLevelEnter: 1
-  triggerNextjournalHintAmount: 1
+  triggerNextjournalHintAmount: 0
   onLevelLoad:
     m_PersistentCalls:
       m_Calls: []
@@ -96718,7 +96718,7 @@ Tilemap:
   - m_RefCount: 4
     m_Data: {fileID: 755280045, guid: 19d2e6e122fe95d4da6c33f201cd4c28, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -69931941, guid: 19d2e6e122fe95d4da6c33f201cd4c28, type: 3}
+    m_Data: {fileID: -326918779, guid: 3a07ea32b3211d54ea0bc548632c41f4, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: 1374325488, guid: 19d2e6e122fe95d4da6c33f201cd4c28, type: 3}
   - m_RefCount: 1

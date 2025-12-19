@@ -98,7 +98,7 @@ public class DataPersistenceManager : MonoBehaviour
             return;
         }
         File.Delete(path);
-            
+
         Debug.Log("Deleted file at: " + Application.persistentDataPath + "/" + fileName);
     }
     public void WriteSaveFile()
@@ -134,10 +134,10 @@ public class DataPersistenceManager : MonoBehaviour
         {
             gameData.isSavingGameData = true;
             TriggerSave = false;
-            
+
             FileDataHandler handler = new FileDataHandler(Application.persistentDataPath, fileName);
             List<IDataPersitiens> saveObjects = FindAllDataPersistenceObjects();
-            
+
             foreach (IDataPersitiens dataPer in saveObjects)
                 dataPer.SaveData(ref gameData);
 

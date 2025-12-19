@@ -28,14 +28,13 @@ public class LoadSaveLevelManager : MonoBehaviour, IDataPersitiens
             FindAnyObjectByType<PlayerInteract>().transform.position = new Vector3(data.playerPosition.x, data.playerPosition.y, 0);
         }
 
-        levels[levelIndex].LoadLevel();
     }
 
     public void SaveData(ref GameData data)
     {
         if (data.isSavingGameData == false)
             return;
-        
+
         data.loadedLevelIndex = levelIndex;
         data.loadedSceneIndex = SceneManager.GetActiveScene().buildIndex;
         data.playerPosition.x = PlayerInteract.Instance.transform.position.x;
@@ -46,9 +45,14 @@ public class LoadSaveLevelManager : MonoBehaviour, IDataPersitiens
     {
         for (int i = 0; i < levels.Length; i++)
             levels[i].levelIndex = i;
-        
+
         DataPersistenceManager dataPresistence = GetComponent<DataPersistenceManager>();
         if (dataPresistence.enabled)
             dataPresistence.CallLoadData(this);
+    }
+    void Start()
+    {
+
+        levels[levelIndex].LoadLevel();
     }
 }

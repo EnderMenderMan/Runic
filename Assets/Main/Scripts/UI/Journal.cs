@@ -50,8 +50,8 @@ public class Journal : MonoBehaviour, IDataPersitiens
     [SerializeField] private Animator journalAnimator;
     [SerializeField] private Transform bookPart;
     private Vector3 bookPartOriginalPosition;
-    
-    public void BookClose() => bookPart.position += Vector3.right*10000;
+
+    public void BookClose() => bookPart.position += Vector3.right * 10000;
     public void BookOpen() => bookPart.position = bookPartOriginalPosition;
 
     public void CancelJournalNotifyAnimation() => journalAnimator.SetBool(IsNotifying, false);
@@ -72,7 +72,6 @@ public class Journal : MonoBehaviour, IDataPersitiens
     {
         if (hintsArray[(int)hintType].state < 0)
             return false;
-
         if (hintsArray[(int)hintType].textElement == null)
             return true;
 
@@ -89,7 +88,6 @@ public class Journal : MonoBehaviour, IDataPersitiens
                 TrySetTextElementHint(targetHint, hintType, targetHint.hard);
                 break;
         }
-        journalAnimator.SetBool(IsNotifying, true);
         hintsArray[(int)hintType].state++;
         return true;
     }
@@ -99,6 +97,7 @@ public class Journal : MonoBehaviour, IDataPersitiens
         if (textArray.Length <= arrayIndex)
             return false;
 
+        journalAnimator.SetBool(IsNotifying, true);
         hint.textElement.text = textArray[arrayIndex];
         SpecialCharactersUI.Instance.Destory(hintType.ToString());
         ReplaceWithSpecialCharacters(hint.textElement, hintType.ToString());
@@ -183,7 +182,7 @@ public class Journal : MonoBehaviour, IDataPersitiens
     {
         bookPartOriginalPosition = bookPart.position;
         BookClose();
-        
+
         Instance = this;
         hintsArray = new Hint[(int)HintType.LastElementUsedOnlyForCode];
         foreach (KeyValuePair<HintType, Hint> keyValuePair in hints)
@@ -211,14 +210,10 @@ public class Journal : MonoBehaviour, IDataPersitiens
         {
             if (hintsArray[i].state == data.journal.hintStates[i])
                 continue;
-            hintsArray[i].state = data.journal.hintStates[i];
-            switch (hintsArray[i].state)
-            {
-                case 1:
-                    TryTriggerHint((HintType)i);
-                    break;
-            }
+            for (int j = 0; j < data.journal.hintStates[i]; j++)
+                TryTriggerHint((HintType)i);
         }
+        journalAnimator.SetBool(IsNotifying, false);
     }
 
     public void SaveData(ref GameData data)

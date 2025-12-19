@@ -27,11 +27,13 @@ public class GameData
     {
         loadedSceneIndex = -1;
         loadedLevelIndex = -1;
+        journal.hintStates = new int[0];
     }
 
     public GameData()
     {
         NewLevelDataReset();
+        journal.hintStates = new int[0];
         soundsVolume = new float[0];
     }
     public GameData(float[] volumes, int loadedLevelIndex, int loadedSceneIndex)
