@@ -14,6 +14,13 @@ public class MainMenu : MonoBehaviour, IDataPersitiens
         startButton.SetActive(true);
         continueButton.SetActive(false);
     }
+    public void DeleteData()
+    {
+        DataPersistenceManager.Instance.DeleteData();
+        DataPersistenceManager.Instance.LoadGame();
+        startButton.SetActive(true);
+        continueButton.SetActive(false);
+    }
     public void ChangeDifficulty(int value)
     {
         GameData.difficulty = (GameData.Difficulty)value;
