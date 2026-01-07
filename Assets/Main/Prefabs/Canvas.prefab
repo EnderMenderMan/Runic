@@ -3127,6 +3127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9ad495672e715149bbe6f731d11e544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionAnimator: {fileID: 0}
 --- !u!1 &6277960560536902394
 GameObject:
   m_ObjectHideFlags: 0
@@ -4767,10 +4768,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6386267897474606613}
+  - {fileID: 1917135354327522873}
   - {fileID: 7106899780410955716}
   - {fileID: 649397883777759498}
   - {fileID: 8243620468132046320}
-  - {fileID: 1917135354327522873}
   - {fileID: 4412589440870923640}
   m_Father: {fileID: 9131806264483577863}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
