@@ -3,35 +3,33 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Linq;
 
-public class SeeInvis : Rune
+public class SeeInvisibleRune : Rune
 {
-    [Header("SeeInvis")]
+    [Header("SeeInvisibleSettings")]
     [SerializeField] private float stopDelay;
+    [SerializeField] private bool enableDefaultBehaviour = true;
     [SerializeField] ParticleSystem radarParticles;
     [SerializeField] private ParticleSystem stencilParticles;
-    [SerializeField] UnityEvent onPickup;
-    [SerializeField] UnityEvent onDrop;
 
+    private bool isSeeEnabled;
     private bool isReversed;
     private bool isParticleSystemsPaused;
     private Coroutine startRadarParticles;
 
-    public override void OnInteract(InteractData data)
+    public void EnableSeeInvisible()
     {
-        switch (data.type)
-        {
-            case InteractType.Player:
-                base.OnInteract(data);
-                onPickup.Invoke();
-                startRadarParticles = StartCoroutine(StartRadarParticles());
-                break;
-        }
+        if (isSeeEnabled)
+            return;
+        isSeeEnabled = true;
+        
+        startRadarParticles = StartCoroutine(StartRadarParticles());
     }
 
-    public override void OnDropped()
+    public void DisableSeeInvisible()
     {
-        base.OnDropped();
-        onDrop.Invoke();
+        if (isSeeEnabled == false)
+            return;
+        isSeeEnabled = false;
         
         StopCoroutine(startRadarParticles);
         if (isParticleSystemsPaused)
@@ -43,6 +41,37 @@ public class SeeInvis : Rune
         
         if (isReversed == false)
             ReverseParticleSystems();
+    }
+
+    public override void OnInteract(InteractData data)
+    {
+        switch (data.type)
+        {
+            case InteractType.Player:
+                base.OnInteract(data);
+                break;
+        }
+    }
+
+    public override void OnDropped()
+    {
+        base.OnDropped();
+        if (enableDefaultBehaviour)
+            DisableSeeInvisible();
+    }
+
+    public override void OnKicked()
+    {
+        base.OnKicked();
+        if (enableDefaultBehaviour)
+            DisableSeeInvisible();
+    }
+
+    public override void OnPickUp()
+    {
+        base.OnPickUp();
+        if (enableDefaultBehaviour) 
+            EnableSeeInvisible();
     }
 
     IEnumerator StartRadarParticles()

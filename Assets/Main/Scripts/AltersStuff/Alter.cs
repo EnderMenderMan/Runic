@@ -8,6 +8,7 @@ using UnityEngine.Serialization;
 
 public class Alter : MonoBehaviour, IInteract
 {
+    private static readonly int IsKicked = Animator.StringToHash("IsKicked");
     [field: SerializeField] public Tags tags;
     [SerializeField] Vector2 offsetRunePosition;
     public AlterCluster alterCluster { get; private set; }
@@ -99,6 +100,7 @@ public class Alter : MonoBehaviour, IInteract
             return false;
         if (kickCorutine != null)
             StopCoroutine(kickCorutine);
+        
         kickCorutine = StartCoroutine(KickCorutine(kickDelay));
         return true;
     }
@@ -243,7 +245,7 @@ public class Alter : MonoBehaviour, IInteract
     IEnumerator KickCorutine(float kickTime)
     {
         equippedRune.countToAlterClusterComplete = false;
-        equippedRune.animator.SetBool("IsKicked", true);
+        equippedRune.animator.SetBool(IsKicked, true);
         while (kickTime > 0 && stopkickCorutine == false)
         {
             kickTime -= Time.deltaTime;
@@ -253,7 +255,7 @@ public class Alter : MonoBehaviour, IInteract
     }
     void OnKickCorutineEnd()
     {
-        equippedRune.animator.SetBool("IsKicked", false);
+        equippedRune.animator.SetBool(IsKicked, false);
 
         equippedRune.countToAlterClusterComplete = true;
         if (stopkickCorutine == false)
