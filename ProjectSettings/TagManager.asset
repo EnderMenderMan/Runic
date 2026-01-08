@@ -39,6 +39,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: AffectedByLighting
+    uniqueID: 3906344487
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
