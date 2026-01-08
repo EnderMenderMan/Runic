@@ -115,7 +115,9 @@ MonoBehaviour:
   tags:
     tags: []
   countToAlterClusterComplete: 1
+  stopDelay: 1
   radarParticles: {fileID: 288100619410309576}
+  stencilParticles: {fileID: 7250905815919545241}
   onPickup:
     m_PersistentCalls:
       m_Calls: []
@@ -426,6 +428,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8034950262366957445}
     m_Modifications:
+    - target: {fileID: 1401979694660223247, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
+      propertyPath: lengthInSec
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401979694660223247, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401979694660223247, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
+      propertyPath: ColorModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401979694660223247, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6009367572822368787, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -470,6 +488,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: RaidarEffect
       objectReference: {fileID: 0}
+    - target: {fileID: 8370846498371390302, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
+      propertyPath: lengthInSec
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370846498371390302, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370846498371390302, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
+      propertyPath: ColorModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370846498371390302, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -483,6 +517,11 @@ ParticleSystem:
 --- !u!4 &4895081919191524052 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6009367572822368787, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
+  m_PrefabInstance: {fileID: 1192148669635035335}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7250905815919545241 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8370846498371390302, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
   m_PrefabInstance: {fileID: 1192148669635035335}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6191426264409883112
