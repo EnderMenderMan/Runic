@@ -94,10 +94,13 @@ public class Journal : MonoBehaviour, IDataPersitiens
             return false;
         if (hintsArray[(int)hintType].textElement == null)
             return true;
-
+        
         Hint targetHint = hintsArray[(int)hintType];
         switch (GameData.difficulty)
         {
+            case GameData.Difficulty.Cissi:
+                TrySetTextElementHint(targetHint, hintType, targetHint.esay);
+                break;
             case GameData.Difficulty.Easy:
                 TrySetTextElementHint(targetHint, hintType, targetHint.esay);
                 break;
@@ -282,9 +285,15 @@ public class Journal : MonoBehaviour, IDataPersitiens
 
     public void ShowAllHintsWithoutTrigger()
     {
+        int[] tempStatesArray = new int[hintsArray.Length];
+        for (int i = 0; i < hintsArray.Length; i++)
+            tempStatesArray[i] = hintsArray[i].state;
+        
         for (int i = hintOrderIndex; i < hintOrder.Length; i++)
-            if (TryTriggerHint(hintOrder[i]))
-                hintsArray[i].state--;
+            TryTriggerHint(hintOrder[i]);
+        
+        for (int i = 0; i < hintsArray.Length; i++)
+            hintsArray[i].state = tempStatesArray[i];
     }
 
     void OnValidate()

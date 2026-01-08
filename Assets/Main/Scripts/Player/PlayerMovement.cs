@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
 public class PlayerMovement : MonoBehaviour
 {
+    private static readonly int IsMoving = Animator.StringToHash("IsMoving");
+    private static readonly int DirState = Animator.StringToHash("DirState");
     public float speed;
     private Vector2 dir;
     public static Vector2 FacingDirection { get; private set; }
@@ -232,7 +234,7 @@ public class PlayerMovement : MonoBehaviour
         Instance = this;
         PlayerInteract.Instance.InputActions.Player.Move.performed += context =>
         {
-            animator.SetBool("IsMoving", true);
+            animator.SetBool(IsMoving, true);
             Vector2 contextValue = context.ReadValue<Vector2>();
             Vector2 contextValueClamped = Utility.GetVectorClampToOne(contextValue);
             if (Utility.CountVectorValues(contextValueClamped, 0) < Utility.CountVectorValues(dir, 0))
@@ -251,17 +253,17 @@ public class PlayerMovement : MonoBehaviour
 
             if (dir.x != 0)
             {
-                animator.SetInteger("DirState", 0);
+                animator.SetInteger(DirState, 0);
                 PlayerInteract.Instance.interactColliderDetection.offset = PlayerInteract.Instance.interactColiderSideOffest;
             }
             else if (dir.y > 0)
             {
-                animator.SetInteger("DirState", 1);
+                animator.SetInteger(DirState, 1);
                 PlayerInteract.Instance.interactColliderDetection.offset = PlayerInteract.Instance.interactColiderTopOffest;
             }
             else
             {
-                animator.SetInteger("DirState", -1);
+                animator.SetInteger(DirState, -1);
                 PlayerInteract.Instance.interactColliderDetection.offset = PlayerInteract.Instance.interactColiderDownOffest;
             }
 
@@ -275,7 +277,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (enableGridBasedMovement == false)
                 MovingSpeed = 0;
-            animator.SetBool("IsMoving", false);
+            animator.SetBool(IsMoving, false);
 
             dir = Vector2.zero;
             dirClamped = Vector2.zero;

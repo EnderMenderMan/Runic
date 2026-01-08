@@ -49,7 +49,7 @@ public class LevelLoad : MonoBehaviour
         onLevelLoad?.Invoke();
         OnThisLevelEnter();
         DataPersistenceManager.Instance.SaveData();
-        if (GameData.difficulty == GameData.Difficulty.Easy)
+        if (GameData.difficulty == GameData.Difficulty.Easy || GameData.difficulty == GameData.Difficulty.Cissi)
             for (int i = 0; i < triggerNextjournalHintAmount; i++)
                 Journal.Instance.TriggerNextHint();
         hasLoaded = false;

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8034950262366957445}
   - component: {fileID: 7312973427731453701}
   - component: {fileID: 8794991942181138023}
-  - component: {fileID: 5923501988812765967}
   - component: {fileID: 2129707259311785547}
   - component: {fileID: 7296526595040336399}
   m_Layer: 6
@@ -116,104 +115,9 @@ MonoBehaviour:
     tags: []
   countToAlterClusterComplete: 1
   stopDelay: 1
+  enableDefaultBehaviour: 1
   radarParticles: {fileID: 288100619410309576}
   stencilParticles: {fileID: 7250905815919545241}
-  onPickup:
-    m_PersistentCalls:
-      m_Calls: []
-  onDrop:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &5923501988812765967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3216949541595691877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 133261f58bf2606489b860c82d771dff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onPickup:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Stop
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onGroundPickup:
-    m_PersistentCalls:
-      m_Calls: []
-  onAlterPickup:
-    m_PersistentCalls:
-      m_Calls: []
-  onDrop:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Stop
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onAlterPlaced:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Stop
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onAlterKicked:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!82 &2129707259311785547
 AudioSource:
   m_ObjectHideFlags: 0
@@ -408,7 +312,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -388622809
   m_SortingLayer: -1
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 0fe0493d198ea3947b8f8991ac592f76, type: 3}
   m_Color: {r: 0.2688679, g: 0.75129455, b: 1, a: 1}
   m_FlipX: 0
@@ -430,7 +334,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1401979694660223247, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
       propertyPath: lengthInSec
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1401979694660223247, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
       propertyPath: moveWithTransform
@@ -441,16 +345,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1401979694660223247, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
+      propertyPath: InitialModule.size3D
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401979694660223247, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401979694660223247, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1401979694660223247, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6009367572822368787, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.081
       objectReference: {fileID: 0}
     - target: {fileID: 6009367572822368787, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.107
       objectReference: {fileID: 0}
     - target: {fileID: 6009367572822368787, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -490,7 +406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8370846498371390302, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
       propertyPath: lengthInSec
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8370846498371390302, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
       propertyPath: moveWithTransform
@@ -501,8 +417,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8370846498371390302, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370846498371390302, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370846498371390302, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -53,9 +53,9 @@ public class SeeInvisibleRune : Rune
         }
     }
 
-    public override void OnDropped()
+    public override void AfterDropped()
     {
-        base.OnDropped();
+        base.AfterDropped();
         if (enableDefaultBehaviour)
             DisableSeeInvisible();
     }
