@@ -122,8 +122,9 @@ public class Journal : MonoBehaviour, IDataPersitiens
         if (textArray.Length <= arrayIndex)
             return false;
 
-        journalAnimator.SetBool(IsNotifying, true);
-        if (hasStartPlayingEntrySound == false)
+        if (GameData.difficulty != GameData.Difficulty.Cissi)
+            journalAnimator.SetBool(IsNotifying, true);
+        if (hasStartPlayingEntrySound == false && GameData.difficulty != GameData.Difficulty.Cissi)
         {
             hasStartPlayingEntrySound = true;
             StartCoroutine(PlayNewEntrySound());
@@ -265,7 +266,7 @@ public class Journal : MonoBehaviour, IDataPersitiens
         }
         hasStartPlayingEntrySound = false;
         hintOrderIndex = data.journal.currentHintIndex;
-        if (data.journal.isPlayingNotifyAnimation == false)
+        if (data.journal.isPlayingNotifyAnimation == false || GameData.difficulty == GameData.Difficulty.Cissi)
             journalAnimator.SetBool(IsNotifying, false);
     }
 
