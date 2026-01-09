@@ -27,6 +27,10 @@ public class AlterCluster : MonoBehaviour
     public void TriggerItemPlacement(int alterIndex)
     {
         alters[alterIndex].equippedRune.TriggerRunePlacement(alterIndex, alters);
+        CheckForAlterComplete();
+    }
+    public void CheckForAlterComplete()
+    {
         bool hasSpace = false;
         foreach (Alter alter in alters)
         {
@@ -42,6 +46,7 @@ public class AlterCluster : MonoBehaviour
         }
         else
             isClusterCompleted = false;
+
     }
     public bool TryItemBePlaced(Rune rune, int alterIndex)
     {

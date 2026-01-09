@@ -37,6 +37,9 @@ public class KickRune : Rune
                 filteredAlter.TryKickItem(false);
 
         countToAlterClusterComplete = true;
+        yield return null;
+        if (alter != null)
+            alter.alterCluster.CheckForAlterComplete();
     }
 
     List<Alter> GetKickFilterAlters(int alterIndex, Alter[] alters)
