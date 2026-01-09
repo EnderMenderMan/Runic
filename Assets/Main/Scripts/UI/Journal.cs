@@ -253,7 +253,11 @@ public class Journal : MonoBehaviour, IDataPersitiens
         if (GameData.difficulty == GameData.Difficulty.Hard)
             journalAnimator.gameObject.SetActive(false);
         else if (GameData.difficulty == GameData.Difficulty.Cissi)
+        {
             ShowAllHintsWithoutTrigger();
+            hintOrderIndex = data.journal.currentHintIndex;
+            return;
+        }
 
         if (data.journal.hintStates == null || hintsArray == null)
             return;
