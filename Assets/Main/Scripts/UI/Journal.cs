@@ -250,7 +250,9 @@ public class Journal : MonoBehaviour, IDataPersitiens
 
     public void LoadData(GameData data)
     {
-        if (GameData.difficulty == GameData.Difficulty.Cissi)
+        if (GameData.difficulty == GameData.Difficulty.Hard)
+            journalAnimator.gameObject.SetActive(false);
+        else if (GameData.difficulty == GameData.Difficulty.Cissi)
             ShowAllHintsWithoutTrigger();
 
         if (data.journal.hintStates == null || hintsArray == null)
