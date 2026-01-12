@@ -189,14 +189,14 @@ public class Rune : MonoBehaviour, IInteract
     {
     }
 
-    public virtual void OnInteract(InteractData data)
+    public virtual bool OnInteract(InteractData data)
     {
         switch (data.type)
         {
             case InteractType.Player:
 
                 if (Inventory.PlayerInventory.TryPickUpRune(this) == false)
-                    return;
+                    return false;
                 OnGroundPickUp();
 
                 break;
@@ -204,6 +204,7 @@ public class Rune : MonoBehaviour, IInteract
                 BulletInteract(data);
                 break;
         }
+        return true;
     }
 
     public (int thisAlterIndex, Alter[] alters) GetAlters() => alter.GetAlters();

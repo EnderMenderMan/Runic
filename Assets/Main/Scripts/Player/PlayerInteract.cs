@@ -51,8 +51,9 @@ public class PlayerInteract : MonoBehaviour
             if (interact == null || interact.IsInteractDisabled)
                 continue;
 
-            interact.OnInteract(new InteractData { type = InteractType.Player, senderObject = gameObject });
-            return true;
+            bool couldInteract = interact.OnInteract(new InteractData { type = InteractType.Player, senderObject = gameObject });
+            if (couldInteract)
+                return true;
         }
 
         return false;

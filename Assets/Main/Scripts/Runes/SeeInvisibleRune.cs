@@ -21,7 +21,7 @@ public class SeeInvisibleRune : Rune
         if (isSeeEnabled)
             return;
         isSeeEnabled = true;
-        
+
         startRadarParticles = StartCoroutine(StartRadarParticles());
     }
 
@@ -30,7 +30,7 @@ public class SeeInvisibleRune : Rune
         if (isSeeEnabled == false)
             return;
         isSeeEnabled = false;
-        
+
         StopCoroutine(startRadarParticles);
         if (isParticleSystemsPaused)
         {
@@ -38,12 +38,12 @@ public class SeeInvisibleRune : Rune
             stencilParticles.Play();
             radarParticles.Play();
         }
-        
+
         if (isReversed == false)
             ReverseParticleSystems();
     }
 
-    public override void OnInteract(InteractData data)
+    public override bool OnInteract(InteractData data)
     {
         switch (data.type)
         {
@@ -51,6 +51,7 @@ public class SeeInvisibleRune : Rune
                 base.OnInteract(data);
                 break;
         }
+        return true;
     }
 
     public override void AfterDropped()
@@ -70,7 +71,7 @@ public class SeeInvisibleRune : Rune
     public override void OnPickUp()
     {
         base.OnPickUp();
-        if (enableDefaultBehaviour) 
+        if (enableDefaultBehaviour)
             EnableSeeInvisible();
     }
 
@@ -92,8 +93,8 @@ public class SeeInvisibleRune : Rune
             yield return new WaitForSeconds(stopDelay);
         }
         else
-            yield return new WaitForSeconds(stopDelay-radarParticles.time);
-        
+            yield return new WaitForSeconds(stopDelay - radarParticles.time);
+
         radarParticles.Simulate(stopDelay);
         stencilParticles.Simulate(stopDelay);
         isParticleSystemsPaused = true;
@@ -101,22 +102,22 @@ public class SeeInvisibleRune : Rune
 
     void ReverseParticleSystems()
     {
-        radarParticles.Simulate(radarParticles.main.duration-radarParticles.time);
+        radarParticles.Simulate(radarParticles.main.duration - radarParticles.time);
         radarParticles.Play();
-        stencilParticles.Simulate(stencilParticles.main.duration-stencilParticles.time);
+        stencilParticles.Simulate(stencilParticles.main.duration - stencilParticles.time);
         stencilParticles.Play();
-        
+
         isReversed = !isReversed;
-        
+
         var ps = radarParticles.main;
         ps.startSpeed = -1 * ps.startSpeed.constant;
         var ss = stencilParticles.main;
         ss.startSpeed = -1 * ps.startSpeed.constant;
-        
+
         var psz = radarParticles.sizeOverLifetime;
         psz.size = new ParticleSystem.MinMaxCurve(psz.sizeMultiplier, Utility.GetFlipAnimationCurve(psz.size.curve));
         var ssz = stencilParticles.sizeOverLifetime;
         ssz.size = new ParticleSystem.MinMaxCurve(ssz.sizeMultiplier, Utility.GetFlipAnimationCurve(ssz.size.curve));
-        
+
     }
 }

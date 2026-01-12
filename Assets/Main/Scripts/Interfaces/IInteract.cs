@@ -2,7 +2,7 @@ using UnityEngine;
 
 public interface IInteract
 {
-    public void OnInteract(InteractData data);
+    public bool OnInteract(InteractData data);
     public bool IsInteractDisabled { get; set; }
 }
 public class InteractData

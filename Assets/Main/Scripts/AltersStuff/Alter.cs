@@ -100,7 +100,7 @@ public class Alter : MonoBehaviour, IInteract
             return false;
         if (kickCorutine != null)
             StopCoroutine(kickCorutine);
-        
+
         kickCorutine = StartCoroutine(KickCorutine(kickDelay));
         return true;
     }
@@ -168,7 +168,7 @@ public class Alter : MonoBehaviour, IInteract
         AlterSymbol.sprite = OffSprite;
         return true;
     }
-    public void OnInteract(InteractData data)
+    public bool OnInteract(InteractData data)
     {
         switch (data.type)
         {
@@ -176,6 +176,7 @@ public class Alter : MonoBehaviour, IInteract
                 PlayerInteract(data);
                 break;
         }
+        return true;
 
     }
     void PlayerInteract(InteractData data)
@@ -199,8 +200,8 @@ public class Alter : MonoBehaviour, IInteract
 
             Rune heldRune = Inventory.PlayerInventory.heldRune;
 
-            if (Inventory.PlayerInventory.CanPickupRune(equippedRune) == false)
-                return;
+            // if (Inventory.PlayerInventory.CanPickupRune(equippedRune) == false)
+            //     return;
 
             Rune oldEquippedRune = equippedRune;
             if (kickCorutine != null)

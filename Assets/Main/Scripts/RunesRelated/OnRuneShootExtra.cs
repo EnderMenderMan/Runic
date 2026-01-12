@@ -6,7 +6,7 @@ public class OnRuneShootExtra : MonoBehaviour, IInteract
     public bool equpRuneWhenShoot;
     public bool IsInteractDisabled { get; set; }
 
-    public void OnInteract(InteractData data)
+    public bool OnInteract(InteractData data)
     {
         switch (data.type)
         {
@@ -22,5 +22,6 @@ public class OnRuneShootExtra : MonoBehaviour, IInteract
 
                 break;
         }
+        return true;
     }
 }
