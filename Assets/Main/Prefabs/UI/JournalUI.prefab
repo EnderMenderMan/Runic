@@ -335,16 +335,16 @@ MonoBehaviour:
       Value:
         textElement: {fileID: 3007731564196852418}
         esay:
-        - K_ Seems to kick out B rune when placed
-        - K_ Seems to kick out B rune when placed and also seems to kick out other
+        - K_ Seems to kick out B_ rune when placed
+        - K_ Seems to kick out B_ rune when placed and also seems to kick out other
           K_
-        - K_ Seems to kick out B rune when placed and also seems to kick out other
+        - K_ Seems to kick out B_ rune when placed and also seems to kick out other
           K_. K_ Doesn't kick L_ and W_
         normal:
-        - K_ Seems to kick out B rune when placed
-        - K_ Seems to kick out B rune when placed and also seems to kick out other
+        - K_ Seems to kick out B_ rune when placed
+        - K_ Seems to kick out B_ rune when placed and also seems to kick out other
           K_
-        - K_ Seems to kick out B rune when placed and also seems to kick out other
+        - K_ Seems to kick out B_ rune when placed and also seems to kick out other
           K_. K_ Doesn't kick L_ and W_
         hard: []
     - Key: 11
@@ -1374,6 +1374,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  OnHardDifficulty:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6977250722009377289
 GameObject:
   m_ObjectHideFlags: 0
