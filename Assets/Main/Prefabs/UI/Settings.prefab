@@ -1050,6 +1050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 195255f8b021cef498f25c3f2746f667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offsetValue: 0
   mixer: {fileID: 24100000, guid: d4447446784f3e348b812bf39a24a88b, type: 2}
   audioMixerParameter: SFXVolume
   slider: {fileID: 5968683026639946099}
@@ -2404,6 +2405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 195255f8b021cef498f25c3f2746f667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offsetValue: -8
   mixer: {fileID: 24100000, guid: d4447446784f3e348b812bf39a24a88b, type: 2}
   audioMixerParameter: MusicVolume
   slider: {fileID: 8257342602035831983}
@@ -2740,6 +2742,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnJPressed:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHardDifficulty:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &3821692692354505626
@@ -3656,6 +3661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 195255f8b021cef498f25c3f2746f667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offsetValue: 0
   mixer: {fileID: 24100000, guid: d4447446784f3e348b812bf39a24a88b, type: 2}
   audioMixerParameter: MasterVolume
   slider: {fileID: 3453251898158683230}

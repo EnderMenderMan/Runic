@@ -31,7 +31,7 @@ public class GameData
         loadedLevelIndex = -1;
 
         journal = new JournalSaveData();
-        
+
         journal.currentHintIndex = 0;
         journal.isPlayingNotifyAnimation = false;
         journal.hintStates = new int[0];
