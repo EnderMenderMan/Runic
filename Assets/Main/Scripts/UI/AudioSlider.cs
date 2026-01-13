@@ -7,11 +7,12 @@ using TMPro;
 
 public class AudioSlider : MonoBehaviour
 {
+    [SerializeField] float offsetValue;
     // For this script to be useful you need an audio mixer, mixer group(-s)
     // as well as exposing volume parameter(-s) from said group(-s)
     [SerializeField]
     private AudioMixer mixer;
-        // Hard code this instead and make students add the variable?
+    // Hard code this instead and make students add the variable?
     [SerializeField]
     private string audioMixerParameter;
     [SerializeField]
@@ -32,9 +33,16 @@ public class AudioSlider : MonoBehaviour
         mixer.GetFloat(audioMixerParameter, out float previousValue);
 
         // Logarithmic to linear
-        slider.value = Mathf.Pow(10, (previousValue / 20));
+        slider.value = Mathf.Pow(10, ((previousValue - offsetValue) / 20));
 
-       SetText(slider.value);
+        SetText(slider.value);
+    }
+
+    public void SetSlider(float value)
+    {
+        slider.value = value;
+        SetLevel(slider.value);
+
     }
 
     public void SetLevel(float sliderValue)
@@ -47,9 +55,9 @@ public class AudioSlider : MonoBehaviour
             mixer.SetFloat(audioMixerParameter, -80f);
             return;
         }
-            
+
         // Linear to logarithmic
-        mixer.SetFloat(audioMixerParameter, Mathf.Log10(sliderValue) * 20);
+        mixer.SetFloat(audioMixerParameter, Mathf.Log10(sliderValue) * 20 + offsetValue);
     }
 
     private void SetText(float value)
@@ -60,7 +68,7 @@ public class AudioSlider : MonoBehaviour
                 float valuePercent = value * 100;
                 sliderValueText.SetText($"{(int)valuePercent}");
                 break;
-            case ScaleType.Decimals: 
+            case ScaleType.Decimals:
                 sliderValueText.SetText($"{value:N2}");
                 break;
         }
