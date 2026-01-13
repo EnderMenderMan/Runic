@@ -2598,7 +2598,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '"The  seal,  weakened  over  the  years,  is  now  about  break  and 
+  m_text: '"The  seal,  weakened  over  the  years,  is  now  about  to  break  and 
     there  is  not  a  lot  of  time  before  the  darkness  escapes."'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e29f50343d99dc440bb7a105278fdaac, type: 2}
