@@ -677,7 +677,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 134, y: 175}
+  m_AnchoredPosition: {x: 134, y: 246}
   m_SizeDelta: {x: 875, y: 177}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1727025034
@@ -700,7 +700,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 'Lei
+
+    JessicaTheEm
+
+    Eric Wrethagen
+
+    Darjan
+
+    Mikael Mattsson
+
+    Agnes
+    Kinnander'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e29f50343d99dc440bb7a105278fdaac, type: 2}
   m_sharedMaterial: {fileID: -3931695434309747956, guid: e29f50343d99dc440bb7a105278fdaac, type: 2}
@@ -815,7 +826,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8, y: -236.47125}
+  m_AnchoredPosition: {x: -8, y: -289}
   m_SizeDelta: {x: 514.9604, y: 96.9175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1861962314
