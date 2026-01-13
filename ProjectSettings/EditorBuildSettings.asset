@@ -8,19 +8,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Scenes/Main_menu.unity
     guid: 1cf662cf6ee1c6c44abd3672019ef4fb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Other Scenes/TrialMechanics.unity
     guid: 15526a94ce0ddbc45a4067fe82618622
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Other Scenes/MikaelScene.unity
     guid: 197654681fed94c4ea111aa1bf0b02d1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Other Scenes/JessScene.unity
     guid: a961fda582f0fa14e9b81db0f079fe13
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Other Scenes/LeiScene.unity
     guid: 525e34b9d349e6843b33757857a30082
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Other Scenes/Prototype_Level.unity
     guid: cd877bb467fea784f8643c4e8e3fe21f
   - enabled: 1
@@ -32,7 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Scenes/Outro_Scene.unity
     guid: b31fdaffa480cc04487faa64e611e513
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Other Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
