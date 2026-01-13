@@ -91,6 +91,7 @@ public class Rune : MonoBehaviour, IInteract
         Events?.onPickup.Invoke();
         PlaySound(SoundManager.SoundType.RunePickup, audio.pickUpSound);
         runeAmbiencePlayingSource = PlaySound(SoundManager.SoundType.RuneAmbience, audio.runeAmbienceSound);
+        runeAmbiencePlayingSource.loop = true;
 
         StopAllCoroutines();
         OnEndResetPosition();
