@@ -6,15 +6,30 @@ public class Inventory : MonoBehaviour
     [SerializeField] Transform runePickupTransformDown;
     [SerializeField] Transform runePickupTransformLeft;
     Transform currenctPickupTransform;
+
     [SerializeField] Transform ogRuneTransform;
+    [SerializeField] int[] ogLayerOrder;
+    [SerializeField] SpriteRenderer[] heldRuneRenderers;
 
     public static Inventory PlayerInventory { get; private set; }
     [field: SerializeField] public Rune heldRune { get; private set; }
 
 
-    public void PickupUp() => currenctPickupTransform = runePickupTransformUp;
-    public void PickupDown() => currenctPickupTransform = runePickupTransformDown;
-    public void PickupSide() => currenctPickupTransform = runePickupTransformLeft;
+    public void PickupUp() => ChangeHelgRunePickDir(runePickupTransformUp, 4);
+    public void PickupDown() => ChangeHelgRunePickDir(runePickupTransformDown, 6);
+    public void PickupSide() => ChangeHelgRunePickDir(currenctPickupTransform = runePickupTransformLeft, 4);
+    void ChangeHelgRunePickDir(Transform pickupTransform, int order)
+    {
+        currenctPickupTransform = pickupTransform;
+
+        if (ogLayerOrder == null || heldRuneRenderers == null)
+            return;
+
+        for (int i = 0; i < heldRuneRenderers.Length; i++)
+            heldRuneRenderers[i].sortingOrder = order;
+
+
+    }
 
 
     public bool TryPickUpRune(Rune rune)
@@ -62,6 +77,10 @@ public class Inventory : MonoBehaviour
         heldRune = rune;
         heldRune.IsInteractDisabled = true;
         Utility.CopyTransform(ogRuneTransform, rune.transform);
+        heldRuneRenderers = rune.GetComponentsInChildren<SpriteRenderer>();
+        ogLayerOrder = new int[heldRuneRenderers.Length];
+        for (int i = 0; i < heldRuneRenderers.Length; i++)
+            ogLayerOrder[i] = heldRuneRenderers[i].sortingOrder;
     }
 
     public bool DropRune()
@@ -94,6 +113,13 @@ public class Inventory : MonoBehaviour
             return;
 
         Utility.CopyTransform(heldRune.transform, ogRuneTransform);
+        if (ogLayerOrder != null)
+            for (int i = 0; i < ogLayerOrder.Length; i++)
+                heldRuneRenderers[i].sortingOrder = ogLayerOrder[i];
+        ogLayerOrder = null;
+        heldRuneRenderers = null;
+
+
         heldRune.transform.position = transform.position;
         heldRune.IsInteractDisabled = false;
         heldRune = null;
