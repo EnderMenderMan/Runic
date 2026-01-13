@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95ec46bb-c0c7-476c-a261-daf29c33cbc6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MikaelsSpelprojektOchDeAndraIGuess/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MikaelsSpelprojektOchDeAndraIGuess/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Fonts/Nowherebound SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Fonts/Nowherebound SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Fonts/Save Lemon SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Fonts/Save Lemon SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Scripts/UI/VideoScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scripts/UI/VideoScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main Scenes/Main_menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main Scenes/Main_menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main Scenes/Outro_Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main Scenes/Outro_Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main Scenes/bonus.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main Scenes/bonus.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
-    </list>
+    <list default="true" id="95ec46bb-c0c7-476c-a261-daf29c33cbc6" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -116,7 +107,7 @@
       <option name="presentableId" value="Default" />
       <updated>1768217360083</updated>
       <workItem from="1768217361396" duration="2077000" />
-      <workItem from="1768301961320" duration="3141000" />
+      <workItem from="1768301961320" duration="3736000" />
     </task>
     <servers />
   </component>
