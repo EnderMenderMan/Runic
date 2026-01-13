@@ -59,8 +59,8 @@ Transform:
   m_GameObject: {fileID: 4218049251457964224}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0291, y: -0.04, z: -0.028541718}
-  m_LocalScale: {x: 0.91963214, y: 1, z: 1}
+  m_LocalPosition: {x: 0.0845, y: 0.1266, z: -0.028541718}
+  m_LocalScale: {x: 0.83033586, y: 0.7313, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5906468295666096359}
@@ -109,8 +109,8 @@ SpriteRenderer:
   m_SortingLayerID: -388622809
   m_SortingLayer: -1
   m_SortingOrder: 6
-  m_Sprite: {fileID: -1966196374, guid: f06aeee6bbe3b8e41b7d08445bf758a9, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.06844187, a: 0.70980394}
+  m_Sprite: {fileID: 3356837773014537050, guid: b8b6ce42d75de1046922aa3f16c497e6, type: 3}
+  m_Color: {r: 1, g: 0, b: 0.06844187, a: 0.6117647}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -722,8 +722,8 @@ Transform:
   m_GameObject: {fileID: 8933514088112174873}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0291, y: -0.04, z: -0.028541718}
-  m_LocalScale: {x: 0.91963214, y: 1, z: 1}
+  m_LocalPosition: {x: 0.0845, y: 0.1266, z: -0.028541718}
+  m_LocalScale: {x: 0.83033586, y: 0.7313, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5906468295666096359}
@@ -772,7 +772,7 @@ SpriteRenderer:
   m_SortingLayerID: -388622809
   m_SortingLayer: -1
   m_SortingOrder: 6
-  m_Sprite: {fileID: -1966196374, guid: f06aeee6bbe3b8e41b7d08445bf758a9, type: 3}
+  m_Sprite: {fileID: 3356837773014537050, guid: b8b6ce42d75de1046922aa3f16c497e6, type: 3}
   m_Color: {r: 1, g: 0, b: 0.06844187, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -817,17 +817,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.010386497, y: 0.045339584}
+  m_Offset: {x: 0.002153933, y: 0.010635614}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.24, y: 1.24}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.99063903, y: 0.90932083}
+  m_Size: {x: 1.2197117, y: 1.2285969}
   m_EdgeRadius: 0
 --- !u!1001 &1885560341183092999
 PrefabInstance:
