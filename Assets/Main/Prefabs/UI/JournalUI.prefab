@@ -317,15 +317,15 @@ MonoBehaviour:
       Value:
         textElement: {fileID: 6300397320113926875}
         esay:
-        - B_ A rune. It doesn't seem to more then activate alters
-        - 'B_ A rune. It doesn''t seem to more then activate alters. Seems it isn''t
-          so ordinary.
+        - B_ A rune. It doesn't seem to do more then activate alters
+        - 'B_ A rune. It doesn''t seem do to more then activate alters. Seems it
+          isn''t so ordinary.
 
-          I seem to be able to see the invisible while holding
-          it'
+          I seem to be able to see the invisible while
+          holding it'
         normal:
-        - B_ A rune. It doesn't seem to more then activate alters
-        - 'B_ A rune. It doesn''t seem to more then activate alters.  Seems it isn''t
+        - B_ A rune. It doesn't seem to do more then activate alters
+        - 'B_ A rune. It doesn''t seem to  more then activate alters.  Seems it isn''t
           so ordinary.
 
           I seem to be able to see the invisible while holding
